@@ -7,7 +7,7 @@ You can optionally pass `raw_text=True` to keep the footnotes and references at 
 
 Usage: 
 ```
-from pdf_to_str.py import pdf_to_str
+from pdf_to_str import pdf_to_str
 my_string = pdf_to_str("path/to/your/file.pdf")
 ```
 
