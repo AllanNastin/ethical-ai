@@ -1,4 +1,4 @@
-from pdfminer.high_level import extract_pages
+from pdfminer.high_level import extract_pages, extract_text
 from pdfminer.layout import LTTextContainer
 import re
 
@@ -39,8 +39,11 @@ def is_valid(element):
     return True
 
 
-def pdf_to_str(path):
+def pdf_to_str(path, raw_text=False):
     """Convert a pdf to a string: path=path to pdf"""
+    if raw_text:
+        return extract_text(path)
+
     combined_str = ""
     for page_layout in extract_pages(path):
         for element in page_layout:
