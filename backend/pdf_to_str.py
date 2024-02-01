@@ -40,7 +40,14 @@ def is_valid(element):
 
 
 def pdf_to_str(path, raw_text=False):
-    """Convert a pdf to a string: path=path to pdf"""
+    """
+    Convert a pdf to a string:
+    
+    Parameters:
+    path: path to pdf
+    raw_text: set to False if you want to strip footnotes and references
+    
+    """
     if raw_text:
         return extract_text(path)
 
