@@ -1,4 +1,5 @@
 from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
+from pdf_to_str import pdf_to_str
 
 # Load pre-trained model and tokenizer
 tokenizer = AutoTokenizer.from_pretrained("dslim/bert-base-NER")
@@ -8,6 +9,9 @@ model = AutoModelForTokenClassification.from_pretrained("dslim/bert-base-NER")
 nlp = pipeline("ner", model=model, tokenizer=tokenizer)
 
 # Use the model
-example = "My name is Wolfgang and I live in Berlin"
-ner_results = nlp(example)
-print(ner_results)
+with open("act.txt", "r") as file:
+    example = file.readlines()
+ner_results = [nlp(line) for line in example]
+
+for result in ner_results:
+    print(result)
