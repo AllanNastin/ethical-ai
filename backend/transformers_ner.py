@@ -1,17 +1,15 @@
-from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
-from pdf_to_str import pdf_to_str
+from transformers import AutoTokenizer, AutoModelForQuestionAnswering, pipeline
 
 # Load pre-trained model and tokenizer
-tokenizer = AutoTokenizer.from_pretrained("dslim/bert-base-NER")
-model = AutoModelForTokenClassification.from_pretrained("dslim/bert-base-NER")
+tokenizer = AutoTokenizer.from_pretrained("bert-large-uncased-whole-word-masking-finetuned-squad")
+model = AutoModelForQuestionAnswering.from_pretrained("bert-large-uncased-whole-word-masking-finetuned-squad")
 
 # Create a pipeline
-nlp = pipeline("ner", model=model, tokenizer=tokenizer)
+nlp = pipeline("question-answering", model=model, tokenizer=tokenizer)
 
 # Use the model
-with open("act.txt", "r") as file:
-    example = file.readlines()
-ner_results = [nlp(line) for line in example]
+context = "A variety of AI systems can generate large quantities of synthetic content..."
+question = "What can AI systems generate?"
 
-for result in ner_results:
-    print(result)
+answer = nlp(question=question, context=context)
+print(answer)
