@@ -1,8 +1,11 @@
 from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
 
+
+model_path = "nlpaueb/legal-bert-base-uncased"
+
 # Load pre-trained model and tokenizer
-tokenizer = AutoTokenizer.from_pretrained("dslim/bert-base-NER")
-model = AutoModelForTokenClassification.from_pretrained("dslim/bert-base-NER")
+tokenizer = AutoTokenizer.from_pretrained(model_path)
+model = AutoModelForTokenClassification.from_pretrained(model_path)
 
 # Create a pipeline
 nlp = pipeline("ner", model=model, tokenizer=tokenizer)
