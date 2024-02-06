@@ -1,0 +1,115 @@
+Nodes:
+L - Label: B-LOC
+##ON - Label: I-LOC
+##D - Label: I-LOC
+NE - Label: B-LOC
+##W - Label: I-LOC
+Y - Label: I-LOC
+##OR - Label: I-LOC
+##K - Label: I-LOC
+G - Label: B-ORG
+##SM - Label: I-ORG
+##A - Label: I-ORG
+IBM - Label: B-ORG
+AI - Label: B-MISC
+Advance - Label: I-MISC
+Training - Label: I-MISC
+Found - Label: I-ORG
+##ry - Label: I-ORG
+Gene - Label: B-MISC
+##rative - Label: B-MISC
+Gen - Label: B-MISC
+Dubai - Label: B-LOC
+London - Label: B-LOC
+Mexico - Label: B-LOC
+New - Label: B-LOC
+York - Label: I-LOC
+Seoul - Label: B-LOC
+
+Edges:
+L -> ##ON
+L -> ##D
+L -> NE
+L -> ##W
+L -> Y
+L -> ##OR
+L -> ##K
+##ON -> ##D
+##ON -> ##ON
+##ON -> NE
+##ON -> ##W
+##ON -> Y
+##ON -> ##OR
+##ON -> ##K
+##D -> ##ON
+##D -> NE
+##D -> ##W
+##D -> Y
+##D -> ##OR
+##D -> ##K
+NE -> ##W
+NE -> Y
+NE -> ##OR
+NE -> ##K
+##W -> Y
+##W -> ##OR
+##W -> ##K
+Y -> ##OR
+Y -> ##K
+##OR -> ##K
+G -> ##SM
+G -> ##A
+G -> IBM
+G -> Advance
+G -> AI
+G -> Training
+G -> Found
+G -> ##ry
+G -> Gene
+G -> ##rative
+##SM -> ##A
+##SM -> IBM
+##SM -> Advance
+##SM -> AI
+##SM -> Training
+##SM -> Found
+##SM -> ##ry
+##SM -> Gene
+##SM -> ##rative
+##A -> IBM
+##A -> Advance
+##A -> AI
+##A -> Training
+##A -> Found
+##A -> ##ry
+##A -> Gene
+##A -> ##rative
+IBM -> IBM
+AI -> Training
+AI -> AI
+AI -> G
+AI -> ##SM
+Advance -> AI
+Advance -> Training
+Found -> ##ry
+Found -> Gene
+Found -> ##rative
+Found -> AI
+Found -> IBM
+##ry -> Gene
+##ry -> ##rative
+##ry -> AI
+##ry -> IBM
+Gene -> ##rative
+Gene -> AI
+##rative -> AI
+Gen -> AI
+Dubai -> London
+Dubai -> Mexico
+London -> Mexico
+London -> New
+Mexico -> New
+Mexico -> York
+New -> York
+New -> Seoul
+York -> Seoul
