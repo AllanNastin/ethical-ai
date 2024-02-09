@@ -1,3 +1,0 @@
-# Frontend README
-
-## Keep updated.
