@@ -8,13 +8,13 @@ def extract_triplets(text):
         if token == "<triplet>":
             current = 't'
             if relation != '':
-                triplets.append({'head': subject.strip(), 'type': relation.strip(),'tail': object_.strip()})
+                triplets.append({'': subject.strip(), '': relation.strip(),'': object_.strip()})
                 relation = ''
             subject = ''
         elif token == "<subj>":
             current = 's'
             if relation != '':
-                triplets.append({'head': subject.strip(), 'type': relation.strip(),'tail': object_.strip()})
+                triplets.append({'': subject.strip(), '': relation.strip(),'': object_.strip()})
             object_ = ''
         elif token == "<obj>":
             current = 'o'
@@ -27,5 +27,5 @@ def extract_triplets(text):
             elif current == 'o':
                 relation += ' ' + token
     if subject != '' and relation != '' and object_ != '':
-        triplets.append({'head': subject.strip(), 'type': relation.strip(),'tail': object_.strip()})
+        triplets.append({'': subject.strip(), '': relation.strip(),'': object_.strip()})
     return triplets
