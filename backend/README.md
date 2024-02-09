@@ -19,6 +19,12 @@ my_string = pdf_to_str("path/to/your/file.pdf")
 ## `ai-act-draft.pdf`
 The raw pdf file of the AI Act that we are converting to string.
 
+## `ai-act.txt`
+A parsed version of `ai-act-draft.pdf` using `run_pdf_to_str.py`. 
+
+## `ai-act-10-pages.txt`
+A 10-page section of the AI Act that we are using for testing.
+
 ## `rebel_re_model.ipynb`
 Jupyter notebook that demonstrates the REBEL model for relation extraction on the AI Act.
 
@@ -33,3 +39,4 @@ Sample human-generated knowledge graph (text-based) of the AI Act based on `samp
 
 ## `sample_knowledge_graph_section.txt`
 Section from the AI Act that is used to test NER and RE models.
+
