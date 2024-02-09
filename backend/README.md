@@ -30,7 +30,7 @@ A 10-page section of the AI Act that we are using for testing.
 Jupyter notebook that demonstrates the REBEL model for relation extraction on the AI Act.
 
 ## `rebel_re_model.py`
-Addition functions for the REBEL model, used in the `rebel_re_model.ipynb` notebook.
+Python script that demonstrates the REBEL model for relation extraction on the AI Act. (basically a .py version of the .ipynb)
 
 ## `sample_knowledge_graph.png`
 Sample human-generated knowledge graph (visual) of the AI Act based on `sample_knowledge_graph_section.txt`.
@@ -40,4 +40,7 @@ Sample human-generated knowledge graph (text-based) of the AI Act based on `samp
 
 ## `sample_knowledge_graph_section.txt`
 Section from the AI Act that is used to test NER and RE models.
+
+## `knowledge_graph.html`
+HTML file that contains the knowledge graph of the AI Act. It's generated using `rebel_re_model.py`.
 

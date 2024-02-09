@@ -1,0 +1,265 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 750px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 750px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+             #config {
+                 float: left;
+                 width: 400px;
+                 height: 600px;
+             }
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+            <div id="config"></div>
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "AI", "label": "AI", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "AI related technologies", "label": "AI related technologies", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "AI systems", "label": "AI systems", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "risk management", "label": "risk management", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "system", "label": "system", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "risk", "label": "risk", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Union harmonisation legislation", "label": "Union harmonisation legislation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Annex II, Section A", "label": "Annex II, Section A", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Risk management system", "label": "Risk management system", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Risk management", "label": "Risk management", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "continuous iterative process", "label": "continuous iterative process", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "risk management system", "label": "risk management system", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "AI system", "label": "AI system", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "health, safety or fundamental rights", "label": "health, safety or fundamental rights", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Article 61", "label": "Article 61", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Article 65(1)", "label": "Article 65(1)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Article 29(4)", "label": "Article 29(4)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "design", "label": "design", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "development", "label": "development", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "minimising risks", "label": "minimising risks", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "hazard", "label": "hazard", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "training", "label": "training", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "technical knowledge", "label": "technical knowledge", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "high-risk", "label": "high-risk", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "testing in real world conditions", "label": "testing in real world conditions", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Testing procedures", "label": "Testing procedures", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "testing", "label": "testing", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "development process", "label": "development process", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Training", "label": "Training", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "thresholds", "label": "thresholds", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "probabilistic", "label": "probabilistic", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "sectorial Union law", "label": "sectorial Union law", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "sectorial", "label": "sectorial", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Data and data governance", "label": "Data and data governance", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Article 10", "label": "Article 10", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "training of models with data", "label": "training of models with data", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "data governance", "label": "data governance", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "management", "label": "management", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "origin of data", "label": "origin of data", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "data collection", "label": "data collection", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "validation", "label": "validation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "statistical properties", "label": "statistical properties", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "groups of persons", "label": "groups of persons", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "individual data set", "label": "individual data set", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "data set", "label": "data set", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Dataset", "label": "Dataset", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Article 9(1) of Regulation (EU) 2016/679", "label": "Article 9(1) of Regulation (EU) 2016/679", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Directive (EU) 2016/680", "label": "Directive (EU) 2016/680", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Article 10(1) of Regulation (EU) 2018/1725", "label": "Article 10(1) of Regulation (EU) 2018/1725", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Regulation (EU) 2016/679", "label": "Regulation (EU) 2016/679", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Regulation (EU) 2018/1725", "label": "Regulation (EU) 2018/1725", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "training of models", "label": "training of models", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Article 11 Technical documentation 1", "label": "Article 11 Technical documentation 1", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Technical documentation", "label": "Technical documentation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "technical documentation", "label": "technical documentation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Annex IV", "label": "Annex IV", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "technical acts", "label": "technical acts", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "technical progress", "label": "technical progress", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "notified bodies", "label": "notified bodies", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "competent authorities", "label": "competent authorities", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Annex", "label": "Annex", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "micro enterprises", "label": "micro enterprises", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "small", "label": "small", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "start-ups", "label": "start-ups", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "SME", "label": "SME", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "conformity assessment", "label": "conformity assessment", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Notified bodies", "label": "Notified bodies", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Record-keeping", "label": "Record-keeping", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "automatic recording of events", "label": "automatic recording of events", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "\u2018logs\u2019", "label": "\u2018logs\u2019", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Article 14", "label": "Article 14", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Article 14(5)", "label": "Article 14(5)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Transparency and provision of information to deployers", "label": "Transparency and provision of information to deployers", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Article 13", "label": "Article 13", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "High-risk AI", "label": "High-risk AI", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "provider", "label": "provider", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "deployer", "label": "deployer", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "accessible", "label": "accessible", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "comprehensible", "label": "comprehensible", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Article 9(2)", "label": "Article 9(2)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "fundamental rights", "label": "fundamental rights", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "hardware", "label": "hardware", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "computational", "label": "computational", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Article 14 Human oversight 1", "label": "Article 14 Human oversight 1", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Human oversight", "label": "Human oversight", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "human-machine interface", "label": "human-machine interface", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "human oversight", "label": "human oversight", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "automatic relying", "label": "automatic relying", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "\u2018automation bias\u2019", "label": "\u2018automation bias\u2019", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "point 1(a)", "label": "point 1(a)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Annex III", "label": "Annex III", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "asylum", "label": "asylum", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "migration", "label": "migration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "cybersecurity", "label": "cybersecurity", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "risks", "label": "risks", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "metrology", "label": "metrology", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "measurement methodologies", "label": "measurement methodologies", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "faults", "label": "faults", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "errors", "label": "errors", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Technical", "label": "Technical", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "organisational", "label": "organisational", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "backup", "label": "backup", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "technical redundancy", "label": "technical redundancy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "fail-safe", "label": "fail-safe", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "learn", "label": "learn", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "exploiting", "label": "exploiting", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "vulnerabilities", "label": "vulnerabilities", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "data poisoning", "label": "data poisoning", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "AI specific vulnerabilities", "label": "AI specific vulnerabilities", "shape": "dot", "size": 10}]);
+                  edges = new vis.DataSet([{"from": "AI", "label": "studied by", "to": "AI related technologies", "width": 1}, {"from": "AI", "label": "studies", "to": "AI systems", "width": 1}, {"from": "risk management", "label": "subclass of", "to": "system", "width": 1}, {"from": "risk management", "label": "studies", "to": "risk", "width": 1}, {"from": "Union harmonisation legislation", "label": "has part", "to": "Annex II, Section A", "width": 1}, {"from": "Risk management system", "label": "use", "to": "Risk management", "width": 1}, {"from": "AI systems", "label": "use", "to": "risk management", "width": 1}, {"from": "continuous iterative process", "label": "facet of", "to": "risk management system", "width": 1}, {"from": "risk management system", "label": "has part", "to": "AI system", "width": 1}, {"from": "health, safety or fundamental rights", "label": "has part", "to": "Article 61", "width": 1}, {"from": "Article 61", "label": "has part", "to": "Article 65(1)", "width": 1}, {"from": "Article 61", "label": "has part", "to": "Article 29(4)", "width": 1}, {"from": "design", "label": "part of", "to": "development", "width": 1}, {"from": "minimising risks", "label": "subclass of", "to": "risk management", "width": 1}, {"from": "hazard", "label": "studied by", "to": "risk management", "width": 1}, {"from": "training", "label": "subclass of", "to": "technical knowledge", "width": 1}, {"from": "high-risk", "label": "subclass of", "to": "AI systems", "width": 1}, {"from": "testing in real world conditions", "label": "subclass of", "to": "Testing procedures", "width": 1}, {"from": "testing", "label": "part of", "to": "development process", "width": 1}, {"from": "testing", "label": "part of", "to": "Training", "width": 1}, {"from": "thresholds", "label": "facet of", "to": "probabilistic", "width": 1}, {"from": "AI system", "label": "part of", "to": "AI system", "width": 1}, {"from": "sectorial Union law", "label": "main subject", "to": "sectorial", "width": 1}, {"from": "Data and data governance", "label": "has part", "to": "Article 10", "width": 1}, {"from": "training of models with data", "label": "subclass of", "to": "training", "width": 1}, {"from": "data governance", "label": "subclass of", "to": "management", "width": 1}, {"from": "origin of data", "label": "subclass of", "to": "data collection", "width": 1}, {"from": "Training", "label": "has part", "to": "validation", "width": 1}, {"from": "statistical properties", "label": "has part", "to": "groups of persons", "width": 1}, {"from": "individual data set", "label": "subclass of", "to": "data set", "width": 1}, {"from": "Dataset", "label": "part of", "to": "AI system", "width": 1}, {"from": "Article 9(1) of Regulation (EU) 2016/679", "label": "part of", "to": "Directive (EU) 2016/680", "width": 1}, {"from": "Directive (EU) 2016/680", "label": "has part", "to": "Article 10(1) of Regulation (EU) 2018/1725", "width": 1}, {"from": "Directive (EU) 2016/680", "label": "follows", "to": "Regulation (EU) 2016/679", "width": 1}, {"from": "Directive (EU) 2016/680", "label": "followed by", "to": "Regulation (EU) 2018/1725", "width": 1}, {"from": "training of models", "label": "facet of", "to": "AI systems", "width": 1}, {"from": "Article 11 Technical documentation 1", "label": "instance of", "to": "Technical documentation", "width": 1}, {"from": "technical documentation", "label": "facet of", "to": "AI system", "width": 1}, {"from": "technical documentation", "label": "has part", "to": "Annex IV", "width": 1}, {"from": "technical documentation", "label": "subclass of", "to": "technical acts", "width": 1}, {"from": "technical documentation", "label": "facet of", "to": "technical progress", "width": 1}, {"from": "notified bodies", "label": "subclass of", "to": "competent authorities", "width": 1}, {"from": "Annex IV", "label": "part of", "to": "Annex", "width": 1}, {"from": "micro enterprises", "label": "subclass of", "to": "small", "width": 1}, {"from": "start-ups", "label": "subclass of", "to": "SME", "width": 1}, {"from": "conformity assessment", "label": "used by", "to": "Notified bodies", "width": 1}, {"from": "Record-keeping", "label": "part of", "to": "Record-keeping", "width": 1}, {"from": "automatic recording of events", "label": "has part", "to": "\u2018logs\u2019", "width": 1}, {"from": "Article 14", "label": "has part", "to": "Article 14(5)", "width": 1}, {"from": "Transparency and provision of information to deployers", "label": "has part", "to": "Article 13", "width": 1}, {"from": "Article 13", "label": "has part", "to": "Article 13", "width": 1}, {"from": "High-risk AI", "label": "subclass of", "to": "AI", "width": 1}, {"from": "provider", "label": "has part", "to": "deployer", "width": 1}, {"from": "accessible", "label": "subclass of", "to": "comprehensible", "width": 1}, {"from": "Article 9(2)", "label": "part of", "to": "fundamental rights", "width": 1}, {"from": "hardware", "label": "used by", "to": "computational", "width": 1}, {"from": "Article 14 Human oversight 1", "label": "main subject", "to": "Human oversight", "width": 1}, {"from": "human-machine interface", "label": "facet of", "to": "AI", "width": 1}, {"from": "human oversight", "label": "facet of", "to": "Human oversight", "width": 1}, {"from": "automatic relying", "label": "subclass of", "to": "\u2018automation bias\u2019", "width": 1}, {"from": "point 1(a)", "label": "part of", "to": "Annex III", "width": 1}, {"from": "asylum", "label": "facet of", "to": "migration", "width": 1}, {"from": "cybersecurity", "label": "facet of", "to": "cybersecurity", "width": 1}, {"from": "cybersecurity", "label": "subclass of", "to": "AI", "width": 1}, {"from": "cybersecurity", "label": "has part", "to": "risks", "width": 1}, {"from": "metrology", "label": "subclass of", "to": "measurement methodologies", "width": 1}, {"from": "faults", "label": "subclass of", "to": "errors", "width": 1}, {"from": "Technical", "label": "part of", "to": "organisational", "width": 1}, {"from": "backup", "label": "subclass of", "to": "technical redundancy", "width": 1}, {"from": "fail-safe", "label": "subclass of", "to": "technical redundancy", "width": 1}, {"from": "learn", "label": "part of", "to": "AI", "width": 1}, {"from": "exploiting", "label": "uses", "to": "vulnerabilities", "width": 1}, {"from": "data poisoning", "label": "subclass of", "to": "AI specific vulnerabilities", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "physics"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+                  // if this network requires displaying the configure window,
+                  // put it in its div
+                  options.configure["container"] = document.getElementById("config");
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
