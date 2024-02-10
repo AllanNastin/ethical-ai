@@ -2,7 +2,7 @@ name: Run Backend Tests Script
 
 on:
   push:
-    branches: [ "backend" ]
+    branches: [ "32-create-cicd-workflow" ]
 
 jobs:
   run-script:
