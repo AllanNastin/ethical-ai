@@ -36,43 +36,43 @@ def extract_triplets(text):
     return triplets
 
 
-print("Loading the model...")
-# Load the model
-triplet_extractor = pipeline('text2text-generation', model='Babelscape/rebel-large', tokenizer='Babelscape/rebel-large')
+if __name__ == "__main__":
+    print("Loading the model...") # Load the model
+    triplet_extractor = pipeline('text2text-generation', model='Babelscape/rebel-large', tokenizer='Babelscape/rebel-large')
 
-print("Reading the AI Act file...")
-# Read the AI Act file
-with open("ai-act-10-pages.txt", "r") as file:
-    ai_act = file.read()
+    print("Reading the AI Act file...")
+    # Read the AI Act file
+    with open("ai-act-10-pages.txt", "r") as file:
+        ai_act = file.read()
 
-# Split the AI Act into sentences
-ai_act = ai_act.replace("\n", " ").split(". ")
-sentences = [sentence for sentence in ai_act if len(sentence) > 7]
+    # Split the AI Act into sentences
+    ai_act = ai_act.replace("\n", " ").split(". ")
+    sentences = [sentence for sentence in ai_act if len(sentence) > 7]
 
-print("Extracting relations...")
-# Extract relations from the sentences
-relations = []
-for sentence in sentences:
-    extracted_text = triplet_extractor.tokenizer.batch_decode([triplet_extractor(sentence,  return_tensors=True, return_text=False)[0]["generated_token_ids"]])
-    relations.append(extract_triplets(extracted_text[0]))
+    print("Extracting relations...")
+    # Extract relations from the sentences
+    relations = []
+    for sentence in sentences:
+        extracted_text = triplet_extractor.tokenizer.batch_decode([triplet_extractor(sentence,  return_tensors=True, return_text=False)[0]["generated_token_ids"]])
+        relations.append(extract_triplets(extracted_text[0]))
 
-print("Creating the knowledge graph...")
-# Create a directed graph
-G = nx.DiGraph()
+    print("Creating the knowledge graph...")
+    # Create a directed graph
+    G = nx.DiGraph()
 
-# Iterate through data to add edges to the graph
-for item in relations:
-    G.add_edge(item[0]["head"], item[0]["tail"], label=item[0]["type"])
+    # Iterate through data to add edges to the graph
+    for item in relations:
+        G.add_edge(item[0]["head"], item[0]["tail"], label=item[0]["type"])
 
-# Initialize PyVis network
-net = Network(notebook=False, height="750px", width="100%")
-net.from_nx(G)
+    # Initialize PyVis network
+    net = Network(notebook=False, height="750px", width="100%")
+    net.from_nx(G)
 
-# Customize the visualization
-net.show_buttons(filter_=['physics'])
-net.toggle_physics(True)
+    # Customize the visualization
+    net.show_buttons(filter_=['physics'])
+    net.toggle_physics(True)
 
-# Save the visualization to a html file
-net.show("knowledge_graph.html")
+    # Save the visualization to a html file
+    net.show("knowledge_graph.html")
 
-print("Done!")
+    print("Done!")
