@@ -1,8 +1,10 @@
 name: Run Backend Tests Script
 
 on:
-  push:
-    branches: [ "32-create-cicd-workflow" ]
+  push: # all pushes will run checks
+    # branches: [ "32-create-cicd-workflow" ] # for specific branch push
+  # pull_request: # for all pull requests
+    # branches: [dev] # for specific branch pull request
 
 jobs:
   run-script:
