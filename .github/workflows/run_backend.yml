@@ -2,8 +2,7 @@ name: Run Backend Tests Script
 
 on:
   push:
-    paths:
-      - 'backend/**'
+    branches: [ "backend" ]
 
 jobs:
   run-script:
