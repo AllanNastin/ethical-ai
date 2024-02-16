@@ -12,7 +12,7 @@ You can optionally pass `raw_text=True` to keep the footnotes and references at 
 
 ### Sample usage:
 
-```
+```python
 from pdf_to_str import pdf_to_str
 my_string = pdf_to_str("path/to/your/file.pdf")
 ```
@@ -22,3 +22,9 @@ Python script that runs relation extraction (using the REBEL model).
 This script produces the following files in the `knowledge_graph/` directory:
 - `knowledge_graph.html`
 - `relations.jsonl`
+
+### Sample usage:
+You can run the `rebel_re_model.py` script from the command line:
+```bash
+python3 rebel_re_model.py
+```
