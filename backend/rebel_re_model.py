@@ -1,6 +1,7 @@
 from transformers import pipeline
 import networkx as nx
 from pyvis.network import Network
+import json
 
 
 # Function to parse the generated text and extract the triplets (adapted from the REBEL HF model card)
@@ -42,7 +43,7 @@ if __name__ == "__main__":
 
     print("Reading the AI Act file...")
     # Read the AI Act file
-    with open("ai-act-10-pages.txt", "r") as file:
+    with open("ai_act/ai-act.txt", "r") as file:
         ai_act = file.read()
 
     # Split the AI Act into sentences
@@ -73,6 +74,13 @@ if __name__ == "__main__":
     net.toggle_physics(True)
 
     # Save the visualization to a html file
-    net.show("knowledge_graph.html")
+    net.show("knowledge_graph/knowledge_graph.html")
+
+    print("Exporting to JSONL...")
+
+    with open('knowledge_graph/relations.jsonl', 'w') as file:
+        for item in relations:
+            json_str = json.dumps(item)
+            file.write(json_str + '\n')
 
     print("Done!")
