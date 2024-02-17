@@ -59,3 +59,7 @@ def pdf_to_str(path, raw_text=False):
                     combined_str += element.get_text()
 
     return combined_str
+
+
+if __name__ == "__main__":
+    print(pdf_to_str("ai_act/ai-act-draft.pdf"))

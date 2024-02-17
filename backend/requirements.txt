@@ -1,1 +1,5 @@
 pdfminer.six
+transformers
+networkx
+pyvis
+torch
