@@ -1,6 +1,7 @@
 # Backend README
 
 ## Run first time and on change of requirements.txt
+If you have an Nvidia GPU, consider installing (py)torch with the instructions from the [official website](https://pytorch.org/get-started/locally/) with conda. It will make the code run much faster.
 ```
 pip install -r requirements.txt
 ```
