@@ -102,7 +102,7 @@ if __name__ == "__main__":
     net.toggle_physics(True)
 
     # Save the visualization to a html file
-    net.show("knowledge_graph/knowledge_graph.html")
+    net.save_graph("knowledge_graph/knowledge_graph.html")
 
     print("Exporting to JSONL...")
 
