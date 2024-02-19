@@ -1,70 +1,120 @@
-import React, { useEffect } from 'react';
-import * as G6 from '@antv/g6';
-import graphData from '../GraphData'; 
+import React, { useState } from 'react';
+import Graph from 'react-vis-network-graph';
+import { edges, nodes } from './data'; // Import your data 
 
-const KnowledgeGraph = () => {
-  useEffect(() => {
-    const graph = new G6.Graph({
-      container: 'graph-container',
-      width: 800,
-      height: 600,
-      layout: {
-        type: 'force', 
-        preventOverlap: true 
+export default function KnowledgeGraph() {
+  const [physicsOptions, setPhysicsOptions] = useState({ enabled: true });
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handlePhysicsChange = (option) => {
+    setPhysicsOptions(option);
+    setIsDropdownOpen(false); // Close dropdown after selection
+  };
+
+  const options = {
+    nodes: {
+      shape: 'dot', 
+      scaling: {
+        min: 3, 
+        max: 15, 
+        label: { 
+          min: 3,  
+          max: 12,  
+          drawThreshold: 3, 
+          maxVisible: 1000
+        },
+        // Map node 'value' to size 
+        customScalingFunction: function (min, max, total, value) {
+          if (max === min) {
+            return 0.5; 
+          } else {
+            let scale = 1 / (max - min);
+            return Math.max(0, Math.min(1, (value - min) * scale)); 
+          }
+        }
       },
-      modes: { // Enable interaction modes
-        default: ['drag-canvas', 'drag-node']
-      }
-    });
+      font: { 
+        size: 1,  
+        strokeWidth: 0.01,
+        face: 'Tahoma',  
+        color: 'black',  
+      },
+    },
+    edges: {
+      width: 0.15,          // Default edge width
+      color: { color: 'grey' }, 
+      hoverWidth: 0.01,     // Edge width when hovering over an edge
+      font: {
+        size: 3,            // Font size for edge labels, if there are any
+        strokeWidth: 0.01,    // Text outline width
+        color: 'black',     // Edge label color
+      },
+      arrows: {
+        to: {
+          enabled: true,      // Shows arrows on edges if they're directed
+          scaleFactor: 0.1,   // Size of the arrowhead relative to edge width
+        },
+      },
+    },
+    physics: physicsOptions, // Settings for the physics engine 
+    interaction: {
+      navigationButtons: true,  // Display navigation buttons (zoom, pan)
+      tooltipDelay: 200,        // Delay in milliseconds before showing tooltips
+      hideEdgesOnDrag: true,    // Temporarily hide edges while dragging nodes
+      hideEdgesOnZoom: true,    // Temporarily hide edges while zooming
+      hover: true,              // Enable hover effects (like highlighting or tooltips)
+    },
+    height: '900px',         // Fixed height of the graph container
+  };
 
-    // Your processData function definition - Ensure this works correctly  
-    const processData = (data) => { 
-      console.log(data)
-      const nodes = [];
-      const edges = [];
+  const data = { nodes: nodes, edges: edges };
+  return (
+    <div className='container'>
+      <Graph graph={data} options={options} />
 
-      data.forEach(item => {
-        nodes.push({ id: item.head, label: item.head });
-        nodes.push({ id: item.tail, label: item.tail });
-        edges.push({ source: item.head, target: item.tail, label: item.type });
-      });
+      <div className='physics-controls'> 
+        <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+          Physics Options
+        </button>
 
-      return { nodes, edges };
-    };
+        {isDropdownOpen && (
+          <div className='dropdown-content'>
+            <button onClick={() => handlePhysicsChange({ enabled: true })}>
+              Enable Physics
+            </button>            
+            <button onClick={() => handlePhysicsChange({ enabled: false })}>
+              Disable Physics
+            </button>
+            <button onClick={() => handlePhysicsChange({ 
+              enabled: true,
+              stabilization: { iterations: 1000 } 
+            })}>
+              Stable Layout
+            </button>
+            <button onClick={() => handlePhysicsChange({ 
+              enabled: true,
+              barnesHut: { 
+                  gravitationalConstant: -5000 
+              } 
+            })}>
+              Strong Repulsion
+            </button>
+            <button onClick={() => handlePhysicsChange({ 
+                enabled: true,
+                barnesHut: {
+                  gravitationalConstant: -2000,  // Moderate repulsion
+                  centralGravity: 0.1,           // Slight pull towards the center
+                  springLength: 150,             // Longer springs
+                  damping: 0.05                  // Reduced damping
+                } 
+            })}>
+              Barnes-Hut Layout 
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
-    const g6Data = processData(graphData); 
-    graph.data(g6Data);
 
-    // Styling after the graph is rendered
-    graph.on('afterrender', () => { 
-      // Node glow effect (default)
-      graph.node().style({
-        shadowColor: '#999', 
-        shadowBlur: 10, 
-        shadowOffsetX: 0,
-        shadowOffsetY: 0
-      }); 
-
-      // Hover interactions (minor tweaking needed)
-      graph.on('node:mouseenter', (e) => {
-        e.item.get('model').style = { // Assign the modified style directly
-          shadowBlur: 20, 
-          shadowColor: '#F90'
-        }; 
-      });
-
-      graph.on('node:mouseleave', (e) => {
-        e.item.get('model').style = { // Assign the normal style directly
-          shadowBlur: 10,  
-          shadowColor: '#999'
-        }; 
-      });
-    }); 
-
-    graph.render();
-  }, []); 
-
-  return <div id="graph-container">Graph will render here </div>;
-};
-
-export default KnowledgeGraph;
