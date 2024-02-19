@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Graph from 'react-vis-network-graph';
 import { edges, nodes } from './data'; // Import your data , remove once backend endpoint is available
 import { fetchGraphData } from '../Service/api';
+import './KnowledgeGraph.css';
 
 export default function KnowledgeGraph() {
   const [physicsOptions, setPhysicsOptions] = useState({ enabled: true });
@@ -93,47 +94,49 @@ export default function KnowledgeGraph() {
 
       {showGraph && <Graph graph={data} options={options} />} {/* remove when backend endpoint is available */}
 
-      <div className='physics-controls'> 
-        <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-          Physics Options
-        </button>
+      {showGraph && (
+        <div className='physics-controls'> 
+          <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+            Physics Options
+          </button>
 
-        {isDropdownOpen && (
-          <div className='dropdown-content'>
-            <button onClick={() => handlePhysicsChange({ enabled: true })}>
-              Enable Physics
-            </button>            
-            <button onClick={() => handlePhysicsChange({ enabled: false })}>
-              Disable Physics
-            </button>
-            <button onClick={() => handlePhysicsChange({ 
-              enabled: true,
-              stabilization: { iterations: 1000 } 
-            })}>
-              Stable Layout
-            </button>
-            <button onClick={() => handlePhysicsChange({ 
-              enabled: true,
-              barnesHut: { 
-                  gravitationalConstant: -5000 
-              } 
-            })}>
-              Strong Repulsion
-            </button>
-            <button onClick={() => handlePhysicsChange({ 
+          {isDropdownOpen && (
+            <div className='dropdown-content'>
+              <button onClick={() => handlePhysicsChange({ enabled: true })}>
+                Enable Physics
+              </button>            
+              <button onClick={() => handlePhysicsChange({ enabled: false })}>
+                Disable Physics
+              </button>
+              <button onClick={() => handlePhysicsChange({ 
                 enabled: true,
-                barnesHut: {
-                  gravitationalConstant: -2000,  // Moderate repulsion
-                  centralGravity: 0.1,           // Slight pull towards the center
-                  springLength: 150,             // Longer springs
-                  damping: 0.05                  // Reduced damping
+                stabilization: { iterations: 1000 } 
+              })}>
+                Stable Layout
+              </button>
+              <button onClick={() => handlePhysicsChange({ 
+                enabled: true,
+                barnesHut: { 
+                    gravitationalConstant: -5000 
                 } 
-            })}>
-              Barnes-Hut Layout 
-            </button>
-          </div>
-        )}
-      </div>
+              })}>
+                Strong Repulsion
+              </button>
+              <button onClick={() => handlePhysicsChange({ 
+                  enabled: true,
+                  barnesHut: {
+                    gravitationalConstant: -2000,
+                    centralGravity: 0.1,
+                    springLength: 150,
+                    damping: 0.05
+                  } 
+              })}>
+                Barnes-Hut Layout 
+              </button>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
