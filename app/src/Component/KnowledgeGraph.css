@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
+  }
+  
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: 2px solid #0f62fe; 
+    border-radius: 0; 
+    background-color: #0f62fe; 
+    color: white;
+    font-size: 16px;
+    font-weight: bold; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0353e9; 
+    color: #ffffff; 
+  }
+  
+  .physics-controls, .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .dropdown-content {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 0; 
+    background-color: #f4f4f4; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown-content button {
+    background-color: transparent; 
+    color: #0f62fe; 
+    border: 2px solid #0f62fe; 
+  }
+  
+  .dropdown-content button:hover {
+    background-color: #e5f1fe; 
+    color: #0f62fe;
+  }
+  
+ 
