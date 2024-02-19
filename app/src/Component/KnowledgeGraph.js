@@ -90,6 +90,7 @@ export default function KnowledgeGraph() {
         {showGraph ? 'Remove Graph' : 'Show Graph'}
       </button>
 
+
       {/* {showGraph && <Graph graph={graphData} options={options} />} */}
 
       {showGraph && <Graph graph={data} options={options} />} {/* remove when backend endpoint is available */}
