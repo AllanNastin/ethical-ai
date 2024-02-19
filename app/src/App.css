@@ -10,12 +10,12 @@
 }
 
 .nav-bar {
-  width: 100%;
-  padding: 10px 0;
-  background-color: #0F62FE; 
   display: flex;
-  justify-content: center;
   align-items: center;
+  padding: 1em;
+  width: 100%;
+  background-color: #0F62FE;
+  justify-content: flex-start; 
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: fixed;
   top: 0;
@@ -23,8 +23,17 @@
 }
 
 .nav-logo {
-  height: 30px; 
+  height: 50px; 
+  margin-left: 1em; 
 }
+
+.title {
+  color: #e5f1fe;
+  display: flex;
+  align-items: center;
+  margin-left: 1em; 
+}
+
 
 .content {
   width: 90%;
@@ -32,7 +41,6 @@
   text-align: center;
   margin-top: 20px; 
 }
-
 
 .upload-btn-wrapper {
   background-color: #0062FF; 
@@ -55,12 +63,69 @@ input[type="file"] {
   display: none; 
 }
 
-h1 {
-  color: #0F62FE; 
-}
 .container {
   background-color: #F0F0F0; /* Smoky off-white */
   border: 3px ridge #888888;
   margin: 20px;              
   border-radius: 15px;  /* Rounded corners */
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: 2px solid #0f62fe; 
+  border-radius: 0; 
+  background-color: #0f62fe; 
+  color: white;
+  font-size: 16px;
+  font-weight: bold; 
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0353e9; 
+  color: #ffffff; 
+}
+
+.physics-controls, .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.dropdown-content {
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 0; 
+  background-color: #f4f4f4; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content button {
+  background-color: transparent; 
+  color: #0f62fe; 
+  border: 2px solid #0f62fe; 
+}
+
+.dropdown-content button:hover {
+  background-color: #e5f1fe; 
+  color: #0f62fe;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  text-align: center;
+  color: #0F62FE; 
+}
+
+.home-title {
+  font-size: 4em; 
+  font-weight: bold;
+  margin-bottom: 0.5em; 
 }
