@@ -16,46 +16,19 @@
   background-color: #0F62FE; 
   display: flex;
   justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  position: fixed;
-  top: 0;
-  z-index: 1000;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-.nav-logo {
-  height: 30px; 
+.App-link {
+  color: #61dafb;
 }
 
-.content {
-  width: 90%;
-  max-width: 600px; 
-  text-align: center;
-  margin-top: 20px; 
-}
-
-
-.upload-btn-wrapper {
-  background-color: #0062FF; 
-  color: #FFF;
-  padding: 12px 24px;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-size: 16px;
-  display: inline-block;
-  margin: 20px 0; 
-}
-
-.upload-btn-wrapper:hover {
-  background-color: #054ADA;
-}
-
-input[type="file"] {
-  display: none; 
-}
-
-h1 {
-  color: #0F62FE; 
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
