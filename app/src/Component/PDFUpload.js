@@ -17,7 +17,7 @@ function PDFUpload({ onUpload }) {
   return (
     <div>
       <input type="file" accept="application/pdf" ref={fileInput} onChange={handleFileChange} style={{display: 'none'}} />
-      <button className="upload-btn-wrapper" onClick={handleUploadClick}>Upload</button>
+      <button className="upload-btn-wrapper" onClick={handleUploadClick}>Upload AI Model Documentation</button>
     </div>
   );
 }
