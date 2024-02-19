@@ -1,14 +1,29 @@
 import React, { useState } from 'react';
 import Graph from 'react-vis-network-graph';
-import { edges, nodes } from './data'; // Import your data 
+import { edges, nodes } from './data'; // Import your data , remove once backend endpoint is available
+import { fetchGraphData } from '../Service/api';
 
 export default function KnowledgeGraph() {
   const [physicsOptions, setPhysicsOptions] = useState({ enabled: true });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [showGraph, setShowGraph] = useState(false);
+  const [graphData, setGraphData] = useState({ nodes: [], edges: [] });
 
   const handlePhysicsChange = (option) => {
     setPhysicsOptions(option);
     setIsDropdownOpen(false); // Close dropdown after selection
+  };
+
+  const toggleGraph = async () => {
+    if (!showGraph) {
+      try {
+        const fetchedData = await fetchGraphData();
+        setGraphData(fetchedData); 
+      } catch (error) {
+        console.error("Failed to fetch graph data: ", error);
+      }
+    }
+    setShowGraph(!showGraph); 
   };
 
   const options = {
@@ -67,10 +82,16 @@ export default function KnowledgeGraph() {
     height: '900px',         // Fixed height of the graph container
   };
 
-  const data = { nodes: nodes, edges: edges };
+  const data = { nodes: nodes, edges: edges }; //remove when backend endpoint is available
   return (
     <div className='container'>
-      <Graph graph={data} options={options} />
+      <button onClick={toggleGraph}>
+        {showGraph ? 'Remove Graph' : 'Show Graph'}
+      </button>
+
+      {/* {showGraph && <Graph graph={graphData} options={options} />} */}
+
+      {showGraph && <Graph graph={data} options={options} />} {/* remove when backend endpoint is available */}
 
       <div className='physics-controls'> 
         <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
