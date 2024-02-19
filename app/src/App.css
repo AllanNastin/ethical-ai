@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+.container {
+  background-color: #F0F0F0; /* Smoky off-white */
+  border: 3px ridge #888888;
+  margin: 20px;              
+  border-radius: 15px;  /* Rounded corners */
 }
