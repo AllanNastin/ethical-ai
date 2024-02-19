@@ -9,7 +9,11 @@ function KnowledgeGraph({ data }) {
     }
   }, [data]);
 
-  return <div id="graph-container">Graph will render here</div>;
+  return (
+    <div id="graph-container">
+      {data ? 'Graph will render here using the uploaded data.' : 'Please upload a file to see the graph.'}
+    </div>
+  );
 }
 
 export default KnowledgeGraph;
