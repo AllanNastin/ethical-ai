@@ -3,14 +3,16 @@ import PDFUpload from './Component/PDFUpload';
 import KnowledgeGraph from './Component/KnowledgeGraph';
 import logo from './IBM-logo.png'; 
 import './App.css';
+import graphData from './GraphData'; // Import your sample data
 
 function App() {
-  const [graphData, setGraphData] = useState(null);
+  const [graphDataState, setGraphDataState] = useState(graphData);
 
   const handlePDFUpload = (file) => {
-    console.log('Upload file to backend:', file.name);
-    // Upload file to backend, then update graph data
-    // setGraphData(responseData);
+    // TODO: Implement logic to process the uploaded PDF 'file'
+    // 1. Extract relevant data from the PDF (nodes, edges)
+    // 2. Update 'graphDataState' with the new data
+    // 3. Use 'setGraphDataState' to trigger a re-render of the graph
   };
 
   return (
@@ -28,3 +30,4 @@ function App() {
 }
 
 export default App;
+
