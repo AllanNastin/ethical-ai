@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
-import UserInputForm from './Component/UserInputForm';
 import PDFUpload from './Component/PDFUpload';
 import KnowledgeGraph from './Component/KnowledgeGraph';
+import logo from './IBM-logo.png'; 
+import './App.css';
 
 function App() {
   const [graphData, setGraphData] = useState(null);
-
-  const handleFormSubmit = (input) => {
-    console.log('Submit to backend:', input);
-    // Submit input to backend, then update graph data
-    // setGraphData(responseData);
-  };
 
   const handlePDFUpload = (file) => {
     console.log('Upload file to backend:', file.name);
@@ -20,9 +15,14 @@ function App() {
 
   return (
     <div className="App">
-      <UserInputForm onSubmit={handleFormSubmit} />
-      <PDFUpload onUpload={handlePDFUpload} />
-      <KnowledgeGraph data={graphData} />
+      <div className="nav-bar">
+        <img src={logo} className="nav-logo" alt="IBM Logo"/>
+      </div>
+      <div className="content">
+        <h1>IBM Compliance Tool</h1>
+        <PDFUpload onUpload={handlePDFUpload} />
+        <KnowledgeGraph data={graphData} />
+      </div>
     </div>
   );
 }
