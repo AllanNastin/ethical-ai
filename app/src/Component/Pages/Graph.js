@@ -2,10 +2,10 @@ import React from 'react';
 import '../../App.css';
 import KnowledgeGraph from '../KnowledgeGraph';
 
-function Home(){
+function Graph(){
     return (
         <KnowledgeGraph />
     );
 }
 
-export default Home;
+export default Graph;

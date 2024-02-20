@@ -1,63 +1,26 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
+import React from 'react';
+import './NavBar.css';
+import { Link } from 'react-router-dom'; 
+import logo from './Images/IBM-logo.png';
+import github from './Images/github-mark.png'; 
 
-function Navbar() {
-  const [click, setClick] = useState(false);
-
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-
+function NavBar() {
   return (
-    <>
-      <nav className='navbar'>
-        <div className='navbar-container'>
-          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            TRVL
-            <i class='fab fa-typo3' />
-          </Link>
-          <div className='menu-icon' onClick={handleClick}>
-            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-          </div>
-          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-            <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                Home
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link
-                to='/services'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Services
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link
-                to='/products'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Products
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to='/sign-up'
-                className='nav-links-mobile'
-                onClick={closeMobileMenu}
-              >
-                Sign Up
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </>
+    <nav className="navbar">
+      <Link to="/">
+        <img src={logo} className="nav-logo" alt="IBM Logo"/>
+      </Link>
+      <h1>Compliance Assistant</h1>
+      <div className="navbar-main-links">
+        <Link to="/about" className="navbar-item">About</Link>
+      </div>
+      <div className="navbar-right">
+        <a href="https://github.com/AllanNastin/ethical-ai" target="_blank" rel="noopener noreferrer" className="navbar-item">
+          <img src={github} className="nav-icon" alt="GitHub"/>
+        </a>
+      </div>
+    </nav>
   );
 }
 
-export default Navbar;
+export default NavBar;

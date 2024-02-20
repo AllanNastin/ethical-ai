@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Graph from 'react-vis-network-graph';
-import { edges, nodes } from './data'; // Import your data , remove once backend endpoint is available
+import { edges, nodes } from './Data/data'; // Import your data , remove once backend endpoint is available
 import { fetchGraphData } from '../Service/api';
 import './KnowledgeGraph.css';
 
@@ -8,7 +8,10 @@ export default function KnowledgeGraph() {
   const [physicsOptions, setPhysicsOptions] = useState({ enabled: true });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showGraph, setShowGraph] = useState(false);
-  const [graphData, setGraphData] = useState({ nodes: [], edges: [] });
+  const [setGraphData] = useState({ nodes: [], edges: [] });
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filter, setFilter] = useState('All');
+  const [filteredGraphData, setFilteredGraphData] = useState({ nodes: nodes, edges: edges });
 
   const handlePhysicsChange = (option) => {
     setPhysicsOptions(option);
@@ -26,6 +29,39 @@ export default function KnowledgeGraph() {
     }
     setShowGraph(!showGraph); 
   };
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleFilterChange = (event) => {
+    setFilter(event.target.value);
+  };
+
+  const updateGraph = () => {
+    let updatedNodes = [...nodes]; 
+    let updatedEdges = [...edges]; 
+  
+    if (searchTerm) {
+      const searchedNodes = updatedNodes.filter(node => 
+        node.label.toLowerCase().includes(searchTerm.toLowerCase()));
+      const nodeIds = new Set(searchedNodes.map(node => node.id));
+  
+      updatedEdges = updatedEdges.filter(edge => 
+        nodeIds.has(edge.from) || nodeIds.has(edge.to));
+      const connectedNodeIds = new Set(updatedEdges.flatMap(edge => [edge.from, edge.to]));
+      updatedNodes = updatedNodes.filter(node => connectedNodeIds.has(node.id));
+    }
+  
+    if (filter !== 'All') {
+      updatedNodes = updatedNodes.filter(node => node.group === filter);
+      const filteredNodeIds = new Set(updatedNodes.map(node => node.id));
+      updatedEdges = updatedEdges.filter(edge => 
+        filteredNodeIds.has(edge.from) && filteredNodeIds.has(edge.to));
+    }
+  
+    setFilteredGraphData({ nodes: updatedNodes, edges: updatedEdges });
+  };  
 
   const options = {
     nodes: {
@@ -83,26 +119,45 @@ export default function KnowledgeGraph() {
     height: '900px',         // Fixed height of the graph container
   };
 
-  const data = { nodes: nodes, edges: edges }; //remove when backend endpoint is available
+  // const data = { nodes: nodes, edges: edges }; //remove when backend endpoint is available
   return (
-    <div className='container'>
-      <button onClick={toggleGraph}>
-        {showGraph ? 'Remove Graph' : 'Show Graph'}
+    <div className="container">
+      <div className="top-container">
+      <button className="kg-button" onClick={toggleGraph}>
+        {showGraph ? 'Remove Graph  → ' : 'Show Graph   →'}
       </button>
 
+      <input
+        type="text"
+        placeholder="Search nodes..."
+        value={searchTerm}
+        onChange={handleSearchChange}
+        className="search-bar"
+      />
+
+      <select onChange={handleFilterChange} className="filter-dropdown">
+        <option value="All">All Groups</option>
+        {[...new Set(nodes.map(node => node.group))]
+          .map(group => <option key={group} value={group}>{group}</option>)}
+      </select>
+
+      <button className="kg-button" onClick={updateGraph}>Update Graph   → </button>
+      </div>
 
       {/* {showGraph && <Graph graph={graphData} options={options} />} */}
 
-      {showGraph && <Graph graph={data} options={options} />} {/* remove when backend endpoint is available */}
+      {/* {showGraph && <Graph graph={data} options={options} />} remove when backend endpoint is available */}
+
+      {showGraph && <Graph graph={filteredGraphData} options={options} />}
 
       {showGraph && (
-        <div className='physics-controls'> 
+        <div className="physics-controls"> 
           <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
             Physics Options
           </button>
 
           {isDropdownOpen && (
-            <div className='dropdown-content'>
+            <div className="dropdown-content">
               <button onClick={() => handlePhysicsChange({ enabled: true })}>
                 Enable Physics
               </button>            
