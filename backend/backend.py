@@ -10,18 +10,18 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(b'Hello, GET Method')
 
-def do_POST(self):
-    content_length = int(self.headers['Content-Length'])
-    post_data = self.rfile.read(content_length)
-    
-    try:
-        data = json.loads(post_data)
-        print(data)
-    except json.JSONDecodeError:
-        self.send_response(400)
-        self.end_headers()
-        self.wfile.write(b'Invalid JSON')
-        return
+    def do_POST(self):
+        content_length = int(self.headers['Content-Length'])
+        post_data = self.rfile.read(content_length)
+        try:
+            data = json.loads(post_data)
+            print("Data received:" + str(data))
+        except json.JSONDecodeError:
+            self.send_response(400)
+            self.end_headers()
+            self.wfile.write(b'Invalid JSON')
+            print("Invalid JSON")
+            return
 
 
 server_address = ('localhost', 8000)
