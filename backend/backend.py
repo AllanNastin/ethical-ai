@@ -16,11 +16,13 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         try:
             data = json.loads(post_data)
             print("Data received:" + str(data))
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
         except json.JSONDecodeError:
             self.send_response(400)
             self.end_headers()
             self.wfile.write(b'Invalid JSON')
-            print("Invalid JSON")
             return
 
 
