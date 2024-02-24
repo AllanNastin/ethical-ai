@@ -23,6 +23,9 @@ def do_POST(self):
         self.wfile.write(b'Invalid JSON')
         return
 
-httpd = HTTPServer(('localhost', 8000), SimpleHTTPRequestHandler)
-print("Server started at http://localhost:8000")
+
+server_address = ('localhost', 8000)
+
+httpd = HTTPServer(server_address, SimpleHTTPRequestHandler)
+print("Server started at http://" + server_address[0] + ":" + str(server_address[1]))
 httpd.serve_forever()
