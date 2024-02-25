@@ -1,7 +1,7 @@
 import React from 'react';
 import './NavBar.css';
 import { Link } from 'react-router-dom'; 
-import logo from './Images/IBM-logo.png';
+import logo from './Images/trinity-ibm-logo.png';
 import github from './Images/github-mark.png'; 
 
 function NavBar() {
