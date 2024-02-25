@@ -1,33 +1,28 @@
 import React, { useState } from 'react';
-import PDFUpload from './Component/PDFUpload';
-import KnowledgeGraph from './Component/KnowledgeGraph';
-import logo from './IBM-logo.png'; 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Component/Pages/Home';
+import Graph from './Component/Pages/Graph';
+import Navbar from './Component/NavBar';
+import About from './Component/Pages/About'
 import './App.css';
-import graphData from './GraphData'; // Import your sample data
 
 function App() {
-  const [graphDataState, setGraphDataState] = useState(graphData);
+  const [uploadSuccess, setUploadSuccess] = useState(false);
 
-  const handlePDFUpload = (file) => {
-    // TODO: Implement logic to process the uploaded PDF 'file'
-    // 1. Extract relevant data from the PDF (nodes, edges)
-    // 2. Update 'graphDataState' with the new data
-    // 3. Use 'setGraphDataState' to trigger a re-render of the graph
+  const handleUploadSuccess = () => {
+    setUploadSuccess(true);
   };
 
   return (
-    <div className="App">
-      <div className="nav-bar">
-        <img src={logo} className="nav-logo" alt="IBM Logo"/>
-      </div>
-      <div className="content">
-        <h1>IBM Compliance Tool</h1>
-        <PDFUpload onUpload={handlePDFUpload} />
-        <KnowledgeGraph data={graphData} />
-      </div>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home onUploadSuccess={handleUploadSuccess} />} />
+        <Route path='/graph' element={<Graph uploadSuccess={uploadSuccess} />} />
+        <Route path='/about' element={<About />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
-

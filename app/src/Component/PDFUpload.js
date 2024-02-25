@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css';
 
 function PDFUpload({ onUpload }) {
   let fileInput = React.createRef();
@@ -17,7 +18,7 @@ function PDFUpload({ onUpload }) {
   return (
     <div>
       <input type="file" accept="application/pdf" ref={fileInput} onChange={handleFileChange} style={{display: 'none'}} />
-      <button className="upload-btn-wrapper" onClick={handleUploadClick}>Upload</button>
+      <button className="ibm-button" onClick={handleUploadClick}>Upload AI Model Documentation  → </button>
     </div>
   );
 }

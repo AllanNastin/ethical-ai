@@ -1,66 +1,106 @@
-.App {
-  background-color: #EDF5FF; 
-  color: #000; 
+.home {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  height: 100vh; 
+}
+
+.home-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  width: 100%;
+}
+
+.home-image-container {
+  width: 50%; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  position: relative; 
+  height: 100%; 
+}
+
+.home-image {
+  max-width: 95%; 
+  max-height: 100vh; 
+  position: relative;
+}
+
+.home-text {
+  width: 50%; 
+  text-align: right; 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; 
-  min-height: 100vh;
-  padding-top: 60px; 
+  justify-content: center; 
+  padding: 10px 20px;
 }
 
-.nav-bar {
-  width: 100%;
-  padding: 10px 0;
-  background-color: #0F62FE; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  position: fixed;
-  top: 0;
-  z-index: 1000;
+.home-title {
+  margin-bottom: 1rem;
+  font-size: 2rem; 
 }
 
-.nav-logo {
-  height: 30px; 
+.home-text h1 {
+  font-size: 2.5rem; 
+  color: #000;
 }
 
-.content {
-  width: 90%;
-  max-width: 600px; 
-  text-align: center;
-  margin-top: 20px; 
+.home-text p {
+  font-size: 1rem; 
+  color: #666;
+  margin-bottom: 2rem;
 }
 
-
-.upload-btn-wrapper {
-  background-color: #0062FF; 
-  color: #FFF;
-  padding: 12px 24px;
-  border-radius: 4px;
+.home-button {
+  padding: 10px 20px;
+  background-color: #0052cc;
+  color: white;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  font-size: 16px;
-  display: inline-block;
-  margin: 20px 0; 
 }
 
-.upload-btn-wrapper:hover {
-  background-color: #054ADA;
+.home-button:hover {
+  background-color: #003da5;
 }
 
 input[type="file"] {
-  display: none; 
+  display: none;
 }
 
-h1 {
-  color: #0F62FE; 
+.ibm-button {
+  background-color: #0052cc;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  outline: none; 
+  position: relative;
+  overflow: hidden; 
 }
-.container {
-  background-color: #F0F0F0; /* Smoky off-white */
-  border: 3px ridge #888888;
-  margin: 20px;              
-  border-radius: 15px;  /* Rounded corners */
+
+/* .ibm-button::after {
+  content: '→';
+  font-size: 16px;
+  position: absolute;
+  right: 20px;
+  transition: all 0.3s;
+} */
+
+/* .ibm-button:hover::after {
+  right: 15px;
+} */
+
+.ibm-button:hover {
+  background-color: #003da5; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
