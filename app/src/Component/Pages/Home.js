@@ -29,12 +29,12 @@ function Home({ onUploadSuccess }) {
       .catch(error => console.log('There was a problem with the fetch operation: ' + error.message));
 };
 
-const handleButtonClick = () => {
-  // test get
-  fetch('http://localhost:8000')
-    .then(response => response.text())
-    .then(data => console.log(data));
-}
+// const handleButtonClick = () => {
+//   // test get
+//   fetch('http://localhost:8000')
+//     .then(response => response.text())
+//     .then(data => console.log(data));
+// }
 
   return (
     <div className="home">
@@ -46,7 +46,7 @@ const handleButtonClick = () => {
           <h1>Creating Trustworthy and Ethical AI</h1>
           <p>Test your AI model to see if it is compliant with the EU AI Act</p>
           {/* sample button to test fetch */}
-          <button onClick={handleButtonClick}>Test Fetch</button>
+          {/* <button onClick={handleButtonClick}>Test Fetch {"(Check Console)"}</button> */}
           <PDFUpload onUpload={handlePDFUpload} />
         </div>
       </div>
