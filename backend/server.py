@@ -13,7 +13,7 @@ def home():
     return 'Hello, GET Method', 200
 
 
-@app.route('/api/upload', methods=['POST'])
+@app.route('/upload', methods=['POST'])
 def process():
     if 'file' not in request.files:
         return jsonify({'error': 'No file part in the request'}), 400
@@ -22,7 +22,7 @@ def process():
         return jsonify({'error': 'No file part in the request'}), 400
     if file and file.filename.endswith('.pdf'):
         filename = secure_filename(file.filename)
-        file.save(os.path.join('/path/to/save', filename))
+        # file.save(os.path.join('/path/to/save', filename))
         return jsonify({'message': 'File uploaded successfully'}), 200
     else:
         return jsonify({'error': 'Invalid file type'}), 400

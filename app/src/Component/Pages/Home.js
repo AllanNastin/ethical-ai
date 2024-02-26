@@ -8,9 +8,26 @@ function Home({ onUploadSuccess }) {
   const navigate = useNavigate();
 
   const handlePDFUpload = (file) => {
-    onUploadSuccess();
-    navigate("/graph");
-  };
+    let formData = new FormData();
+    formData.append('file', file);
+
+    fetch('http://localhost:8000/upload', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        onUploadSuccess();
+        navigate("/graph");
+      })
+      .catch(error => console.log('There was a problem with the fetch operation: ' + error.message));
+};
 
 const handleButtonClick = () => {
   // test get
