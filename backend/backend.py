@@ -7,6 +7,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', 'http://localhost:3000')
         self.end_headers()
         self.wfile.write(b'Hello, GET Method')
 
@@ -18,9 +19,11 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             print("Data received:" + str(data))
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', 'http://localhost:3000')
             self.end_headers()
         except json.JSONDecodeError:
             self.send_response(400)
+            self.send_header('Access-Control-Allow-Origin', 'http://localhost:3000')
             self.end_headers()
             self.wfile.write(b'Invalid JSON')
             return
