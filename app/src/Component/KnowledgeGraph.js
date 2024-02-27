@@ -19,13 +19,11 @@ export default function KnowledgeGraph() {
       try {
         const fetchedData = JSON.parse(localStorage.getItem('data'));
         // console.log("Fetched data: ", fetchedData); // Debug fetchedData
-  
         if (fetchedData) {
           // Transform the data into the format { nodes: [], edges: [] }
           const nodes = fetchedData.map(item => item.node);
           const edges = fetchedData.map(item => item.edge);
           const graphData = { nodes, edges };
-  
           // setGraphData(graphData);
           setFilteredGraphData(graphData);
           setShowGraph(true);
