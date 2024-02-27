@@ -12,7 +12,6 @@ CORS(app, resources={r"/*": {"origins": ALLOWED_ORIGINS}})
 def home():
     return 'Hello, GET Method', 200
 
-
 @app.route('/upload', methods=['POST'])
 def process():
     if 'file' not in request.files:
