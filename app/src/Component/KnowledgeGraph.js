@@ -1,56 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Graph from 'react-vis-network-graph';
-// import { edges, nodes } from './Data/data'; // Import your data , remove once backend endpoint is available
-// import { fetchGraphData } from '../Service/api';
+import { edges, nodes } from './Data/data'; // Import your data , remove once backend endpoint is available
+import { fetchGraphData } from '../Service/api';
 import './KnowledgeGraph.css';
 
 export default function KnowledgeGraph() {
   const [physicsOptions, setPhysicsOptions] = useState({ enabled: true });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showGraph, setShowGraph] = useState(false);
+  const [setGraphData] = useState({ nodes: [], edges: [] });
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('All');
-  const [filteredGraphData, setFilteredGraphData] = useState({ nodes: [], edges: [] }); // Initialize with default value
-  // const [graphData, setGraphData] = useState({ nodes: [], edges: [] }); // Corrected this line
-  // const jsFile = localStorage.getItem('jsFile'); // Get the file data from localStorage
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const fetchedData = JSON.parse(localStorage.getItem('data'));
-        // console.log("Fetched data: ", fetchedData); // Debug fetchedData
-        if (fetchedData) {
-          // Transform the data into the format { nodes: [], edges: [] }
-          const nodes = fetchedData.map(item => item.node);
-          const edges = fetchedData.map(item => item.edge);
-          const graphData = { nodes, edges };
-          // setGraphData(graphData);
-          setFilteredGraphData(graphData);
-          setShowGraph(true);
-        }
-      } catch (error) {
-        console.error("Failed to fetch graph data from local storage: ", error);
-      }
-    };
-    fetchData();
-  }, []);
+  const [filteredGraphData, setFilteredGraphData] = useState({ nodes: nodes, edges: edges });
 
   const handlePhysicsChange = (option) => {
     setPhysicsOptions(option);
     setIsDropdownOpen(false); // Close dropdown after selection
   };
 
-  // const toggleGraph = async () => {
-  //   if (!showGraph) {
-  //     try {
-  //       const fetchedData = await fetchGraphData();
-  //       setGraphData(fetchedData); 
-  //     } catch (error) {
-  //       console.error("Failed to fetch graph data: ", error);
-  //     }
-  //   }
-  //   setShowGraph(!showGraph); 
-  // };
+  const toggleGraph = async () => {
+    if (!showGraph) {
+      try {
+        const fetchedData = await fetchGraphData();
+        setGraphData(fetchedData); 
+      } catch (error) {
+        console.error("Failed to fetch graph data: ", error);
+      }
+    }
+    setShowGraph(!showGraph); 
+  };
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -61,8 +39,8 @@ export default function KnowledgeGraph() {
   };
 
   const updateGraph = () => {
-    let updatedNodes = [...filteredGraphData.nodes]; 
-    let updatedEdges = [...filteredGraphData.edges]; 
+    let updatedNodes = [...nodes]; 
+    let updatedEdges = [...edges]; 
   
     if (searchTerm) {
       const searchedNodes = updatedNodes.filter(node => 
@@ -145,9 +123,9 @@ export default function KnowledgeGraph() {
   return (
     <div className="container">
       <div className="top-container">
-      {/* <button className="kg-button" onClick={toggleGraph}>
+      <button className="kg-button" onClick={toggleGraph}>
         {showGraph ? 'Remove Graph  → ' : 'Show Graph   →'}
-      </button> */}
+      </button>
 
       <input
         type="text"
@@ -159,7 +137,7 @@ export default function KnowledgeGraph() {
 
       <select onChange={handleFilterChange} className="filter-dropdown">
         <option value="All">All Groups</option>
-        {[...new Set(filteredGraphData.nodes.map(node => node.group))] // Changed nodes to filteredGraphData.nodes
+        {[...new Set(nodes.map(node => node.group))]
           .map(group => <option key={group} value={group}>{group}</option>)}
       </select>
 
@@ -218,5 +196,3 @@ export default function KnowledgeGraph() {
     </div>
   );
 }
-
-
