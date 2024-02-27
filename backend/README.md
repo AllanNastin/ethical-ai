@@ -9,7 +9,7 @@ pip install -r requirements.txt
 ## `server.py`
 Creates 2 endpoints at `http://localhost:3000`  
 `GET http://localhost:3000` returns `Hello, GET Method`  
-`POST http://localhost:3000/upload` takes pdf file, returns predefined graph data in JSONL containing nodes and edges.
+`POST http://localhost:3000/upload` takes PDF file, returns predefined graph data in JSONL containing nodes and edges.
 
 ## `js_to_jsonl.py`
 Use: `js_to_jsonl(inputFileName,outputFileName)`  
