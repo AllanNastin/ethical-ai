@@ -5,3 +5,4 @@ pyvis
 torch
 Flask
 flask_cors
+PyExecJS

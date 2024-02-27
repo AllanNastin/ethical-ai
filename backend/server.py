@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file, send_from_directory
 from flask_cors import CORS
 import os
 from werkzeug.utils import secure_filename
@@ -23,7 +23,8 @@ def process():
     if file and file.filename.endswith('.pdf'):
         filename = secure_filename(file.filename)
         # file.save(os.path.join('.', filename))
-        return jsonify({'message': 'File uploaded successfully'}), 200
+        # Send the JSONL file
+        return send_from_directory('.', 'graph_data.jsonl', as_attachment=True)
     else:
         return jsonify({'error': 'Invalid file type'}), 400
 

@@ -2,7 +2,7 @@ import React from 'react';
 import '../../App.css';
 import PDFUpload from '../PDFUpload';
 import { useNavigate } from 'react-router-dom';
-import leftImage from '../Images/home.png'; 
+import leftImage from '../Images/home.png';
 
 function Home({ onUploadSuccess }) {
   const navigate = useNavigate();
@@ -19,15 +19,18 @@ function Home({ onUploadSuccess }) {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        return response.json();
+        return response.text(); // Get the response as text
       })
-      .then(data => {
-        console.log(data);
+      .then(text => {
+        // Split the text by line and parse each line as JSON
+        const jsonlData = text.split('\n').filter(line => line.trim() !== '').map(line => JSON.parse(line));
+        // Store the JSONL data in local storage
+        localStorage.setItem('data', JSON.stringify(jsonlData));
         onUploadSuccess();
         navigate("/graph");
       })
       .catch(error => console.log('There was a problem with the fetch operation: ' + error.message));
-};
+  };
 
 // const handleButtonClick = () => {
 //   // test get
