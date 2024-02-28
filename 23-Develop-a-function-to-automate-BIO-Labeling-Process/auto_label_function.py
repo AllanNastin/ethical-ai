@@ -1,3 +1,6 @@
+import pandas as pd 
+import jsonlines
+
 master_dict = {"ORG": 
             {"provider", "providers", "distributor", "deployer", "operator", "notifying authority", "conformity assessment body", "notified body", "market surveillance authority", "digital innovation hubs", "testing experimentation facilities", "researchers", "importer", "the commission", "businesses", "government"},
             "PER": {"authorised representative", "competent authorities"}, "DAT": {"training data", "validation data", "testing data", "input data", "biometric data", "special categories of personal data", "sensitive operational data", "high quality datasets", "high quality data", "health data", "datasets"},
@@ -30,25 +33,75 @@ def dict_search (ner_tags, curr_string, curr_index, prefix):
             return str(entity)
     return "false"
     
+def punc_split(token, tokens, index, startpunc,endpunc):
+    
+    last_element = token[len(token)-1]
+    first_element = token[0]
+    #Checks if this is the root of the word
+    root = True
+    
+    if first_element in ('(', '[', '{') and token not in ('(', '[', '{'):
+        root = False
+        startpunc +=1
+        punc_split(token[1:len(token)], tokens, index, startpunc, endpunc)
+        tokens.insert (index, first_element)
+    if last_element in (',', ';', ':', ')', ']', '}') and token not in (',', ';', ':', ')', ']', '}') and root == True:
+        root = False
+        tokens.insert(index+1, last_element)
+        punc_split(token[0:len(token)-1], tokens, index,startpunc, endpunc)
+        
+    if root == True:
+        tokens[index] = token 
+        
+    return tokens
+    
+    
+    
 
 #This function works on the scale of a sentence it splits the sentence into tokens using space as the delimeter then assigns NER tags to each token
 def auto_label(sentence):
     tokens = sentence.split()
     ner_tags = []
     
+    
     #Splitting punctuation into seperate words for the sake of cleaner training data
     for token in tokens:
-        #Filling Ner_tag array, since labelling function relies on tokens having a default ner_tag value
         ner_tags.append(0)
-        last_element = token[len(token)-1]
+        #Filling Ner_tag array, since labelling function relies on tokens having a default ner_tag value 
+        tokens = punc_split(token, tokens, tokens.index(token), 0, 0)
+        
+        ''' last_element = token[len(token)-1]
+        secondlast_element = token[len(token)-2]
         index = tokens.index(token)
+        first_element = token[0]
+        filler_num = 0 #Keeps track of the amount of punctuation/brackers etc to know where to insert tokens
+        if first_element in ('(', '[', '{') and token not in ('(', '[', '{'):
+            if last_element in (')', ']', '}', ',', ';', ':') and token not in (')', ']', '}', ',', ';', ':'):
+                token = token[1:len(token)-1]
+                tokens.insert(index+1, token)
+                tokens.insert(index+2, last_element)
+                #If word doesnt end in bracket we just split it from the first bracket and let the last element detection handle the second
+                #updating last element since previous last element was taken
+                last_element = secondlast_element
+            else:
+                token = token[1:len(token)]
+                tokens.insert(index+1, token) 
+                
+            tokens[index] = first_element
+            filler_num +=1
+            
+        elif secondlast_element in (')', ']', '}', ',', ';', ':'):
+            token = token[1:len(token)-2]
+            tokens.insert(index+1, secondlast_element)
+            filler_num+=1
+            
         #if the tokens last element of the token is punctuation and if the entire token isnt just punctuation
-        if  last_element in (',', ';') and token not in (',', ';'):
+        if  last_element in (',', ';', ':', ')', ']', '}') and token not in (',', ';', ':', ')', ']', '}'):
              #The punctuation mark is added in front of the token  
-             tokens.insert(index+1, last_element)
+             tokens.insert(index+1+filler_num, last_element)
              #The punctuation mark is removed from the token and the altered token replaces the old one
              token = token[0:len(token)-1]
-             tokens[index] = token
+             tokens[index+filler_num] = token '''
              
     
     #Labelling loop
@@ -59,6 +112,7 @@ def auto_label(sentence):
     return_list = []
     return_list.append(tokens)
     return_list.append(ner_tags)
+    
     return return_list
         
 '''
@@ -78,6 +132,8 @@ if the match is not found even after solely the token in the start index is sear
 def label(tokens, ner_tags, curr_index, start_index, curr_string):
     #Adding new word onto old one
     string = tokens[curr_index]
+    if curr_index >= 511:
+        return "false"
     #If starting word then the full string is equal to the word
     if curr_index == start_index:
         curr_string = string
@@ -121,12 +177,22 @@ def paragraph_to_labeled_sentences(paragraph):
     tags_list = []
      
     for sentence in sentences:
+        if len(sentence) >= 511:
+            
+            long_sentence = ' '.join([str(word) for word in sentence])
+            split_sentences = str(long_sentence.split(','))
+            sentences += split_sentences
+            
         return_list = auto_label(sentence)
         tokens_list.append(return_list[0])
         tags_list.append(return_list[1])
     
     return tokens_list, tags_list
               
-
+with open ("C:/Users/Administrator.ADMINTR-S0JT5RL/Downloads/parsed-ai-act.txt", "r", encoding='utf-8') as ai_act:
     
-print(paragraph_to_labeled_sentences(input('input Paragraph to be tagged \n')))
+    
+    token_list, tags_list = paragraph_to_labeled_sentences(ai_act.read())
+    df = pd.DataFrame(list(zip(token_list, tags_list)), columns = ['tokens', 'ner_tags'])
+    with open('training-data.jsonl', mode ='w') as writer:
+        writer.write(df.to_json(orient='records', lines=True, force_ascii=False))
