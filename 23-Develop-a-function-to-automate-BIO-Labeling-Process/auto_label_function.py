@@ -1,6 +1,6 @@
 import pandas as pd 
-import jsonlines
 
+#Master entity dictionary. 
 master_dict = {"ORG": 
             {"provider", "providers", "distributor", "deployer", "operator", "notifying authority", "conformity assessment body", "notified body", "market surveillance authority", "digital innovation hubs", "testing experimentation facilities", "researchers", "importer", "the commission", "businesses", "government"},
             "PER": {"authorised representative", "competent authorities"}, "DAT": {"training data", "validation data", "testing data", "input data", "biometric data", "special categories of personal data", "sensitive operational data", "high quality datasets", "high quality data", "health data", "datasets"},
@@ -32,7 +32,9 @@ def dict_search (ner_tags, curr_string, curr_index, prefix):
             ner_tags[curr_index] = tag
             return str(entity)
     return "false"
-    
+ 
+ #Takes in token, list of tokens, and index of token to be split 
+ #splits tokens with brackets/punctuation/whatever else and makes those seperate tokens,    
 def punc_split(token, tokens, index, startpunc,endpunc):
     
     last_element = token[len(token)-1]
@@ -55,14 +57,10 @@ def punc_split(token, tokens, index, startpunc,endpunc):
         
     return tokens
     
-    
-    
-
 #This function works on the scale of a sentence it splits the sentence into tokens using space as the delimeter then assigns NER tags to each token
 def auto_label(sentence):
     tokens = sentence.split()
     ner_tags = []
-    
     
     #Splitting punctuation into seperate words for the sake of cleaner training data
     for token in tokens:
@@ -116,7 +114,7 @@ def auto_label(sentence):
     return return_list
         
 '''
-Recursive ;abelling function, 
+Recursive labelling function, 
 it takes in the list of tokens, ner tags, current index and starting index along with the current string
 It passes up the current string + the string stored in the current index of the tokens list 
 then recursively calls itself on the next index of the tokens list until it reaches the end
@@ -129,6 +127,7 @@ if the match is found dict_search returns the entity name and the function recur
 returning to the start index which will add "B-" and finally return
 if the match is not found even after solely the token in the start index is searched it will label itself as "O"
 '''
+
 def label(tokens, ner_tags, curr_index, start_index, curr_string):
     #Adding new word onto old one
     string = tokens[curr_index]
@@ -177,6 +176,7 @@ def paragraph_to_labeled_sentences(paragraph):
     tags_list = []
      
     for sentence in sentences:
+        #for the sake of context length and not hitting the recursion limit because the punctuation in the AI act draft is unique to say the least.
         if len(sentence) >= 511:
             
             long_sentence = ' '.join([str(word) for word in sentence])
@@ -188,11 +188,14 @@ def paragraph_to_labeled_sentences(paragraph):
         tags_list.append(return_list[1])
     
     return tokens_list, tags_list
-              
+
+#Reads from the ai act parsed by Dylans parsing function.              
 with open ("C:/Users/Administrator.ADMINTR-S0JT5RL/Downloads/parsed-ai-act.txt", "r", encoding='utf-8') as ai_act:
     
     
     token_list, tags_list = paragraph_to_labeled_sentences(ai_act.read())
+    #Creates column for tokens and column for tags, 
     df = pd.DataFrame(list(zip(token_list, tags_list)), columns = ['tokens', 'ner_tags'])
+    #Outputs the tokens and ner tags, into training data jsonl
     with open('training-data.jsonl', mode ='w') as writer:
         writer.write(df.to_json(orient='records', lines=True, force_ascii=False))
