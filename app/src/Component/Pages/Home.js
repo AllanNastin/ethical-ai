@@ -11,7 +11,7 @@ function Home({ onUploadSuccess }) {
     let formData = new FormData();
     formData.append('file', file);
 
-    fetch('http://localhost:8000/upload', {
+    fetch('https://group22.api.sprinty.tech/upload', {
       method: 'POST',
       body: formData
     })
@@ -32,12 +32,12 @@ function Home({ onUploadSuccess }) {
       .catch(error => console.log('There was a problem with the fetch operation: ' + error.message));
   };
 
-// const handleButtonClick = () => {
-//   // test get
-//   fetch('http://localhost:8000')
-//     .then(response => response.text())
-//     .then(data => console.log(data));
-// }
+  const handleButtonClick = () => {
+    // test get
+    fetch('https://group22.api.sprinty.tech/')
+      .then(response => response.text())
+      .then(data => console.log(data));
+  }
 
   return (
     <div className="home">
@@ -49,7 +49,7 @@ function Home({ onUploadSuccess }) {
           <h1>Creating Trustworthy and Ethical AI</h1>
           <p>Test your AI model to see if it is compliant with the EU AI Act</p>
           {/* sample button to test fetch */}
-          {/* <button onClick={handleButtonClick}>Test Fetch {"(Check Console)"}</button> */}
+          <button onClick={handleButtonClick}>Test Fetch {"(Check Console)"}</button>
           <PDFUpload onUpload={handlePDFUpload} />
         </div>
       </div>

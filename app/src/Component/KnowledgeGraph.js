@@ -21,8 +21,8 @@ export default function KnowledgeGraph() {
         // console.log("Fetched data: ", fetchedData); // Debug fetchedData
         if (fetchedData) {
           // Transform the data into the format { nodes: [], edges: [] }
-          const nodes = fetchedData.map(item => item.node);
-          const edges = fetchedData.map(item => item.edge);
+          const nodes = fetchedData.filter(item => item.nodes).map(item => item.nodes);
+          const edges = fetchedData.filter(item => item.edges).map(item => item.edges);
           const graphData = { nodes, edges };
           // setGraphData(graphData);
           setFilteredGraphData(graphData);
@@ -81,7 +81,6 @@ export default function KnowledgeGraph() {
       updatedEdges = updatedEdges.filter(edge => 
         filteredNodeIds.has(edge.from) && filteredNodeIds.has(edge.to));
     }
-  
     setFilteredGraphData({ nodes: updatedNodes, edges: updatedEdges });
   };  
 
@@ -218,5 +217,3 @@ export default function KnowledgeGraph() {
     </div>
   );
 }
-
-
