@@ -38,6 +38,8 @@ jobs:
           push: true
           tags: ghcr.io/allannastin/ethical-ai-server:latest
           platforms: linux/amd64,linux/arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   frontend:
     runs-on: ubuntu-latest
@@ -68,3 +70,5 @@ jobs:
           push: true
           tags: ghcr.io/allannastin/ethical-ai-client:latest
           platforms: linux/amd64,linux/arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
