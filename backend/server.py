@@ -3,7 +3,7 @@ from flask_cors import CORS
 import os
 from werkzeug.utils import secure_filename
 
-ALLOWED_ORIGINS = {'http://localhost:3000'}
+ALLOWED_ORIGINS = {'http://localhost:3000', 'https://group22.sprinty.tech'}
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": ALLOWED_ORIGINS}})
