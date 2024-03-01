@@ -2,7 +2,7 @@ name: Docker Build
 
 on:
   push:
-    # branches: [main]
+    branches: [main]
   workflow_run:
     workflows: ["Run Backend Tests", "Run Frontend Tests"]
     types:
