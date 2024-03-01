@@ -7,7 +7,7 @@ on: push
     # branches: [dev] # for specific branch pull request
 
 jobs:
-  run-script:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
