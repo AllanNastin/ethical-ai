@@ -1,12 +1,15 @@
-FROM node:19
+FROM node:19-alpine
 
 WORKDIR /usr/src/app
 
-COPY package.json ./
-COPY package-lock.json ./
+COPY package*.json ./
 
 RUN npm install -g serve
-RUN npm install
+RUN npm ci
+
+# Create a non-root user and switch to it
+RUN adduser --disabled-password --gecos '' appuser
+USER appuser
 
 COPY . .
 

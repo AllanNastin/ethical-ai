@@ -1,4 +1,4 @@
-name: Run Backend Tests Script
+name: Run Backend Tests
 
 on:
   push: # all pushes will run checks
