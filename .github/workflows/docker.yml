@@ -60,7 +60,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v4
         with:
-          context: ./frontend
+          context: ./app
           push: true
           tags: ghcr.io/allannastin/ethical-ai-client:latest
           platforms: linux/amd64,linux/arm64
