@@ -1,7 +1,7 @@
 name: Run Backend Tests
 
-on:
-  push: # all pushes will run checks
+on: push
+  # all pushes will run checks
     # branches: [ "32-create-cicd-workflow" ] # for specific branch push
   # pull_request: # for all pull requests
     # branches: [dev] # for specific branch pull request
