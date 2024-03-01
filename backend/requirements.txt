@@ -3,3 +3,6 @@ transformers
 networkx
 pyvis
 torch
+Flask
+flask_cors
+PyExecJS

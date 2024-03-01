@@ -6,6 +6,17 @@ If you have an Nvidia GPU, consider installing (py)torch with the instructions f
 pip install -r requirements.txt
 ```
 
+## `server.py`
+Creates 2 endpoints at `http://localhost:3000`  
+`GET http://localhost:3000` returns `Hello, GET Method`  
+`POST http://localhost:3000/upload` takes PDF file, returns predefined graph data in JSONL containing nodes and edges.
+
+## `js_to_jsonl.py`
+Use: `js_to_jsonl(inputFileName,outputFileName)`  
+`inputFileName` is required, `outputFileName` can be `None` to be same as `inputFileName`.
+
+Changes a js data file to JSONL file (must define objects at end e.g.  `module.exports = { nodes, edges };`).
+
 ## `pdf_to_str.py`
 Python script to convert raw pdf to a string. It's tailored specifically to the current `ai-act-draft.pdf` in the `ai_act/` directory.
 
