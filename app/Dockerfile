@@ -11,6 +11,11 @@ RUN npm ci
 RUN adduser --disabled-password --gecos '' appuser
 USER appuser
 
+# Change ownership of the work directory to the non-root user
+USER root
+RUN chown -R appuser /usr/src/app
+USER appuser
+
 COPY . .
 
 RUN npm run build
