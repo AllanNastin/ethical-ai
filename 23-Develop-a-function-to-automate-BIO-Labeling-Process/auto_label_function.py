@@ -311,9 +311,6 @@ def label_studio_format(tokens_list, tag_lists, setnences):
                     end = end + len(curr_tag)
                     index+=1
                     curr_tag = tag_list[index]
-            
-            else:
-                pass 
 
             
                 output += f"""            
@@ -352,7 +349,7 @@ def label_studio_format(tokens_list, tag_lists, setnences):
 #Reads from the ai act parsed by Dylans parsing function.              
 with open ("C:/Users/Administrator.ADMINTR-S0JT5RL/Downloads/parsed-ai-act.txt", "r", encoding='utf-8') as ai_act:
     
-    token_list, tags_list, sentences= paragraph_to_labeled_sentences("providers provide things. I am placing on the market secure. I love datasets")
+    token_list, tags_list, sentences= paragraph_to_labeled_sentences("providers provide things. I am placing on the market secure datasets. I love datasets")
     labelstudio = label_studio_format(token_list, tags_list, sentences)
     #Creates column for tokens and column for tags, 
     # df = pd.DataFrame(list(zip(token_list, tags_list)), columns = ['tokens', 'ner_tags'])
