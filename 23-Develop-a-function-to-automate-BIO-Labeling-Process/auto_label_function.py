@@ -1,7 +1,7 @@
 import pandas as pd 
 import random
 import string
-
+import json
 #Master entity dictionary. 
 master_dict = {"ORG": 
             {"provider", "providers", "distributor", "deployer", "operator", "notifying authority", "conformity assessment body", "notified body", "market surveillance authority", "digital innovation hubs", "testing experimentation facilities", "researchers", "importer", "the commission", "businesses", "government"},
@@ -235,6 +235,8 @@ def label(tokens, ner_tags, curr_index, start_index, curr_string):
             
 def paragraph_to_labeled_sentences(paragraph):
     sentences = paragraph.split(".")
+    for i in range(len(sentences)):
+        sentences[i] = sentences[i].lstrip()
     tokens_list = []
     tags_list = []
     sentence_list = []
@@ -267,7 +269,7 @@ def paragraph_to_labeled_sentences(paragraph):
     return tokens_list, tags_list, sentences
 
 
-def label_studio_format(tokens_list, tag_lists, setnences):
+def label_studio_format(tokens_list, tag_lists, sentences):
     
     start = 0;
     end = 0;
@@ -310,7 +312,8 @@ def label_studio_format(tokens_list, tag_lists, setnences):
                     text = text + " " + tokens_list[sentence_index][index]
                     end = end + len(curr_tag)
                     index+=1
-                    curr_tag = tag_list[index]
+                    if index < len(tag_list):
+                        curr_tag = tag_list[index]
 
             
                 output += f"""            
@@ -343,18 +346,97 @@ def label_studio_format(tokens_list, tag_lists, setnences):
     return output
 
 
-                
-    
+def is_alphanumeric_without_hyphen(word):
+    return word.replace('-', '').isalnum()
+def get_character_index(word_list, target_word_index):
+    if target_word_index < 0 or target_word_index >= len(word_list):
+        return -1  # Invalid index
+
+    character_index = 0
+    for i in range(target_word_index):
+        word = word_list[i]
+        if word.isalnum():  # If the word contains only alphanumeric characters
+            character_index += len(word) + 1
+        elif ("-" in word and is_alphanumeric_without_hyphen(word)):
+            character_index += len(word) + 1
+        else:
+            character_index += len(word)  # Add the length of the punctuation or bracket
+
+
+
+    return character_index
+
+
+
+
+
+def better_studio(tokens_list, tag_lists, sentences):
+    output = []
+    i = 0
+    for i in range(len(sentences)):
+        output.append({})
+        output[len(output) - 1]["id"] = 2
+        output[len(output)-1]["data"] = {"text" : sentences[i]}
+        output[len(output) - 1]["predictions"] = [{}]
+
+        entity_starts = []
+        for j in range(len(tag_lists[i])):
+            if tag_lists[i][j][0] == "B":
+                entity_starts.append(j)
+
+        if (len(entity_starts) == 0):
+            break
+
+        output[len(output) - 1]["predictions"][0]["result"] = []
+        for k in range(len(entity_starts)):
+            output[len(output) - 1]["predictions"][0]["result"].append({})
+            output[len(output) - 1]["predictions"][0]["result"][k]["value"] = {}
+            span = 0
+
+            tag_index = entity_starts[k]
+            while tag_index < len(tag_lists[i]) and not (tag_lists[i][tag_index][0] == "O" or tag_lists[i][tag_index][0] == "B"):
+                tag_index += 1
+            span = tag_index - entity_starts[k]
+
+            start_index = get_character_index(tokens_list[i], entity_starts[k])
+
+            output[len(output) - 1]["predictions"][0]["result"][k]["value"]["start"] = start_index
+
+            end_index = get_character_index(tokens_list[i], entity_starts[k])
+            for l in range(span+1):
+                end_index += len(tokens_list[i][entity_starts[k] + l])
+
+            output[len(output) - 1]["predictions"][0]["result"][k]["value"]["end"] = end_index
+            output[len(output) - 1]["predictions"][0]["result"][k]["value"]["text"] = sentences[i][start_index:end_index]
+            output[len(output) - 1]["predictions"][0]["result"][k]["value"]["labels"] = [tag_lists[i][entity_starts[k]].replace("B-", "")]
+
+            output[len(output) - 1]["predictions"][0]["result"][k]["id"] = get_random_string(16)
+            output[len(output) - 1]["predictions"][0]["result"][k]["from_name"] = "label"
+            output[len(output) - 1]["predictions"][0]["result"][k]["to_name"] = "text"
+            output[len(output) - 1]["predictions"][0]["result"][k]["type"] = "labels"
+            output[len(output) - 1]["predictions"][0]["result"][k]["origin"] = "auto"
+
+
+    return output
 
 #Reads from the ai act parsed by Dylans parsing function.              
-with open ("C:/Users/Administrator.ADMINTR-S0JT5RL/Downloads/parsed-ai-act.txt", "r", encoding='utf-8') as ai_act:
-    
-    token_list, tags_list, sentences= paragraph_to_labeled_sentences("providers provide things. I am placing on the market secure datasets. I love datasets")
-    labelstudio = label_studio_format(token_list, tags_list, sentences)
-    #Creates column for tokens and column for tags, 
-    # df = pd.DataFrame(list(zip(token_list, tags_list)), columns = ['tokens', 'ner_tags'])
-    #Outputs the tokens and ner tags, into training data jsonl
-    with open('training-data.jsonl', mode ='w') as writer:
-      writer.write(labelstudio)
+with open ("important.txt", "r", encoding='utf-8') as ai_act:
+    full_text = ai_act.read()
+    paragraphs = full_text.split("\n\n")
+    for i in range(len(paragraphs)):
+        paragraphs[i] = paragraphs[i].replace("\n", "")
+        while len(paragraphs[i]) != 0 and (paragraphs[i][0] == " "):
+            paragraphs[i] = paragraphs[i][1:]
+
+    i = 0
+    output_list = []
+    for paragraph in paragraphs:
+        token_list, tags_list, sentences = paragraph_to_labeled_sentences(paragraph)
+        output_list = output_list + better_studio(token_list, tags_list, sentences)
+        
+        # Outputs the tokens and ner tags into training data jsonl
+        with open(f'training-data-final.jsonl', mode='w') as json_file:
+            json.dump(output_list, json_file, indent=4)
+        i+=1
     
    # print(df)
