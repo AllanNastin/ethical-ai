@@ -384,19 +384,20 @@ def better_studio(tokens_list, tag_lists, sentences):
             if tag_lists[i][j][0] == "B":
                 entity_starts.append(j)
 
+        output[len(output) - 1]["predictions"][0]["result"] = []
         if (len(entity_starts) == 0):
             break
 
-        output[len(output) - 1]["predictions"][0]["result"] = []
+
         for k in range(len(entity_starts)):
             output[len(output) - 1]["predictions"][0]["result"].append({})
             output[len(output) - 1]["predictions"][0]["result"][k]["value"] = {}
             span = 0
 
-            tag_index = entity_starts[k]
-            while tag_index < len(tag_lists[i]) and not (tag_lists[i][tag_index][0] == "O" or tag_lists[i][tag_index][0] == "B"):
-                tag_index += 1
-            span = tag_index - entity_starts[k]
+            next_tag_index = entity_starts[k] + 1
+            while next_tag_index < len(tag_lists[i]) and (tag_lists[i][next_tag_index][0] == "I"):
+                next_tag_index += 1
+            span = (next_tag_index-1) - entity_starts[k]
 
             start_index = get_character_index(tokens_list[i], entity_starts[k])
 
@@ -405,7 +406,7 @@ def better_studio(tokens_list, tag_lists, sentences):
             end_index = get_character_index(tokens_list[i], entity_starts[k])
             for l in range(span+1):
                 end_index += len(tokens_list[i][entity_starts[k] + l])
-
+            end_index += span #Counting spaces
             output[len(output) - 1]["predictions"][0]["result"][k]["value"]["end"] = end_index
             output[len(output) - 1]["predictions"][0]["result"][k]["value"]["text"] = sentences[i][start_index:end_index]
             output[len(output) - 1]["predictions"][0]["result"][k]["value"]["labels"] = [tag_lists[i][entity_starts[k]].replace("B-", "")]
@@ -435,7 +436,7 @@ with open ("important.txt", "r", encoding='utf-8') as ai_act:
         output_list = output_list + better_studio(token_list, tags_list, sentences)
         
         # Outputs the tokens and ner tags into training data jsonl
-        with open(f'training-data-final.jsonl', mode='w') as json_file:
+        with open(f'training-data-final.json', mode='w') as json_file:
             json.dump(output_list, json_file, indent=4)
         i+=1
     
