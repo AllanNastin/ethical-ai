@@ -1,4 +1,6 @@
 import pandas as pd 
+import random
+import string
 
 #Master entity dictionary. 
 master_dict = {"ORG": 
@@ -17,13 +19,73 @@ master_dict = {"ORG":
 
 
             }
-#I opted to go with a dictionary of sets rather than lists as they have a lookup time of O(1)
 
+label2id  = {
+            "O" :   0,
+            "B-ORG":1,
+            "B-PER":2,
+            "B-SYS":3,
+            "B-ACT":4,
+            "B-SPA":5,
+            "B-STA":6,
+            "B-ALG":7,
+            "B-PRO":8,
+            "B-HAR":9,
+            "B-MAR":10,
+            "B-DOC":11,
+            "B-ETH":12,
+            "I-ORG":13,
+            "I-PER":14,
+            "I-SYS":15,
+            "I-ACT":16,
+            "I-SPA":17,
+            "I-STA":18,
+            "I-ALG":19,
+            "I-PRO":20,
+            "I-HAR":21,
+            "I-MAR":22,
+            "I-DOC":23,
+            "I-ETH":24}
+
+id2label = {
+            0:"O",   
+            1:"B-ORG",
+            2:"B-PER",
+            3:"B-SYS",
+            4:"B-ACT",
+            5:"B-SPA",
+            6:"B-STA",
+            7:"B-ALG",
+            8:"B-PRO",
+            9:"B-HAR",
+            10:"B-MAR",
+            11:"B-DOC",
+            12:"B-ETH",
+            13:"I-ORG",
+            14:"I-PER",
+            15:"I-SYS",
+            16:"I-ACT",
+            17:"I-SPA",
+            18:"I-STA",
+            19:"I-ALG",
+            20:"I-PRO",
+            21:"I-HAR",
+            22:"I-MAR",
+            23:"I-DOC",
+            24:"I-ETH"}
+
+#I opted to go with a dictionary of sets rather than lists as they have a lookup time of O(1).
+
+def get_random_string(length):
+    # choose from all lowercase letter
+    letters = string.ascii_lowercase
+    result_str = ''.join(random.choice(letters) for i in range(length))
+    return result_str
 
 '''
 This function searches every key in the dictionary and
-then checks if the lower case version of the current string is in the set of that master entity
-if it finds a matching entity it will return it to the autolabel program, if not it will return false
+then checks if the lower case version of the current string is in the set of that master entity.
+If it finds a matching entity it will return it to the autolabel program, if not it will return false.
 '''
 def dict_search (ner_tags, curr_string, curr_index, prefix):
     for entity in master_dict:
@@ -34,7 +96,7 @@ def dict_search (ner_tags, curr_string, curr_index, prefix):
     return "false"
  
  #Takes in token, list of tokens, and index of token to be split 
- #splits tokens with brackets/punctuation/whatever else and makes those seperate tokens,    
+ #splits tokens with brackets/punctuation/whatever else and makes those seperate tokens.    
 def punc_split(token, tokens, index, startpunc,endpunc):
     
     last_element = token[len(token)-1]
@@ -129,6 +191,7 @@ if the match is not found even after solely the token in the start index is sear
 '''
 
 def label(tokens, ner_tags, curr_index, start_index, curr_string):
+    prefix = ""
     #Adding new word onto old one
     string = tokens[curr_index]
     if curr_index >= 511:
@@ -174,6 +237,8 @@ def paragraph_to_labeled_sentences(paragraph):
     sentences = paragraph.split(".")
     tokens_list = []
     tags_list = []
+    sentence_list = []
+    int_tags_list = []
      
     for sentence in sentences:
         #for the sake of context length and not hitting the recursion limit because the punctuation in the AI act draft is unique to say the least.
@@ -186,16 +251,113 @@ def paragraph_to_labeled_sentences(paragraph):
         return_list = auto_label(sentence)
         tokens_list.append(return_list[0])
         tags_list.append(return_list[1])
+        
+        
+
+        
+        
+      #  for tag in return_list[1]:
+            
+          #  int_tags.append(label2id.get(tag))
+        
+      #  int_tags_list.append(int_tags)
+            
+                
     
-    return tokens_list, tags_list
+    return tokens_list, tags_list, sentences
+
+
+def label_studio_format(tokens_list, tag_lists, setnences):
+    
+    start = 0;
+    end = 0;
+    text = "";
+    label = ""; 
+    output = "";
+    entity = False
+    sentence_index = 0;
+    
+ 
+    for sentence in sentences:
+        output += f"""{{  
+  "data": {{
+  "text": "{sentence}"
+  }},
+    "predictions": [{{
+      "result": ["""
+        
+        tag_list = tag_lists[sentence_index]    
+        index = 0
+        entity = False
+        
+        for index in range (len(tag_list)):
+            tag = tag_list[index]
+
+            if tag[0] == "B":
+                id = get_random_string(10)
+                start = sentence.find(tokens_list[sentence_index][index])
+                label = tag[2:len(tag)]
+                end =  start + len(tag)
+                text = tokens_list[sentence_index][index]
+                index +=1
+                if index < len(tag_list):
+                    curr_tag = tag_list[index]
+                entity = True
+                
+                
+                while(curr_tag[0] == "I" and index < len(tag_list)):    
+                    
+                    text = text + " " + tokens_list[sentence_index][index]
+                    end = end + len(curr_tag)
+                    index+=1
+                    curr_tag = tag_list[index]
+            
+            else:
+                pass 
+
+            
+                output += f"""            
+      {{
+        "value": {{
+          "start": {start},
+          "end": {end},
+          "text": "{text}",
+          "labels": [
+          "{label}"
+          ]
+        }},
+          "id": {id},
+          "from_name": "label",
+          "to_name": "text",
+          "type": "labels",
+          "origin": "manual"
+        }},"""
+                    
+                index +=1
+        if entity:
+                output += """  
+         ]
+   }]
+}, 
+  """
+        sentence_index +=1
+    output = "[" + output + "]"
+    
+    return output
+
+
+                
+    
 
 #Reads from the ai act parsed by Dylans parsing function.              
 with open ("C:/Users/Administrator.ADMINTR-S0JT5RL/Downloads/parsed-ai-act.txt", "r", encoding='utf-8') as ai_act:
     
-    
-    token_list, tags_list = paragraph_to_labeled_sentences(ai_act.read())
+    token_list, tags_list, sentences= paragraph_to_labeled_sentences("providers provide things. I am placing on the market secure. I love datasets")
+    labelstudio = label_studio_format(token_list, tags_list, sentences)
     #Creates column for tokens and column for tags, 
-    df = pd.DataFrame(list(zip(token_list, tags_list)), columns = ['tokens', 'ner_tags'])
+    # df = pd.DataFrame(list(zip(token_list, tags_list)), columns = ['tokens', 'ner_tags'])
     #Outputs the tokens and ner tags, into training data jsonl
     with open('training-data.jsonl', mode ='w') as writer:
-        writer.write(df.to_json(orient='records', lines=True, force_ascii=False))
+      writer.write(labelstudio)
+    
+   # print(df)
