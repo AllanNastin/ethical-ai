@@ -1,0 +1,474 @@
+[
+	{
+		"id":1,
+		"data": 
+			{
+				"text": "A risk management system shall be established, implemented, documented and maintained in relation to high-risk AI systems."
+			},
+		"predictions":
+		[
+			{
+				"result": [
+				    {
+					"value": {
+					    "start": 2,
+					    "end": 24,
+					    "text": "risk management system",
+					    "labels": [
+						"Defined_Entity"
+					    ]
+					},
+					"id": "B3Ki1FH5e8",
+					"from_name": "label",
+					"to_name": "text",
+					"type": "labels",
+					"origin": "manual"
+				    },
+				    {
+					"value": {
+					    "start": 101,
+					    "end": 122,
+					    "text": "high-risk AI systems.",
+					    "labels": [
+						"Defined_Entity"
+					    ]
+					},
+					"id": "TUZthgV7xf",
+					"from_name": "label",
+					"to_name": "text",
+					"type": "labels",
+					"origin": "manual"
+				    },
+				    {
+					"value": {
+					    "start": 34,
+					    "end": 45,
+					    "text": "established",
+					    "labels": [
+						"Task"
+					    ]
+					},
+					"id": "X4TwkPatQW",
+					"from_name": "label",
+					"to_name": "text",
+					"type": "labels",
+					"origin": "manual"
+				    },
+				    {
+					"value": {
+					    "start": 47,
+					    "end": 58,
+					    "text": "implemented",
+					    "labels": [
+						"Task"
+					    ]
+					},
+					"id": "hUmrEQzsn8",
+					"from_name": "label",
+					"to_name": "text",
+					"type": "labels",
+					"origin": "manual"
+				    },
+				    {
+					"value": {
+					    "start": 60,
+					    "end": 70,
+					    "text": "documented",
+					    "labels": [
+						"Task"
+					    ]
+					},
+					"id": "c2KdzGHL3t",
+					"from_name": "label",
+					"to_name": "text",
+					"type": "labels",
+					"origin": "manual"
+				    },
+				    {
+					"value": {
+					    "start": 75,
+					    "end": 85,
+					    "text": "maintained",
+					    "labels": [
+						"Task"
+					    ]
+					},
+					"id": "y4SAmnuDsz",
+					"from_name": "label",
+					"to_name": "text",
+					"type": "labels",
+					"origin": "manual"
+				    }
+			}]
+	},
+	{
+
+		"id":2,
+		"data":
+			{
+				"text": "The risk management system shall be understood as a continuous iterative process planned and run throughout the entire lifecycle of a high-risk AI system, requiring regular systematic review and updating. It shall comprise the following steps"
+			},
+		"predictions":
+		[{
+			"result": [
+			    {
+				"value": {
+				    "start": 4,
+				    "end": 26,
+				    "text": "risk management system",
+				    "labels": [
+					"Defined_Entity"
+				    ]
+				},
+				"id": "yTdKWPrqZ9",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 134,
+				    "end": 153,
+				    "text": "high-risk AI system",
+				    "labels": [
+					"Defined_Entity"
+				    ]
+				},
+				"id": "8f12u3vDri",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 52,
+				    "end": 80,
+				    "text": "continuous iterative process",
+				    "labels": [
+					"Task"
+				    ]
+				},
+				"id": "wjknfV-E8K",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 119,
+				    "end": 128,
+				    "text": "lifecycle",
+				    "labels": [
+					"Other"
+				    ]
+				},
+				"id": "07EEvl1UGS",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 184,
+				    "end": 190,
+				    "text": "review",
+				    "labels": [
+					"Task"
+				    ]
+				},
+				"id": "n90osdarJr",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 195,
+				    "end": 203,
+				    "text": "updating",
+				    "labels": [
+					"Task"
+				    ]
+				},
+				"id": "7MjbxlOpGS",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    }
+			]
+		}]
+
+	},
+	{
+		"id": 3,
+		"data":
+			{
+				"text": "identification and analysis of the known and the reasonably foreseeable risks that the high-risk AI system can pose to the health, safety or fundamental rights when the high-risk AI system is used in accordance with its intended purpose"
+			},
+		"predictions":
+		[{
+			"result": [
+			    {
+				"value": {
+				    "start": 0,
+				    "end": 14,
+				    "text": "identification",
+				    "labels": [
+					"Task"
+				    ]
+				},
+				"id": "DzmRmbboBc",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 19,
+				    "end": 27,
+				    "text": "analysis",
+				    "labels": [
+					"Task"
+				    ]
+				},
+				"id": "4DRSle5YR6",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 72,
+				    "end": 77,
+				    "text": "risks",
+				    "labels": [
+					"Other"
+				    ]
+				},
+				"id": "pXrMRBeT0m",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 87,
+				    "end": 106,
+				    "text": "high-risk AI system",
+				    "labels": [
+					"Defined_Entity"
+				    ]
+				},
+				"id": "SI7MXtAKxt",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 169,
+				    "end": 188,
+				    "text": "high-risk AI system",
+				    "labels": [
+					"Defined_Entity"
+				    ]
+				},
+				"id": "AnBYgdHdrV",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    }
+			]
+		}]
+
+	},
+	{
+		"id": 4,
+		"data":
+			{
+				"text": "estimation and evaluation of the risks that may emerge when the high-risk AI system is used in accordance with its intended purpose and under conditions of reasonably foreseeable misuse"
+
+			},
+		"predictions":
+		[{
+			"result": [
+			    {
+				"value": {
+				    "start": 0,
+				    "end": 10,
+				    "text": "estimation",
+				    "labels": [
+					"Task"
+				    ]
+				},
+				"id": "jakRDn_O7G",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 15,
+				    "end": 25,
+				    "text": "evaluation",
+				    "labels": [
+					"Task"
+				    ]
+				},
+				"id": "NeblHiBWb8",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 33,
+				    "end": 38,
+				    "text": "risks",
+				    "labels": [
+					"Other"
+				    ]
+				},
+				"id": "W7g5pHzmUM",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 64,
+				    "end": 83,
+				    "text": "high-risk AI system",
+				    "labels": [
+					"Defined_Entity"
+				    ]
+				},
+				"id": "yF4w6ML9iI",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 115,
+				    "end": 131,
+				    "text": "intended purpose",
+				    "labels": [
+					"Other"
+				    ]
+				},
+				"id": "r7iaGVHknN",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    }
+			]
+		}]
+
+	},
+	{
+		"id": 5,
+		"data":
+			{
+				"text": "evaluation of other possibly arising risks based on the analysis of data gathered from the post-market monitoring system referred to in Article 61"
+
+			},
+		"predictions":
+		[{
+			"result": [
+			    {
+				"value": {
+				    "start": 0,
+				    "end": 10,
+				    "text": "evaluation",
+				    "labels": [
+					"Task"
+				    ]
+				},
+				"id": "z45H0P-JdE",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 37,
+				    "end": 42,
+				    "text": "risks",
+				    "labels": [
+					"Other"
+				    ]
+				},
+				"id": "neEMWYv0z1",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 56,
+				    "end": 64,
+				    "text": "analysis",
+				    "labels": [
+					"Task"
+				    ]
+				},
+				"id": "J92dlzTTFi",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 91,
+				    "end": 120,
+				    "text": "post-market monitoring system",
+				    "labels": [
+					"Defined_Entity"
+				    ]
+				},
+				"id": "1VBUAboO8n",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 136,
+				    "end": 146,
+				    "text": "Article 61",
+				    "labels": [
+					"Article"
+				    ]
+				},
+				"id": "chywCh_6fN",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    }
+			]
+		}]
+
+	}
+]

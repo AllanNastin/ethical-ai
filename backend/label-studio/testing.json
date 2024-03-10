@@ -1,0 +1,104 @@
+[
+{
+	"id": 1,
+	"data": 
+		{
+			"text": "A risk management system shall be established, implemented, documented and maintained in relation to high-risk AI systems."
+		},
+	"predictions":
+	[{
+			"result": [
+			    {
+				"value": {
+				    "start": 2,
+				    "end": 24,
+				    "text": "risk management system",
+				    "labels": [
+					"Defined_Entity"
+				    ]
+				},
+				"id": "B3Ki1FH5e8",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 101,
+				    "end": 122,
+				    "text": "high-risk AI systems.",
+				    "labels": [
+					"Defined_Entity"
+				    ]
+				},
+				"id": "TUZthgV7xf",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 34,
+				    "end": 45,
+				    "text": "established",
+				    "labels": [
+					"Task"
+				    ]
+				},
+				"id": "X4TwkPatQW",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 47,
+				    "end": 58,
+				    "text": "implemented",
+				    "labels": [
+					"Task"
+				    ]
+				},
+				"id": "hUmrEQzsn8",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 60,
+				    "end": 70,
+				    "text": "documented",
+				    "labels": [
+					"Task"
+				    ]
+				},
+				"id": "c2KdzGHL3t",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    },
+			    {
+				"value": {
+				    "start": 75,
+				    "end": 85,
+				    "text": "maintained",
+				    "labels": [
+					"Task"
+				    ]
+				},
+				"id": "y4SAmnuDsz",
+				"from_name": "label",
+				"to_name": "text",
+				"type": "labels",
+				"origin": "manual"
+			    }
+			]
+		}]
+}
+]
