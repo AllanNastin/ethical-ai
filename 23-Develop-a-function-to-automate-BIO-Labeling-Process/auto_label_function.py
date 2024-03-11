@@ -81,8 +81,9 @@ def set_to_lower():
     for entity in master_dict.copy():
         strings = master_dict[entity]   
         for string in strings.copy():
-            master_dict[entity].add(string.lower())
             master_dict[entity].remove(string)
+            master_dict[entity].add(string.lower())
+            
             
 def get_random_string(length):
     # choose from all lowercase letter
