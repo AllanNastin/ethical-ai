@@ -37,8 +37,9 @@ class TestBetterStudio(unittest.TestCase):
     # FAIL - When getting the start index for entity. 
     # Note - It is able to get the labels and the text ie SYS + PER and Ai system + natural persons
 
-    def test_better_studio_with_specific_output(self):
+    def test_better_studio(self):
 
+        # Example sentence 1
         tokens_list = [["AI", "systems", "providing", "social", "scoring", "of", "natural", "persons", "by", "public", "or", "private", "actors", "may", "lead", "to", "discriminatory", "outcomes", "and", "the", "exclusion", "of", "certain", "groups"]]
         tag_lists = [["B-SYS", "I-SYS", "O", "O", "O", "O", "B-PER", "I-PER", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]]
         sentences = ["AI systems providing social scoring of natural persons by public or private actors may lead to discriminatory outcomes and the exclusion of certain groups."]
@@ -48,6 +49,17 @@ class TestBetterStudio(unittest.TestCase):
 
         expected_starts = [0, 42]  
         expected_ends = [10, 55]  
+
+         # Example sentence 2
+        # tokens_list = [["Technical", "inaccuracies", "of", "AI", "systems", "intended", "for", "the", "remote", "biometric", "identification", "of", "natural", "persons", "can", "lead", "to", "biased", "results", "and", "entail", "discriminatory", "effects."]]
+        # tag_lists = [["O", "O", "O", "B-SYS", "I-SYS", "O", "O", "O", "O", "B-ALG", "I-ALG", "O", "B-PER", "I-PER", "O", "O", "O", "O", "O", "O", "O", "O", "O"]]
+        # sentences = ["Technical inaccuracies of AI systems intended for the remote biometric identification of natural persons can lead to biased results and entail discriminatory effects."]
+
+        # expected_labels = ["SYS", "ALG", "PER"]
+        # expected_texts = ["AI systems", "biometric identification", "natural persons"]
+
+        # expected_starts = [27, 54, 77]  
+        # expected_ends = [35, 75, 90] 
 
         output = better_studio(tokens_list, tag_lists, sentences)
 
@@ -60,7 +72,7 @@ class TestBetterStudio(unittest.TestCase):
             self.assertIn(label, result['value']['labels'], f"Entity '{expected_texts[idx]}' with label '{label}' not found.")
             self.assertEqual(result['value']['text'], expected_texts[idx], f"Text for entity '{label}' does not match.")
             self.assertEqual(result['value']['start'], expected_starts[idx], f"Start index for entity '{label}' does not match.")
-            self.assertEqual(result['value']['end'], expected_ends[idx], f"End index for entity '{label}' does not match.")       
+            self.assertEqual(result['value']['end'], expected_ends[idx], f"End index for entity '{label}' does not match.")      
             
 class TestGetCharacterIndex(unittest.TestCase):
     # This function is to test get_character_index within the better_studio
