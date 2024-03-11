@@ -75,8 +75,19 @@ id2label = {
             23:"I-DOC",
             24:"I-ETH"}
 
-#I opted to go with a dictionary of sets rather than lists as they have a lookup time of O(1).
 
+USED_IDS = []
+
+#I opted to go with a dictionary of sets rather than lists as they have a lookup time of O(1).
+#changes all strings in set to lowercase 
+def set_to_lower():
+    for entity in master_dict.copy():
+        strings = master_dict[entity]   
+        for string in strings.copy():
+            master_dict[entity].remove(string)
+            master_dict[entity].add(string.lower())
+            
+            
 def get_random_string(length):
     # choose from all lowercase letter
     letters = string.ascii_lowercase
@@ -412,7 +423,11 @@ def better_studio(tokens_list, tag_lists, sentences):
             output[len(output) - 1]["predictions"][0]["result"][k]["value"]["text"] = sentences[i][start_index:end_index]
             output[len(output) - 1]["predictions"][0]["result"][k]["value"]["labels"] = [tag_lists[i][entity_starts[k]].replace("B-", "")]
 
-            output[len(output) - 1]["predictions"][0]["result"][k]["id"] = get_random_string(16)
+            id = get_random_string(16)
+            while id in USED_IDS:
+                id = get_random_string(16)
+            USED_IDS.append(id)
+            output[len(output) - 1]["predictions"][0]["result"][k]["id"] = id
             output[len(output) - 1]["predictions"][0]["result"][k]["from_name"] = "label"
             output[len(output) - 1]["predictions"][0]["result"][k]["to_name"] = "text"
             output[len(output) - 1]["predictions"][0]["result"][k]["type"] = "labels"
@@ -421,6 +436,7 @@ def better_studio(tokens_list, tag_lists, sentences):
 
     return output
 
+set_to_lower()
 #Reads from the ai act parsed by Dylans parsing function.              
 with open ("important.txt", "r", encoding='utf-8') as ai_act:
     full_text = ai_act.read()
