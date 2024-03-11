@@ -75,6 +75,9 @@ id2label = {
             23:"I-DOC",
             24:"I-ETH"}
 
+
+USED_IDS = []
+
 #I opted to go with a dictionary of sets rather than lists as they have a lookup time of O(1).
 #changes all strings in set to lowercase 
 def set_to_lower():
@@ -420,7 +423,11 @@ def better_studio(tokens_list, tag_lists, sentences):
             output[len(output) - 1]["predictions"][0]["result"][k]["value"]["text"] = sentences[i][start_index:end_index]
             output[len(output) - 1]["predictions"][0]["result"][k]["value"]["labels"] = [tag_lists[i][entity_starts[k]].replace("B-", "")]
 
-            output[len(output) - 1]["predictions"][0]["result"][k]["id"] = get_random_string(16)
+            id = get_random_string(16)
+            while id in USED_IDS:
+                id = get_random_string(16)
+            USED_IDS.append(id)
+            output[len(output) - 1]["predictions"][0]["result"][k]["id"] = id
             output[len(output) - 1]["predictions"][0]["result"][k]["from_name"] = "label"
             output[len(output) - 1]["predictions"][0]["result"][k]["to_name"] = "text"
             output[len(output) - 1]["predictions"][0]["result"][k]["type"] = "labels"
