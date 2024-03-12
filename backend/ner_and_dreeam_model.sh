@@ -1,17 +1,25 @@
 #!/bin/bash
 
-# Optional: Set up environment with Mamba
-#mamba create -n dreeam python=3.8.13
-#mamba activate dreeam
-#mamba install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
-#mamba install transformers==4.14.1 numpy==1.22.4 opt-einsum==3.3.0 wandb ujson tqdm pandas
+# Optional: Set up ethicalai environment with Mamba
+# mamba create -n ethicalai
+# mamba install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+# mamba install transformers
+
+python ner_to_json.py
+
+# mamba deactivate
+
+# Optional: Set up dreeam environment with Mamba
+# mamba create -n dreeam python=3.8.13
+# mamba activate dreeam
+# mamba install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
+# mamba install transformers==4.14.1 numpy==1.22.4 opt-einsum==3.3.0 wandb ujson tqdm pandas
 
 
 # Clone DREEAM repo
-git clone https://github.com/DylanGallagher/dreeam.git
+git clone https://github.com/Dylan-Gallagher/dreeam.git
 cd dreeam
 
-../python ner_to_json.py
 mv ../extracted_entities/* .
 
 pip install gdown
@@ -31,4 +39,6 @@ python run.py --data_dir dataset/docred \
 --num_labels 4 \
 --evi_thresh 0.2 \
 --num_class 97
+
+
 
