@@ -1,7 +1,7 @@
 # To run - 'python3 test.py'
 
 import unittest
-from auto_label_function import better_studio, paragraph_to_labeled_sentences, get_character_index
+from auto_label_function import better_studio, paragraph_to_labeled_sentences, get_character_index, punc_split
 
 
 class TestParagraphToLabeledSentences(unittest.TestCase):
@@ -47,8 +47,8 @@ class TestBetterStudio(unittest.TestCase):
         expected_labels = ["SYS", "PER"]
         expected_texts = ["AI systems", "natural persons"]
 
-        expected_starts = [0, 42]  
-        expected_ends = [10, 55]  
+        expected_starts = [0, 39]
+        expected_ends = [10, 54]
 
          # Example sentence 2
         # tokens_list = [["Technical", "inaccuracies", "of", "AI", "systems", "intended", "for", "the", "remote", "biometric", "identification", "of", "natural", "persons", "can", "lead", "to", "biased", "results", "and", "entail", "discriminatory", "effects."]]
@@ -72,8 +72,7 @@ class TestBetterStudio(unittest.TestCase):
             self.assertIn(label, result['value']['labels'], f"Entity '{expected_texts[idx]}' with label '{label}' not found.")
             self.assertEqual(result['value']['text'], expected_texts[idx], f"Text for entity '{label}' does not match.")
             self.assertEqual(result['value']['start'], expected_starts[idx], f"Start index for entity '{label}' does not match.")
-            self.assertEqual(result['value']['end'], expected_ends[idx], f"End index for entity '{label}' does not match.")      
-            
+            self.assertEqual(result['value']['end'], expected_ends[idx], f"End index for entity '{label}' does not match.")
 class TestGetCharacterIndex(unittest.TestCase):
     # This function is to test get_character_index within the better_studio
 
@@ -83,7 +82,8 @@ class TestGetCharacterIndex(unittest.TestCase):
     def test_sentence_indices(self):
         sentence = "While the risk-based approach is the basis for a proportionate and effective set of binding rules, it is important to recall the 2019 Ethics Guidelines for Trustworthy AI developed by the independent High-Level Expert Group on AI (HLEG) appointed by the Commission."
         word_list = sentence.split()
-
+        for token in word_list:
+            word_list = punc_split(token, word_list, word_list.index(token), 0, 0)
         tests = [
             ("While", 0),
             ("proportionate", 49),
