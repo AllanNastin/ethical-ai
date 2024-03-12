@@ -8,7 +8,7 @@ model = AutoModelForTokenClassification.from_pretrained("dslim/bert-large-NER")
 ner = pipeline("ner", model=model, tokenizer=tokenizer)
 
 # Sample data
-examples = ["My name is Wolfgang and I live in New York",
+examples = ["My name is Wolfgang and I live in Berlin",
             "My name is Dylan and I live in Dublin"]
 
 tokens = [sentences.split() for sentences in examples]
@@ -28,5 +28,5 @@ ner_json_format = [
      }] for entity in ner_results[i]]} for i in range(len(examples))]
 
 # Export data to JSON
-with open("ner_output.json", 'w') as file:
+with open("extracted_entities/dataset/docred/ner_output.json", 'w') as file:
     json.dump(ner_json_format, file, indent=4)
