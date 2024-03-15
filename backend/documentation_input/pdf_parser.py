@@ -1,54 +1,103 @@
-import json
-import fitz  # PyMuPDF
+import fitz  # Import the PyMuPDF library
 import re
-from ai_model_documentation_dict import ai_model_documentation
+import json
 
-def extract_text_from_pdf(pdf_path):
-    document = fitz.open(pdf_path)
-    text = ""
-    for page in document:
-        text += page.get_text()
+def pdf_to_text(pdf_path):
+    with fitz.open(pdf_path) as doc:
+        text = ''
+        for page in doc:
+            text += page.get_text()
     return text
 
-def preprocess_text(text):
-    text = re.sub(r'\s+', ' ', text)
-    return text.strip()
+def parse_text_into_sections(text, structure):
+    extracted = {}
+    for main_section, sub_sections in structure.items():
+        if isinstance(sub_sections, dict):  # For nested sections
+            extracted[main_section] = {}
+            for sub_section, regex_pattern in sub_sections.items():
+                match = re.search(regex_pattern, text, re.DOTALL)
+                if match:
+                    extracted[main_section][sub_section] = match.group(1).strip().replace("\\", "")
+                else:
+                    extracted[main_section][sub_section] = ""
+        else:  # For direct string values / patterns
+            match = re.search(sub_sections, text, re.DOTALL)
+            if match:
+                extracted[main_section] = match.group(1).strip().replace("\\", "")
+            else:
+                extracted[main_section] = ""
+    return extracted
 
-def map_text_to_dictionary(text, dictionary_template):
-    # Simple pattern matching for sections based on provided text structure.
-    # This can be expanded or modified to match the actual content structure of your PDFs.
-    patterns = {
-        "Model_name": "model_name",
-        "Purpose": ("overview", "purpose"),
-        "Intended_domain": ("overview", "intended_domain"),
-        "Model_description": ("overview", "model_description"),
-        "Risk_categorization": ("compliance", "risk_categorization"),
-        # Add other mappings here following the same structure.
+def save_to_json(data, file_name="output.json"):
+    with open(file_name, 'w') as file:
+        json.dump(data, file, indent=4)
+
+# Updated dictionary to match the structure and content of your PDF text output
+ai_model_documentation = {
+    "model": {
+        "name": r"Model\s+Name: (.*?)\n"
+    },
+    "author_notes": {
+        "ensemble": r"Ensemble: (.*?)\n",
+        "robustness": r"Robustness: (.*?)\n"
+    },
+    "overview": {
+        "document_summary": r"Document Summary: (.*?)\n",
+        "purpose": r"Purpose: (.*?)\n",
+        "intended_domain": r"Intended Domain: (.*?)\n"
+    },
+    "training_data": {
+        "dataset_used": r"Dataset Used: (.*?)\n",
+        "preprocessing": r"Preprocessing: (.*?)\n"
+    },
+    "model_information": {
+        "architecture_description": r"Architecture Description: (.*?)\n",
+        "input_output_process": r"Input Output Process: (.*?)\n"
+    },
+    "inputs_outputs": {
+        "inputs": r"Inputs: (.*?)\n",
+        "outputs": r"Outputs: (.*?)\n"
+    },
+    "performance_metrics": {
+        "metrics_used": r"Metrics Used: (.*?)\n",
+        "results": r"Results: (.*?)\n"
+    },
+    "bias": {
+        "potential_biases": r"Potential Biases: (.*?)\n"
+    },
+    "robustness_tests": {
+        "attack_resilience": r"Attack Resilience: (.*?)\n"
+    },
+    "domain_shift": {
+        "evaluation": r"Evaluation: (.*?)\n"
+    },
+    "test_data": {
+        "description": r"Description: (.*?)\n",
+        "split_ratio": r"Split Ratio: (.*?)\n",
+        "class_ratio_maintenance": r"Class Ratio Maintenance: (.*?)\n"
+    },
+    "operational_conditions": {
+        "optimal_conditions": r"Optimal Conditions: (.*?)\n",
+        "poor_conditions": r"Poor Conditions: (.*?)\n"
+    },
+    "explanation": {
+        "model_explainability": r"Model Explainability: (.*?)\n"
+    },
+    "contact": {
+        "information": r"Contact\s+Information: (.*?)$"
     }
+}
 
-    for line in text.split('.'):
-        for key, value in patterns.items():
-            if line.strip().startswith(key):
-                extracted_text = line.split(':', 1)[-1].strip()
-                if isinstance(value, tuple):  # Nested dictionaries
-                    dictionary_template[value[0]][value[1]] = extracted_text
-                else:  # Top-level dictionary
-                    dictionary_template[value] = extracted_text
 
-    return dictionary_template
+pdf_path = "./SentimAI_FactSheet.pdf"
 
-def main(pdf_path, dictionary_template):
-    text = extract_text_from_pdf(pdf_path)
-    text = preprocess_text(text)
-    mapped_dict = map_text_to_dictionary(text, dictionary_template)
+# Assuming you've already run the pdf_to_text function and have the pdf_text variable
+pdf_text = pdf_to_text(pdf_path)
 
-    # Write the mapped dictionary to a file
-    output_file = 'parsed_documentation.json'
-    with open(output_file, 'w') as outfile:
-        json.dump(mapped_dict, outfile, indent=4)
+# Let's use the provided text output directly for demonstration, assuming it's stored in pdf_text
+parsed_data = parse_text_into_sections(pdf_text, ai_model_documentation)
 
-    print(f"Documentation has been parsed and saved to {output_file}")
+# Save the structured dictionary to a JSON file
+save_to_json(parsed_data)
 
-# Assuming `ai_model_documentation` is your dictionary template and is already defined.
-pdf_path = './AI_Model_Documentation_Sample.pdf'  # Replace with your actual PDF file path
-main(pdf_path, ai_model_documentation)
+print("Data has been parsed and saved to output.json.")
