@@ -17,28 +17,6 @@ tokens = [sentences.split() for sentences in examples]
 ner_results = ner(examples)
 
 
-def fix_labels(my_str):
-    if my_str == "I-LOC" or my_str == "B-LOC":
-        return "LOC"
-    if my_str == "I-ORG" or my_str == "B-ORG":
-        return "ORG"
-    if my_str == "I-PER" or my_str == "B-PER":
-        return "PER"
-    return "MISC"
-
-
-# Get data in DocRED format
-ner_json_format = [
-    {"title": "Legal text about AI", 
-     "sents": [tokens[i]], 
-     "vertexSet": [[{
-         "name": entity["word"], 
-         "sent_id": 0, 
-         "pos": [entity["start"], entity["start"] + len(entity["word"].split())], 
-         "type": fix_labels(entity["entity"])}] for entity in ner_results[i]],
-     "labels": {"head": [], "tail": [], "relation_id": [], "relation_text": [], "evidence": []}}
-    for i in range(len(examples))]
-
 def format_ner_tags(sentences, ner_output):
     formatted_ner = []
     output_dict = {}
