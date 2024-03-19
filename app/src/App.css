@@ -104,3 +104,19 @@ input[type="file"] {
   background-color: #003da5; 
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
+
+.app-container { 
+  position: relative; /* Make the container relative for positioning the legend */  
+}
+
+.legend-box {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%); /* Vertically center the box */
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 20px;
+  font-family: sans-serif;
+}

@@ -1,0 +1,18 @@
+.legend-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  .color-box {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+  } 
+  
+  .definitions {
+     margin-left: 25px; 
+     list-style-type: disc; 
+  }
+  

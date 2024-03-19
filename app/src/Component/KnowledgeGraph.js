@@ -85,6 +85,7 @@ export default function KnowledgeGraph() {
   };  
 
   const options = {
+
     nodes: {
       shape: 'dot', 
       scaling: {
