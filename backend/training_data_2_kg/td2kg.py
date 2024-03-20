@@ -46,41 +46,50 @@ for item in data:
 
 nodes = []
 edges = []
-node_lookup = {}  
+existing_nodes = {} 
+node_details = {} 
 
-def add_node(label, category):
-    if label not in node_lookup:
-        node_id = len(nodes) + 1
-        nodes.append({
-            "id": node_id,
-            "label": label,
-            "title": f"Type: {category}<br>",
+next_id = 1 
+
+def add_node(entity, category, tail=None):
+    global next_id
+    if entity not in existing_nodes:
+        centrality = random.uniform(0, 0.01) if tail else 0  
+        title = f"Type: {category}<br>"
+        if tail:  
+            title += f"Tail: {tail}<br>Centrality: {centrality:.16f}<br>"
+        node = {
+            "id": next_id,
+            "label": entity,
+            "title": title,
             "value": random.uniform(0, 1),
             "group": category,
             "x": random.randint(-100, 100),
             "y": random.randint(-100, 100)
-        })
-        node_lookup[label] = node_id
-    return node_lookup[label]
+        }
+        nodes.append(node)
+        existing_nodes[entity] = next_id
+        node_details[next_id] = {"has_tail": bool(tail)}  
+        next_id += 1
+    else:
+        node_id = existing_nodes[entity]
+        if not node_details[node_id]["has_tail"] and tail:
+            centrality = random.uniform(0, 0.01)
+            for node in nodes:
+                if node['id'] == node_id:
+                    node['title'] += f"Tail: {tail}<br>Centrality: {centrality:.16f}<br>"
+                    node_details[node_id]["has_tail"] = True
+                    break
 
-edge_set = set()
+    return existing_nodes[entity]
 
 for entry in knowledge_graphs:
-    head_id = add_node(entry['head'], entry['head_cat'])
+    head_id = add_node(entry['head'], entry['head_cat'], entry['tail'])
     tail_id = add_node(entry['tail'], entry['tail_cat'])
-    
-    nodes[head_id - 1]["title"] += f"Tail: {entry['tail']}<br>Centrality: {random.uniform(0, 0.01)}"
-    nodes[tail_id - 1]["title"] += f"Head: {entry['head']}<br>Centrality: {random.uniform(0, 0.01)}"
-    
-    edge_key = (head_id, tail_id)
-    if edge_key not in edge_set:
-        edges.append({
-            "from": head_id,
-            "to": tail_id,
-            "label": entry['type']
-        })
-        edge_set.add(edge_key)
 
+    edge = {"from": head_id, "to": tail_id, "label": entry['type']}
+    if edge not in edges:
+        edges.append(edge)
 
 js_file_path = 'backend/training_data_2_kg/data_from_training_relation_data.js'
 with open(js_file_path, 'w') as js_file:
