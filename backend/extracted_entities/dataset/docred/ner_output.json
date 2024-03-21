@@ -1,0 +1,84 @@
+[
+    {
+        "vertexSet": [
+            [
+                {
+                    "pos": [
+                        4,
+                        6
+                    ],
+                    "type": "PER",
+                    "sent_id": 0,
+                    "name": "Micheal Wolfgang"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        13,
+                        14
+                    ],
+                    "type": "LOC",
+                    "sent_id": 0,
+                    "name": "Berlin"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        4,
+                        5
+                    ],
+                    "type": "PER",
+                    "sent_id": 1,
+                    "name": "Dylan"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        9,
+                        10
+                    ],
+                    "type": "LOC",
+                    "sent_id": 1,
+                    "name": "Dublin"
+                }
+            ]
+        ],
+        "labels": [
+            {
+                "r": "",
+                "h": "",
+                "t": "",
+                "evidence": []
+            }
+        ],
+        "title": "Legal text about AI",
+        "sents": [
+            [
+                "My",
+                "name",
+                "is",
+                "Micheal",
+                "Wolfgang,",
+                "and",
+                "I",
+                "live",
+                "in",
+                "Berlin"
+            ],
+            [
+                "My",
+                "name",
+                "is",
+                "Dylan",
+                "and",
+                "I",
+                "live",
+                "in",
+                "Dublin"
+            ]
+        ]
+    }
+]
