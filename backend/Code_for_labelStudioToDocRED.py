@@ -8,9 +8,12 @@ Original file is located at
 """
 
 import json
-from google.colab import files
+#from google.colab import files
 
-labelStudioOutput = files.upload()
+#labelStudioOutput = files.upload()
+
+with open("label_studio_data.json", "r") as file:
+  data = json.load(file)
 
 for filename, content in labelStudioOutput.items():
 
@@ -43,13 +46,15 @@ with open(output_file, 'w') as outfile:
           for result in annotation['result']:
               if 'value' in result and 'labels' in result['value']:
                   for label in result['value']['labels']:
+                      word_count = len(result['value']['text'].split())
+                      end_position = result['value']['start'] + word_count
                       vertex = {
-                          "pos": [result['value']['start'], result['value']['end']],
+                          "pos": [result['value']['start'], end_position],
                           "type": label,
                           "sent_id": 0,
                           "name": result['value']['text']
                       }
-                      vertex_set.append(vertex)
+                      vertex_set.append([vertex])
 
       labels = []
       for annotation in item['annotations']:
@@ -68,7 +73,7 @@ with open(output_file, 'w') as outfile:
       transformed_item = {
           "title": title,
           "sents": sentences,
-          "vertexSet": vertex_set,
+          "vertexSet": [vertex_set],
           "labels": labels
       }
 
