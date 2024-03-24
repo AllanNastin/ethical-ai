@@ -8,6 +8,35 @@ Original file is located at
 """
 
 import json
+import re
+
+relations_mapping = {
+    "interact_with": "P1",
+    "perform_in": "P2",
+    "are_central_to": "P3",
+    "utlises": "P4",
+    "involved_in": "P5",
+    "based_on": "P6",
+    "relate_to": "P7",
+    "require": "P8",
+    "consider": "P9",
+    "has_implications_for": "P10",
+    "governs_or_guides": "P11",
+    "is_affected_by": "P12",
+    "certifies_or_validates": "P13",
+    "regulates": "P14",
+    "must_be": "P15",
+    "must_not_be": "P16",
+    "should_be": "P17",
+    "should_not_be": "P18",
+    "can_be": "P19",
+    "cannot_be": "P20",
+    "helps": "P21",
+    "works_with": "P22",
+    "contains": "P23",
+    "applies_to": "P24",
+    "does_not_apply_to": "P25"
+}
 #from google.colab import files
 
 #labelStudioOutput = files.upload()
@@ -26,8 +55,9 @@ print(data)
 
 #     for item in data:
 #       print(item)
-
-
+#This splits the sents label by punctuation, so it'll split by whitespaces and punctuations like commas.
+def split_text(text):
+    return re.findall(r"[\w']+|[.,!?;]", text)
 
 output_file = 'DocRed_format_of_labelStudio.json'
 variable = []
@@ -41,15 +71,16 @@ with open(output_file, 'w') as outfile:
   for item in data:
 
       title = "Legal text about AI"
-      sentences = [item['data']['text'].split()]
+      sentences = [split_text(item['data']['text'])]
 
       #THe formatting for docRED
       vertex_set = []
+      id_to_vertex_index = {}
       for annotation in item['annotations']:
           for result in annotation['result']:
               if 'value' in result and 'labels' in result['value']:
                   for label in result['value']['labels']:
-                      word_count = len(result['value']['text'].split())
+                      word_count = len(split_text(result['value']['text']))
                       end_position = result['value']['start'] + word_count
                       vertex = {
                           "pos": [result['value']['start'], end_position],
@@ -57,19 +88,20 @@ with open(output_file, 'w') as outfile:
                           "sent_id": 0,
                           "name": result['value']['text']
                       }
+                      id_to_vertex_index[result['id']] = len(vertex_set)
                       vertex_set.append([vertex])
 
       labels = []
       for annotation in item['annotations']:
           for result in annotation['result']:
-              if 'value' in result and 'labels' in result['value']:
-                  for label in result['value']['labels']:
-                      label_info = {
-                          "r": "P1",  #Not sure how to get the actual relation from a third file
-                          "h": 0,
-                          "t": 2,
-                          "evidence": [0]
-                      }
+              if result['type'] == 'relation' and result['labels'][0] in relations_mapping:
+                  if result['from_id'] in id_to_vertex_index and result['to_id'] in id_to_vertex_index:
+                    label_info = {
+                        "r": relations_mapping[result['labels'][0]],
+                        "h": id_to_vertex_index[result['from_id']],
+                        "t": id_to_vertex_index[result['to_id']],
+                        "evidence": [0]  
+                    }
                       labels.append(label_info)
 
       # Construct the transformed item
