@@ -5,7 +5,7 @@ from pdf_to_str import pdf_to_str
 class TestPdfToStr(unittest.TestCase):
     def test_pdf_to_str(self):
         self.maxDiff = None  # This will allow the full diff to be displayed
-        file_path = "ai_act/ai-act-1-page.pdf"
+        file_path = "backend/ai_act/ai-act-1-page.pdf"
         # Check if the file exists
         self.assertTrue(os.path.exists(file_path), f"File does not exist: {file_path}")
         # Check if the file is readable
