@@ -1,3 +1,5 @@
+# pip install pymupdf
+
 import fitz  # Import the PyMuPDF library
 import re
 import json
@@ -17,13 +19,15 @@ def parse_text_into_sections(text, structure):
             for sub_section, regex_pattern in sub_sections.items():
                 match = re.search(regex_pattern, text, re.DOTALL)
                 if match:
-                    extracted[main_section][sub_section] = match.group(1).strip().replace("\\", "")
+                    clean_text = match.group(1).strip().replace("\\", "").replace("\n", " ")
+                    extracted[main_section][sub_section] = clean_text
                 else:
                     extracted[main_section][sub_section] = ""
         else:  # For direct string values / patterns
             match = re.search(sub_sections, text, re.DOTALL)
             if match:
-                extracted[main_section] = match.group(1).strip().replace("\\", "")
+                clean_text = match.group(1).strip().replace("\\", "").replace("\n", " ")
+                extracted[main_section] = clean_text
             else:
                 extracted[main_section] = ""
     return extracted
@@ -35,61 +39,64 @@ def save_to_json(data, file_name="output.json"):
 # Updated dictionary to match the structure and content of your PDF text output
 ai_model_documentation = {
     "model": {
-        "name": r"Model\s+Name: (.*?)\n"
+        "name": r"Model\s+Name:\s+(.*?)\n"
     },
     "author_notes": {
-        "ensemble": r"Ensemble: (.*?)\n",
-        "robustness": r"Robustness: (.*?)\n"
+        "ensemble": r"Ensemble:\s+(.*?)(?=Robustness:|\Z)",
+        "robustness": r"Robustness:\s+(.*?)(?=Overview|\Z)"
     },
     "overview": {
-        "document_summary": r"Document Summary: (.*?)\n",
-        "purpose": r"Purpose: (.*?)\n",
-        "intended_domain": r"Intended Domain: (.*?)\n"
+        "document_summary": r"Document Summary:\s+(.*?)(?=Purpose:|\Z)",
+        "purpose": r"Purpose:\s+(.*?)(?=Intended Domain:|\Z)",
+        "intended_domain": r"Intended Domain:\s+(.*?)(?=Training Data|\Z)"
     },
     "training_data": {
-        "dataset_used": r"Dataset Used: (.*?)\n",
-        "preprocessing": r"Preprocessing: (.*?)\n"
+        "dataset_used": r"Dataset Used:\s+(.*?)(?=Preprocessing:|\Z)",
+        "preprocessing": r"Preprocessing:\s+(.*?)(?=Model Information|\Z)"
     },
     "model_information": {
-        "architecture_description": r"Architecture Description: (.*?)\n",
-        "input_output_process": r"Input Output Process: (.*?)\n"
+        "architecture_description": r"Architecture Description:\s+(.*?)(?=Input Output Process:|\Z)",
+        "input_output_process": r"Input Output Process:\s+(.*?)(?=Inputs and Outputs|\Z)"
     },
     "inputs_outputs": {
-        "inputs": r"Inputs: (.*?)\n",
-        "outputs": r"Outputs: (.*?)\n"
+        "inputs": r"Inputs:\s+(.*?)(?=Outputs:|\Z)",
+        "outputs": r"Outputs:\s+(.*?)(?=Performance Metrics|\Z)"
     },
     "performance_metrics": {
-        "metrics_used": r"Metrics Used: (.*?)\n",
-        "results": r"Results: (.*?)\n"
+        "metrics_used": r"Metrics Used:\s+(.*?)(?=Results:|\Z)",
+        "results": r"Results:\s+(.*?)(?=Bias|\Z)"
     },
     "bias": {
-        "potential_biases": r"Potential Biases: (.*?)\n"
+        "potential_biases": r"Potential Biases:\s+(.*?)(?=Robustness Tests|\Z)"
     },
     "robustness_tests": {
-        "attack_resilience": r"Attack Resilience: (.*?)\n"
+        "attack_resilience": r"Attack Resilience:\s+(.*?)(?=Domain Shift|\Z)"
     },
     "domain_shift": {
-        "evaluation": r"Evaluation: (.*?)\n"
+        "evaluation": r"Evaluation:\s+(.*?)(?=Test Data|\Z)"
     },
     "test_data": {
-        "description": r"Description: (.*?)\n",
-        "split_ratio": r"Split Ratio: (.*?)\n",
-        "class_ratio_maintenance": r"Class Ratio Maintenance: (.*?)\n"
+        "description": r"Description:\s+(.*?)(?=Split Ratio:|\Z)",
+        "split_ratio": r"Split Ratio:\s+(.*?)(?=Class Ratio Maintenance:|\Z)",
+        "class_ratio_maintenance": r"Class Ratio Maintenance:\s+(.*?)(?=Operational Conditions|\Z)"
     },
     "operational_conditions": {
-        "optimal_conditions": r"Optimal Conditions: (.*?)\n",
-        "poor_conditions": r"Poor Conditions: (.*?)\n"
+        "optimal_conditions": r"Optimal Conditions:\s+(.*?)(?=Poor Conditions:|\Z)",
+        "poor_conditions": r"Poor Conditions:\s+(.*?)(?=Explanation|\Z)"
     },
     "explanation": {
-        "model_explainability": r"Model Explainability: (.*?)\n"
+        "model_explainability": r"Model Explainability:\s+(.*?)(?=Contact|\Z)"
     },
     "contact": {
-        "information": r"Contact\s+Information: (.*?)$"
+        "information": r"Contact\s+Information:\s+(.*?)$"
     }
 }
 
 
-pdf_path = "./SentimAI_FactSheet.pdf"
+
+# pdf_path = "./SentimAI_FactSheet.pdf"
+
+pdf_path = 'backend/documentation_input/SentimAI_FactSheet.pdf'
 
 # Assuming you've already run the pdf_to_text function and have the pdf_text variable
 pdf_text = pdf_to_text(pdf_path)
