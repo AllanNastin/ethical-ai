@@ -12,17 +12,20 @@ import json
 
 #labelStudioOutput = files.upload()
 
-with open("label_studio_data.json", "r") as file:
+path = 'backend/label_studio_data.json'
+with open(path, "r") as file:
   data = json.load(file)
 
-for filename, content in labelStudioOutput.items():
+print(data)
 
-    json_string = content.decode('utf-8')
-    data = json.loads(json_string)
-    print("file loaded")
+# for filename, content in labelStudioOutput.items():
 
-    for item in data:
-      print(item)
+#     json_string = content.decode('utf-8')
+#     data = json.loads(json_string)
+#     print("file loaded")
+
+#     for item in data:
+#       print(item)
 
 
 
@@ -85,4 +88,4 @@ print(DocRED_format)
 with open(output_file, 'w') as outfile:
     json.dump(DocRED_format, outfile, indent=4)
 
-content
+
