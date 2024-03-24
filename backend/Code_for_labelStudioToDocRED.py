@@ -80,16 +80,22 @@ with open(output_file, 'w') as outfile:
           for result in annotation['result']:
               if 'value' in result and 'labels' in result['value']:
                   for label in result['value']['labels']:
-                      word_count = len(split_text(result['value']['text']))
-                      end_position = result['value']['start'] + word_count
-                      vertex = {
-                          "pos": [result['value']['start'], end_position],
-                          "type": label,
-                          "sent_id": 0,
-                          "name": result['value']['text']
-                      }
-                      id_to_vertex_index[result['id']] = len(vertex_set)
-                      vertex_set.append([vertex])
+                      words = split_text(result['value']['text'])
+                      word_found = False
+                      for word in words:
+                        if not word_found and word in sentences[0]:  # Check if the word is in the sentence
+                          word_index = sentences[0].index(word)
+                          word_count = len(words)
+                          end_position = (word_index + word_count)-1
+                          word_found = True
+                          vertex = {
+                            "pos": [word_index, end_position],
+                            "type": label,
+                            "sent_id": 0,
+                            "name": result['value']['text']
+                          }
+                          id_to_vertex_index[result['id']] = len(vertex_set)
+                          vertex_set.append([vertex])
 
       labels = []
       for annotation in item['annotations']:
