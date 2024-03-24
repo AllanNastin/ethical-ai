@@ -1,4 +1,4 @@
-{
+json_data = {
     "model": {
         "name": "SentimAI"
     },

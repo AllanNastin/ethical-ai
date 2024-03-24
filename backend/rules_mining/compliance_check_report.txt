@@ -1,0 +1,17 @@
+-5: Missing term 'privacy' under topic 'human rights'.
+-5: Missing term 'dignity' under topic 'human rights'.
+-5: Missing term 'autonomy' under topic 'human rights'.
+-5: None of the terms in topic 'human rights' were found, reducing overall score.
++5: Found term 'bias' under topic 'bias mitigation'.
++5: Found term 'fairness' under topic 'bias mitigation'.
+-5: Missing term 'data protection' under topic 'data privacy'.
+-5: Missing term 'GDPR' under topic 'data privacy'.
+-5: Missing term 'privacy' under topic 'data privacy'.
+-5: None of the terms in topic 'data privacy' were found, reducing overall score.
+-5: Missing term 'transparency' under topic 'transparency'.
++5: Found term 'explainability' under topic 'transparency'.
+-5: Missing term 'documentation' under topic 'transparency'.
+-5: Missing term 'misuse' under topic 'robustness against misuse'.
+-5: Missing term 'illegal content' under topic 'robustness against misuse'.
+-5: Missing term 'harmful content' under topic 'robustness against misuse'.
+-5: None of the terms in topic 'robustness against misuse' were found, reducing overall score.

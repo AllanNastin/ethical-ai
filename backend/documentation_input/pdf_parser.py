@@ -3,6 +3,7 @@
 import fitz  # Import the PyMuPDF library
 import re
 import json
+import os 
 
 def pdf_to_text(pdf_path):
     with fitz.open(pdf_path) as doc:
@@ -34,6 +35,11 @@ def parse_text_into_sections(text, structure):
 
 def save_to_json(data, file_name="output.json"):
     with open(file_name, 'w') as file:
+        json.dump(data, file, indent=4)
+
+def save_to_py(data, file_name="../rules_mining/factsheet_data.py"):
+    with open(file_name, 'w') as file:
+        file.write("json_data = ")
         json.dump(data, file, indent=4)
 
 # Updated dictionary to match the structure and content of your PDF text output
@@ -94,9 +100,9 @@ ai_model_documentation = {
 
 
 
-# pdf_path = "./SentimAI_FactSheet.pdf"
+pdf_path = "./BadAI_FactSheet.pdf"
 
-pdf_path = 'backend/documentation_input/SentimAI_FactSheet.pdf'
+#pdf_path = 'backend/documentation_input/SentimAI_FactSheet.pdf'
 
 # Assuming you've already run the pdf_to_text function and have the pdf_text variable
 pdf_text = pdf_to_text(pdf_path)
@@ -106,5 +112,8 @@ parsed_data = parse_text_into_sections(pdf_text, ai_model_documentation)
 
 # Save the structured dictionary to a JSON file
 save_to_json(parsed_data)
+
+# Save the structured dictionary to a Python file
+save_to_py(parsed_data)
 
 print("Data has been parsed and saved to output.json.")
