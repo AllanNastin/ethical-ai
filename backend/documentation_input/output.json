@@ -3,52 +3,52 @@
         "name": "SentimAI"
     },
     "author_notes": {
-        "ensemble": "SentimAI incorporates an ensemble of transformer-based models to enhance",
-        "robustness": "Extensive testing for robustness against common adversarial attacks like FGSM"
+        "ensemble": "SentimAI incorporates an ensemble of transformer-based models to enhance sentiment detection accuracy across languages.",
+        "robustness": "Extensive testing for robustness against common adversarial attacks like FGSM and DeepFool was performed, with adjustments made to improve resilience."
     },
     "overview": {
-        "document_summary": "This FactSheet accompanies the SentimAI model, designed for",
-        "purpose": "To classify the sentiment of given text across multiple languages, aiding in",
-        "intended_domain": "Natural Language Processing, with speci\ufb01c application in marketing"
+        "document_summary": "This FactSheet accompanies the SentimAI model, designed for comprehensive sentiment analysis in multiple languages for marketing and customer feedback analysis.",
+        "purpose": "To classify the sentiment of given text across multiple languages, aiding in understanding customer feedback and social media analysis.",
+        "intended_domain": "Natural Language Processing, with specific application in marketing analysis and customer feedback interpretation."
     },
     "training_data": {
-        "dataset_used": "Utilises the Multi-Domain Sentiment Dataset combined with a curated",
-        "preprocessing": "Includes normalisation, tokenization, and removal of sensitive information"
+        "dataset_used": "Utilises the Multi-Domain Sentiment Dataset combined with a curated collection of customer feedback from various online platforms. The total dataset encompasses over 150 million sentences.",
+        "preprocessing": "Includes normalisation, tokenization, and removal of sensitive information using automated scripts."
     },
     "model_information": {
-        "architecture_description": "SentimAI uses a two-stage transformer-based architecture. The",
-        "input_output_process": "The model accepts raw text input and outputs sentiment scores"
+        "architecture_description": "SentimAI uses a two-stage transformer-based architecture. The first stage generates embeddings from text input, and the second stage classifies sentiment based on these embeddings.",
+        "input_output_process": "The model accepts raw text input and outputs sentiment scores ranging from -1 (negative) to 1 (positive) alongside confidence levels."
     },
     "inputs_outputs": {
-        "inputs": "Raw text in English, Spanish, French, or German, with a recommended maximum of",
-        "outputs": "A JSON object containing sentiment scores and associated con\ufb01dence levels for the"
+        "inputs": "Raw text in English, Spanish, French, or German, with a recommended maximum of 512 tokens.",
+        "outputs": "A JSON object containing sentiment scores and associated confidence levels for the input text."
     },
     "performance_metrics": {
         "metrics_used": "Accuracy, Precision, Recall, F1 Score, and Mean Average Precision (MAP).",
-        "results": "SentimAI achieved an average accuracy of 92% across all supported languages, with"
+        "results": "SentimAI achieved an average accuracy of 92% across all supported languages, with an MAP of 0.357 and an Area Under the Curve (AUC) of 0.968."
     },
     "bias": {
-        "potential_biases": "An ongoing review process has been established to identify and mitigate"
+        "potential_biases": "An ongoing review process has been established to identify and mitigate potential biases, especially concerning the representation of dialects and informal language."
     },
     "robustness_tests": {
-        "attack_resilience": "Demonstrated resilience against L-in\ufb01nity and L2 norm attacks, with"
+        "attack_resilience": "Demonstrated resilience against L-infinity and L2 norm attacks, with detailed performance metrics available upon request."
     },
     "domain_shift": {
-        "evaluation": "Continuous monitoring and evaluation mechanisms are in place to assess the"
+        "evaluation": "Continuous monitoring and evaluation mechanisms are in place to assess the model's performance against shifting data distributions, ensuring sustained accuracy and reliability."
     },
     "test_data": {
-        "description": "SentimAI uses a two-stage transformer-based architecture. The",
+        "description": "SentimAI uses a two-stage transformer-based architecture. The first stage generates embeddings from text input, and the second stage classifies sentiment based on these embeddings. Input Output Process: The model accepts raw text input and outputs sentiment scores ranging from -1 (negative) to 1 (positive) alongside confidence levels. Inputs and Outputs Inputs: Raw text in English, Spanish, French, or German, with a recommended maximum of 512 tokens. Outputs: A JSON object containing sentiment scores and associated confidence levels for the input text. Performance Metrics Metrics Used: Accuracy, Precision, Recall, F1 Score, and Mean Average Precision (MAP). Results: SentimAI achieved an average accuracy of 92% across all supported languages, with an MAP of 0.357 and an Area Under the Curve (AUC) of 0.968. Bias Potential Biases: An ongoing review process has been established to identify and mitigate potential biases, especially concerning the representation of dialects and informal language. Robustness Tests Attack Resilience: Demonstrated resilience against L-infinity and L2 norm attacks, with detailed performance metrics available upon request. Domain Shift Evaluation: Continuous monitoring and evaluation mechanisms are in place to assess the model's performance against shifting data distributions, ensuring sustained accuracy and reliability. Test Data Description: The test set includes unseen text from various online forums and review sites, maintaining a diverse representation of sentiment and language use.",
         "split_ratio": "Data was split into 70% training, 20% validation, and 10% testing segments.",
-        "class_ratio_maintenance": "Efforts were made to maintain consistent class ratios across all data"
+        "class_ratio_maintenance": "Efforts were made to maintain consistent class ratios across all data splits to ensure model fairness."
     },
     "operational_conditions": {
-        "optimal_conditions": "The model shows optimal performance in high-quality text inputs",
-        "poor_conditions": "Performance decreases in texts with mixed sentiments, slang, or signi\ufb01cant"
+        "optimal_conditions": "The model shows optimal performance in high-quality text inputs containing clear sentiment expressions.",
+        "poor_conditions": "Performance decreases in texts with mixed sentiments, slang, or significant noise."
     },
     "explanation": {
-        "model_explainability": "Despite the inherent complexities of deep neural networks, SentimAI"
+        "model_explainability": "Despite the inherent complexities of deep neural networks, SentimAI employs layer-wise relevance propagation (LRP) techniques to provide insights into decision-making processes."
     },
     "contact": {
-        "information": "For more information or queries regarding SentimAI, please reach out to the\ndevelopment team at info@sentimai.com."
+        "information": "For more information or queries regarding SentimAI, please reach out to the development team at info@sentimai.com."
     }
 }
