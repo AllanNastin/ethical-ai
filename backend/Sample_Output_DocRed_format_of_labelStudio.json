@@ -28,7 +28,8 @@
                 "multiple",
                 "contexts",
                 "or",
-                "known,",
+                "known",
+                ",",
                 "inferred",
                 "or",
                 "predicted",
@@ -44,42 +45,52 @@
             ]
         ],
         "vertexSet": [
-            {
-                "pos": [
-                    5,
-                    15
+            [
+                [
+                    {
+                        "pos": [
+                            1,
+                            2
+                        ],
+                        "type": "SYS",
+                        "sent_id": 0,
+                        "name": "AI systems"
+                    }
                 ],
-                "type": "SYS",
-                "sent_id": 0,
-                "name": "AI systems"
-            },
-            {
-                "pos": [
-                    16,
-                    24
+                [
+                    {
+                        "pos": [
+                            3,
+                            3
+                        ],
+                        "type": "ACT",
+                        "sent_id": 0,
+                        "name": "evaluate"
+                    }
                 ],
-                "type": "ACT",
-                "sent_id": 0,
-                "name": "evaluate"
-            },
-            {
-                "pos": [
-                    37,
-                    52
+                [
+                    {
+                        "pos": [
+                            6,
+                            7
+                        ],
+                        "type": "PER",
+                        "sent_id": 0,
+                        "name": "natural persons"
+                    }
                 ],
-                "type": "PER",
-                "sent_id": 0,
-                "name": "natural persons"
-            },
-            {
-                "pos": [
-                    212,
-                    227
-                ],
-                "type": "ETH",
-                "sent_id": 0,
-                "name": "characteristics"
-            }
+                [
+                    {
+                        "pos": [
+                            33,
+                            33
+                        ],
+                        "type": "ETH",
+                        "sent_id": 0,
+                        "name": "characteristics"
+                    }
+                ]
+            ]
         ],
         "labels": [
             {
@@ -92,24 +103,16 @@
             },
             {
                 "r": "P1",
-                "h": 0,
-                "t": 2,
+                "h": 2,
+                "t": 0,
                 "evidence": [
                     0
                 ]
             },
             {
-                "r": "P1",
-                "h": 0,
-                "t": 2,
-                "evidence": [
-                    0
-                ]
-            },
-            {
-                "r": "P1",
-                "h": 0,
-                "t": 2,
+                "r": "P23",
+                "h": 2,
+                "t": 3,
                 "evidence": [
                     0
                 ]
@@ -145,7 +148,8 @@
                 "thereof",
                 "in",
                 "social",
-                "contexts,",
+                "contexts",
+                ",",
                 "which",
                 "are",
                 "unrelated",
@@ -181,38 +185,44 @@
             ]
         ],
         "vertexSet": [
-            {
-                "pos": [
-                    36,
-                    46
+            [
+                [
+                    {
+                        "pos": [
+                            6,
+                            7
+                        ],
+                        "type": "SYS",
+                        "sent_id": 0,
+                        "name": "AI systems"
+                    }
                 ],
-                "type": "SYS",
-                "sent_id": 0,
-                "name": "AI systems"
-            },
-            {
-                "pos": [
-                    104,
-                    119
-                ],
-                "type": "PER",
-                "sent_id": 0,
-                "name": "natural persons"
-            }
+                [
+                    {
+                        "pos": [
+                            17,
+                            18
+                        ],
+                        "type": "PER",
+                        "sent_id": 0,
+                        "name": "natural persons"
+                    }
+                ]
+            ]
         ],
         "labels": [
             {
-                "r": "P1",
+                "r": "P10",
                 "h": 0,
-                "t": 2,
+                "t": 1,
                 "evidence": [
                     0
                 ]
             },
             {
-                "r": "P1",
-                "h": 0,
-                "t": 2,
+                "r": "P12",
+                "h": 1,
+                "t": 0,
                 "evidence": [
                     0
                 ]
