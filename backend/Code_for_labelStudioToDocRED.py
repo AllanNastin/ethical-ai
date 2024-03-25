@@ -41,11 +41,11 @@ relations_mapping = {
 
 #labelStudioOutput = files.upload()
 
-path = 'backend/label_studio_data.json'
+path = 'label_studio_data.json'
 with open(path, "r") as file:
   data = json.load(file)
 
-print(data)
+# print(data)
 
 # for filename, content in labelStudioOutput.items():
 
@@ -100,7 +100,7 @@ with open(output_file, 'w') as outfile:
       labels = []
       for annotation in item['annotations']:
           for result in annotation['result']:
-              if result['type'] == 'relation' and result['labels'][0] in relations_mapping:
+              if result['type'] == 'relation' and len(result["labels"]) > 0 and result['labels'][0] in relations_mapping:
                   if result['from_id'] in id_to_vertex_index and result['to_id'] in id_to_vertex_index:
                     label_info = {
                         "r": relations_mapping[result['labels'][0]],
@@ -108,7 +108,7 @@ with open(output_file, 'w') as outfile:
                         "t": id_to_vertex_index[result['to_id']],
                         "evidence": [0]  
                     }
-                      labels.append(label_info)
+                    labels.append(label_info)
 
       # Construct the transformed item
       transformed_item = {
@@ -121,7 +121,7 @@ with open(output_file, 'w') as outfile:
       DocRED_format.append(transformed_item)
 
 
-print(DocRED_format)
+# print(DocRED_format)
 
 with open(output_file, 'w') as outfile:
     json.dump(DocRED_format, outfile, indent=4)
