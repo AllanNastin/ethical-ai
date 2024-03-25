@@ -1,6 +1,6 @@
 import fitz  # Import the PyMuPDF library
 
-def pdf_to_text(pdf_path):
+def parse_model_doc(pdf_path):
     """
     Convert a PDF file to text.
 
@@ -21,7 +21,7 @@ def pdf_to_text(pdf_path):
 pdf_path = './SentimAI_FactSheet.pdf'
 
 # Convert the PDF to text
-pdf_text = pdf_to_text(pdf_path)
+pdf_text = parse_model_doc(pdf_path)
 
 # Print or process the text as needed
 print(pdf_text)

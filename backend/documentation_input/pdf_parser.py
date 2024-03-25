@@ -5,7 +5,7 @@ import re
 import json
 import os 
 
-def pdf_to_text(pdf_path):
+def parse_model_doc(pdf_path):
     with fitz.open(pdf_path) as doc:
         text = ''
         for page in doc:
@@ -104,8 +104,8 @@ pdf_path = "./BadAI_FactSheet.pdf"
 
 #pdf_path = 'backend/documentation_input/SentimAI_FactSheet.pdf'
 
-# Assuming you've already run the pdf_to_text function and have the pdf_text variable
-pdf_text = pdf_to_text(pdf_path)
+# Assuming you've already run the parse_model_doc function and have the pdf_text variable
+pdf_text = parse_model_doc(pdf_path)
 
 # Let's use the provided text output directly for demonstration, assuming it's stored in pdf_text
 parsed_data = parse_text_into_sections(pdf_text, ai_model_documentation)

@@ -39,7 +39,7 @@ def is_valid(element):
     return True
 
 
-def pdf_to_str(path, raw_text=False):
+def parse_EU_act(path, raw_text=False):
     """
     Convert a pdf to a string:
     
@@ -62,4 +62,4 @@ def pdf_to_str(path, raw_text=False):
 
 
 if __name__ == "__main__":
-    print(pdf_to_str("ai_act/ai-act-draft.pdf"))
+    print(parse_EU_act("ai_act/ai-act-draft.pdf"))
