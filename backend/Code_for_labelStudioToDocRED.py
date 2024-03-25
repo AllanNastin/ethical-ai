@@ -37,13 +37,14 @@ relations_mapping = {
     "applies_to": "P24",
     "does_not_apply_to": "P25"
 }
-#from google.colab import files
+# from google.colab import files
 
-#labelStudioOutput = files.upload()
+# labelStudioOutput = files.upload()
 
 path = 'label_studio_data.json'
 with open(path, "r") as file:
-  data = json.load(file)
+    data = json.load(file)
+
 
 # print(data)
 
@@ -55,75 +56,71 @@ with open(path, "r") as file:
 
 #     for item in data:
 #       print(item)
-#This splits the sents label by punctuation, so it'll split by whitespaces and punctuations like commas.
+# This splits the sents label by punctuation, so it'll split by whitespaces and punctuations like commas.
 def split_text(text):
     return re.findall(r"[\w']+|[.,!?;]", text)
+
 
 output_file = 'DocRed_format_of_labelStudio.json'
 variable = []
 title = "title: \"Legal text about AI\"\n"
 variable.append(title)
-with open(output_file, 'w') as outfile:
+with ((open(output_file, 'w') as outfile)):
+    DocRED_format = []
 
+    for item in data:
 
-  DocRED_format = []
+        title = "Legal text about AI"
+        sentences = [split_text(item['data']['text'])]
 
-  for item in data:
+        # THe formatting for docRED
+        vertex_set = []
+        id_to_vertex_index = {}
+        for annotation in item['annotations']:
+            for result in annotation['result']:
+                if 'value' in result and 'labels' in result['value']:
+                    for label in result['value']['labels']:
+                        words = split_text(result['value']['text'])
+                        word_found = False
+                        for word in words:
+                            if not word_found and word in sentences[0]:  # Check if the word is in the sentence
+                                word_index = sentences[0].index(word)
+                                word_count = len(words)
+                                end_position = (word_index + word_count) - 1
+                                word_found = True
+                                vertex = {
+                                    "pos": [word_index, end_position],
+                                    "type": label,
+                                    "sent_id": 0,
+                                    "name": result['value']['text']
+                                }
+                                id_to_vertex_index[result['id']] = len(vertex_set)
+                                vertex_set.append([vertex])
 
-      title = "Legal text about AI"
-      sentences = [split_text(item['data']['text'])]
+        labels = []
+        for annotation in item['annotations']:
+            for result in annotation['result']:
+                if result['type'] == 'relation' and len(result["labels"]) > 0 and result['labels'][0] in relations_mapping:
+                    if result['from_id'] in id_to_vertex_index and result['to_id'] in id_to_vertex_index:
+                        label_info = {
+                            "r": relations_mapping[result['labels'][0]],
+                            "h": id_to_vertex_index[result['from_id']],
+                            "t": id_to_vertex_index[result['to_id']],
+                            "evidence": [0]
+                        }
+                        labels.append(label_info)
 
-      #THe formatting for docRED
-      vertex_set = []
-      id_to_vertex_index = {}
-      for annotation in item['annotations']:
-          for result in annotation['result']:
-              if 'value' in result and 'labels' in result['value']:
-                  for label in result['value']['labels']:
-                      words = split_text(result['value']['text'])
-                      word_found = False
-                      for word in words:
-                        if not word_found and word in sentences[0]:  # Check if the word is in the sentence
-                          word_index = sentences[0].index(word)
-                          word_count = len(words)
-                          end_position = (word_index + word_count)-1
-                          word_found = True
-                          vertex = {
-                            "pos": [word_index, end_position],
-                            "type": label,
-                            "sent_id": 0,
-                            "name": result['value']['text']
-                          }
-                          id_to_vertex_index[result['id']] = len(vertex_set)
-                          vertex_set.append([vertex])
+        # Construct the transformed item
+        transformed_item = {
+            "title": title,
+            "sents": sentences,
+            "vertexSet": [vertex_set],
+            "labels": labels
+        }
 
-      labels = []
-      for annotation in item['annotations']:
-          for result in annotation['result']:
-              if result['type'] == 'relation' and len(result["labels"]) > 0 and result['labels'][0] in relations_mapping:
-                  if result['from_id'] in id_to_vertex_index and result['to_id'] in id_to_vertex_index:
-                    label_info = {
-                        "r": relations_mapping[result['labels'][0]],
-                        "h": id_to_vertex_index[result['from_id']],
-                        "t": id_to_vertex_index[result['to_id']],
-                        "evidence": [0]  
-                    }
-                    labels.append(label_info)
-
-      # Construct the transformed item
-      transformed_item = {
-          "title": title,
-          "sents": sentences,
-          "vertexSet": [vertex_set],
-          "labels": labels
-      }
-
-      DocRED_format.append(transformed_item)
-
+        DocRED_format.append(transformed_item)
 
 # print(DocRED_format)
 
 with open(output_file, 'w') as outfile:
     json.dump(DocRED_format, outfile, indent=4)
-
-
