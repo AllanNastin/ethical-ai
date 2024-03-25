@@ -23,7 +23,7 @@ def process():
         filename = secure_filename(file.filename)
         # file.save(os.path.join('.', filename))
         # Send the JSONL file
-        return send_from_directory('.', 'graph_data.jsonl', as_attachment=True)
+        return send_from_directory('.', 'data_1.jsonl', as_attachment=True)
     else:
         return jsonify({'error': 'Invalid file type'}), 400
 

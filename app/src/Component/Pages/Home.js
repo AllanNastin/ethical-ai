@@ -11,7 +11,7 @@ function Home({ onUploadSuccess }) {
     let formData = new FormData();
     formData.append('file', file);
 
-    fetch('https://group22.api.sprinty.tech/upload', {
+    fetch('http://127.0.0.1:8000/upload', {
       method: 'POST',
       body: formData
     })
