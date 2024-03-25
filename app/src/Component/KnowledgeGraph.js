@@ -1,18 +1,56 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Graph from 'react-vis-network-graph';
 // import { edges, nodes } from './Data/data'; // Import your data , remove once backend endpoint is available
 // import { fetchGraphData } from '../Service/api';
 import './KnowledgeGraph.css';
+import samplepdf from "./ai_act_draft.pdf";
 
 export default function KnowledgeGraph() {
   const [physicsOptions, setPhysicsOptions] = useState({ enabled: true });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const sidebarRef = useRef(null);
+  const [isResizing, setIsResizing] = useState(false);
+  const [sidebarWidth, setSidebarWidth] = useState(700);
+  const [graphWidth, setGraphWidth] = useState(window.innerWidth-700);
   const [showGraph, setShowGraph] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('All');
   const [filteredGraphData, setFilteredGraphData] = useState({ nodes: [], edges: [] }); // Initialize with default value
   // const [graphData, setGraphData] = useState({ nodes: [], edges: [] }); // Corrected this line
   // const jsFile = localStorage.getItem('jsFile'); // Get the file data from localStorage
+  const startResizing = React.useCallback(() => {
+    setIsResizing(true);
+    console.log("resizing")
+  }, []);
+
+  const stopResizing = React.useCallback(() => {
+    setIsResizing(false);
+    console.log("not resizing")
+  }, []);
+
+  const resize = React.useCallback(
+    (mouseMoveEvent) => {
+      console.log("mouse move!")
+      if (isResizing) {
+        setSidebarWidth(
+          sidebarRef.current.getBoundingClientRect().right- mouseMoveEvent.clientX
+        );
+        setGraphWidth(
+          window.innerWidth-(sidebarRef.current.getBoundingClientRect().right- mouseMoveEvent.clientX)
+        );
+      }
+    },
+    [isResizing]
+  );
+
+  useEffect(() => {
+    window.addEventListener("mousemove", resize);
+    window.addEventListener("mouseup", stopResizing);
+    return () => {
+      window.removeEventListener("mousemove", resize);
+      window.removeEventListener("mouseup", stopResizing);
+    };
+  }, [resize, stopResizing]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -165,11 +203,21 @@ export default function KnowledgeGraph() {
       <button className="kg-button" onClick={updateGraph}>Update Graph   → </button>
       </div>
 
+      <div
+        ref={sidebarRef}
+        className="pdf-container"
+        style={{ width: sidebarWidth }}
+        //onMouseDown={(e) => e.preventDefault()}
+      >
+      <div className="pdf-container-resizer" onMouseDown={startResizing} />
+        <iframe src={samplepdf} title="PDF Viewer" className="pdf-iframe" />
+      </div>
+
       {/* {showGraph && <Graph graph={graphData} options={options} />} */}
 
       {/* {showGraph && <Graph graph={data} options={options} />} remove when backend endpoint is available */}
 
-      {showGraph && <Graph graph={filteredGraphData} options={options} />}
+      {showGraph && <Graph graph={filteredGraphData} options={options} style={{ width: graphWidth }}/>}
 
       {showGraph && (
         <div className="physics-controls"> 
