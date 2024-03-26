@@ -6,7 +6,7 @@
 The raw pdf file of the AI Act that we are converting to string.
 
 ## `ai-act.txt`
-A parsed version of `ai-act-draft.pdf` using `run_pdf_to_str.py`. 
+A parsed version of `ai-act-draft.pdf` using `run_parse_EU_act.py`. 
 
 ## `ai-act-10-pages.txt`
 A 10-page section of the AI Act that we are using for testing.
