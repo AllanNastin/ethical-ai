@@ -146,7 +146,7 @@ def auto_label(sentence):
     for index in range (len(tokens)):
         #Loop that checks if ner_tag at the current token index == 0, if it is then run label, if not then skip
         if ner_tags[index] == 0:
-            match = label(tokens, ner_tags, index, index, "" )
+            label(tokens, ner_tags, index, index, "" )
     return_list = []
     return_list.append(tokens)
     return_list.append(ner_tags)
@@ -160,7 +160,7 @@ It passes up the current string + the string stored in the current index of the 
 then recursively calls itself on the next index of the tokens list until it reaches the end
 by that point current string + string will be the start index + the rest of the sentence following it
 the search_dict function is then called and attempts to match the current_string, if it cannot do so "false"
-is returned which is recieved by the iteration of the function that called it, 
+is returned which is received by the iteration of the function that called it, 
 that function then itself attempts to match it's current string 
 which would be from the start index to the current_index (rest of the sentence - 1 token)
 if the match is found dict_search returns the entity name and the function recursively adds "I-" to it
@@ -217,7 +217,7 @@ def paragraph_to_labeled_sentences(paragraph):
         sentences[i] = sentences[i].lstrip()
     tokens_list = []
     tags_list = []
-    sentence_list = []
+    #Needed when returning ints e.g training data.
     int_tags_list = []
      
     for sentence in sentences:
@@ -231,16 +231,11 @@ def paragraph_to_labeled_sentences(paragraph):
         return_list = auto_label(sentence)
         tokens_list.append(return_list[0])
         tags_list.append(return_list[1])
-        
-        
-
-        
-        
-      #  for tag in return_list[1]:
-            
-          #  int_tags.append(label2id.get(tag))
-        
-      #  int_tags_list.append(int_tags)
+                
+      #lines needed for functionality when an int output is needed (e.g hugging face training data)
+      #for tag in return_list[1]: 
+          # int_tags.append(label2id.get(tag))
+      #int_tags_list.append(int_tags)
             
                 
     
@@ -340,12 +335,7 @@ def get_character_index(word_list, target_word_index):
         else:
             character_index += len(word)  # Add the length of the punctuation or bracket
 
-
-
     return character_index
-
-
-
 
 
 def better_studio(tokens_list, tag_lists, sentences):
