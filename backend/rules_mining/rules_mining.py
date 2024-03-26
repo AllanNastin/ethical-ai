@@ -4,57 +4,105 @@ import json
 def load_data(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         if file_path.endswith('.py'):
-            data = eval(file.read().split('=')[1].strip())
+            content = file.read()
+            dict_str = content.split('=', 1)[1].strip()
+            data = eval(dict_str)
         else:
             data = [json.loads(line) for line in file]
     return data
 
-# Enhanced ethics check including new considerations
-def enhanced_check_ethics(factsheet, kg_rules):
-    score = 0
-    detailed_log = []
-    ethical_topics = {
-        "human rights": ["privacy", "dignity", "autonomy"],
-        "bias mitigation": ["bias", "fairness"],
-        "data privacy": ["data protection", "GDPR", "privacy"],
-        "transparency": ["transparency", "explainability", "documentation"],
-        "robustness against misuse": ["misuse", "illegal content", "harmful content"]
-    }
-    
-    factsheet_str = str(factsheet).lower()
-    
-    for topic, terms in ethical_topics.items():
-        topic_found = False
-        for term in terms:
-            if term in factsheet_str:
-                score += 5
-                detailed_log.append(f"+5: Found term '{term}' under topic '{topic}'.")
-                topic_found = True
-            else:
-                score -= 5
-                detailed_log.append(f"-5: Missing term '{term}' under topic '{topic}'.")
-        if not topic_found:
-            score -= 5
-            detailed_log.append(f"-5: None of the terms in topic '{topic}' were found, reducing overall score.")
-    
-    return score, detailed_log
+# Generate compliance checklist from KG rules
+def generate_compliance_checklist(kg_rules):
+    checklist = {}
+    for rule in kg_rules:
+        if rule["type"] == "require":
+            category = rule["tail_cat"]
+            if category not in checklist:
+                checklist[category] = []
+            checklist[category].append(rule["tail"].lower())
+    return checklist
 
-# Main function to calculate compliance score and generate report
+# Score compliance based on factsheet and checklist
+def score_compliance(factsheet, checklist):
+    score = 100
+    factsheet_str = str(factsheet).lower()
+    compliance_details = {"met_requirements": {}, "missing_requirements": {}}
+    
+    for category, requirements in checklist.items():
+        for requirement in requirements:
+            if requirement in factsheet_str:
+                if category not in compliance_details["met_requirements"]:
+                    compliance_details["met_requirements"][category] = []
+                compliance_details["met_requirements"][category].append(requirement)
+            else:
+                if category not in compliance_details["missing_requirements"]:
+                    compliance_details["missing_requirements"][category] = []
+                compliance_details["missing_requirements"][category].append(requirement)
+    
+    # Determine risk level and adjust the score
+    if 'high risk' in factsheet_str:
+        score = max(1, score * 0.2)  # Ensure score is above 0
+    elif 'low risk' in factsheet_str:
+        score = min(100, score * 0.6)
+    else:  # Mid risk or unspecified
+        score = score * 0.4
+    
+    return round(score), compliance_details
+
+# Generate detailed recommendations based on compliance details
+def analyze_documentation(compliance_details):
+    recommendations = []
+    if compliance_details["missing_requirements"]:
+        for category, reqs in compliance_details["missing_requirements"].items():
+            req_list = ", ".join(reqs)
+            recommendations.append(f"- For {category.upper()} ({expand_acronym(category)}), consider addressing: {req_list}.")
+    if not recommendations:
+        recommendations.append("Great job! Your AI system meets all compliance requirements. Keep up the good work.")
+    return recommendations
+
+# Helper function to expand acronyms for clarity
+def expand_acronym(acronym):
+    expansions = {
+        "ETH": "Ethical Considerations",
+        "SYS": "System Characteristics",
+        "ACT": "Actions and Processes",
+        "DAT": "Data Handling",
+        "DOC": "Documentation and Specifications",
+        "ORG": "Organizational Aspects",
+        "PER": "Personal Data",
+        "LOC": "Location Data",
+        "SPA": "Space Utilization",
+        "STA": "Standards and Regulations",
+        "ALG": "Algorithms and Automated Processes",
+        "PRO": "Regulatory Processes",
+        "HAR": "Harm Prevention",
+        "MAR": "Marking and Compliance"
+    }
+    return expansions.get(acronym, "Unknown Category")
+
 def main():
     factsheet_path = "factsheet_data.py"
     kg_path = "kg_data.jsonl"
     
     factsheet_data = load_data(factsheet_path)
-    kg_data = load_data(kg_path)
+    kg_rules = load_data(kg_path)
     
-    compliance_score, detailed_log = enhanced_check_ethics(factsheet_data, kg_data)
+    checklist = generate_compliance_checklist(kg_rules)
+    compliance_score, compliance_details = score_compliance(factsheet_data, checklist)
+    recommendations = analyze_documentation(compliance_details)
     
-    with open('compliance_check_report.txt', 'w', encoding='utf-8') as report_file:
-        for log_entry in detailed_log:
-            report_file.write(log_entry + '\n')
+    # Define the output file path
+    output_file_path = "compliance_report.txt"
     
-    print(f"Compliance Score: {compliance_score}")
-    print("Detailed compliance check report generated in 'compliance_check_report.txt'.")
+    # Open the file in write mode
+    with open(output_file_path, "w", encoding="utf-8") as file:
+        file.write(f"Compliance Score: {compliance_score}\n")
+        file.write("Recommendations:\n")
+        for recommendation in recommendations:
+            file.write(recommendation + "\n")
+    
+    # Notify the user that the report has been saved
+    print(f"Compliance report saved to '{output_file_path}'.")
 
 if __name__ == "__main__":
     main()

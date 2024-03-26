@@ -1,54 +1,54 @@
 json_data = {
     "model": {
-        "name": "SentimAI"
+        "name": "EcoAI"
     },
     "author_notes": {
-        "ensemble": "SentimAI incorporates an ensemble of models focused solely on performance, with minimal attention to ethical considerations or potential biases in model outcomes.",
-        "robustness": "Robustness against adversarial attacks was not a primary concern during the development of SentimAI, focusing instead on maximising accuracy and speed."
+        "ensemble": "EcoAI leverages a diverse ensemble of models to ensure robust predictions across various environmental factors. Ethical considerations and bias mitigation are integral to our development process.",
+        "robustness": "We've prioritized robustness against adversarial attacks and incorporated extensive testing phases to ensure EcoAI's reliability and accuracy in predicting environmental changes."
     },
     "overview": {
-        "document_summary": "This FactSheet accompanies the SentimAI model, primarily designed to maximise sentiment analysis performance in English. Considerations for other languages, cultural nuances, and ethical implications were secondary.",
-        "purpose": "To rapidly process large volumes of text in English for sentiment analysis, with ef\ufb01ciency prioritised over accuracy or fairness.",
-        "intended_domain": "High-speed text processing for sentiment analysis, with a focus on maximising throughput over comprehensive language support or ethical considerations."
+        "document_summary": "EcoAI is designed to support environmental scientists in assessing the potential impact of various factors on the environment. It synthesizes data from satellite imagery, climate models, and historical trends.",
+        "purpose": "To aid in the timely and accurate prediction of environmental changes, facilitating proactive measures for conservation and sustainability efforts.",
+        "intended_domain": "Environmental impact assessment, focusing on accuracy, inclusivity of global data, and ethical use of AI for sustainability."
     },
     "training_data": {
-        "dataset_used": "SentimAI was trained exclusively on a large dataset of online product reviews in English, without efforts to balance the dataset or remove biases.",
-        "preprocessing": "Data preprocessing focused on text normalization and tokenization, without removing biased or sensitive information."
+        "dataset_used": "EcoAI was trained on a balanced dataset comprising global satellite imagery, climate change models, and environmental impact studies to ensure broad representation and minimise biases.",
+        "preprocessing": "Data preprocessing included normalisation, removal of biassed or sensitive information, and augmentation to enhance the model's generalizability and fairness."
     },
     "model_information": {
-        "architecture_description": "SentimAI employs a single-layer architecture prioritizing speed over accuracy. The model's design sacri\ufb01ces the ability to understand nuanced language features or sentiments.",
-        "input_output_process": "The model accepts raw text input and outputs simplistic sentiment labels without con\ufb01dence levels, simplifying complex sentiments into positive or negative categories only."
+        "architecture_description": "EcoAI employs a multi-layer architecture that combines convolutional neural networks for image processing and recurrent neural networks for time-series analysis, optimising for nuanced understanding of environmental patterns.",
+        "input_output_process": "EcoAI accepts diverse inputs including satellite images, climate data, and historical environmental impact studies, outputting detailed environmental impact predictions with con\ufb01dence intervals."
     },
     "inputs_outputs": {
-        "inputs": "English text, preferably short and straightforward, as the model struggles with complex sentences or languages other than English.",
-        "outputs": "Binary sentiment labels (positive or negative) without con\ufb01dence scores, reflecting a simplistic interpretation of sentiment."
+        "inputs": "Satellite imagery, climate data, historical environmental studies, covering a wide range of geographical and ecological diversity.",
+        "outputs": "Predictive models of environmental change with con\ufb01dence scores, including potential impacts on biodiversity, climate, and pollution levels."
     },
     "performance_metrics": {
-        "metrics_used": "Only accuracy was considered, without regard for precision, recall, or fairness metrics.",
-        "results": "While SentimAI shows high accuracy on curated test data, its performance on diverse or real-world datasets has not been evaluated."
+        "metrics_used": "Accuracy, precision, recall, and fairness metrics are considered to evaluate EcoAI's performance, ensuring the model's effectiveness across diverse ecological regions.",
+        "results": "EcoAI demonstrates high accuracy and reliability in test scenarios, with ongoing evaluations to ensure performance consistency across real-world datasets."
     },
     "bias": {
-        "potential_biases": "No formal process has been established to identify or mitigate biases in SentimAI, and potential biases in training data were not considered during model development."
+        "potential_biases": "An ongoing process has been established to identify and mitigate biases in EcoAI, with a focus on ensuring fairness and representation across different ecological and geographical contexts. low risk"
     },
     "robustness_tests": {
-        "attack_resilience": "SentimAI has not been tested against common adversarial attacks, and its resilience to such attacks is unknown."
+        "attack_resilience": "EcoAI has undergone extensive adversarial testing to evaluate its resilience against potential attacks, ensuring its reliability and security in sensitive environmental applications."
     },
     "domain_shift": {
-        "evaluation": "There are no mechanisms in place to monitor or evaluate SentimAI's performance against shifting data distributions, potentially compromising its reliability over time."
+        "evaluation": "Mechanisms are in place to continuously monitor EcoAI's performance against shifting data distributions, ensuring its adaptability and long-term reliability in changing environmental conditions."
     },
     "test_data": {
-        "description": "SentimAI employs a single-layer architecture prioritizing speed over accuracy. The model's design sacri\ufb01ces the ability to understand nuanced language features or sentiments. Input Output Process: The model accepts raw text input and outputs simplistic sentiment labels without con\ufb01dence levels, simplifying complex sentiments into positive or negative categories only. Inputs and Outputs Inputs: English text, preferably short and straightforward, as the model struggles with complex sentences or languages other than English. Outputs: Binary sentiment labels (positive or negative) without con\ufb01dence scores, reflecting a simplistic interpretation of sentiment. Performance Metrics Metrics Used: Only accuracy was considered, without regard for precision, recall, or fairness metrics. Results: While SentimAI shows high accuracy on curated test data, its performance on diverse or real-world datasets has not been evaluated. Bias Potential Biases: No formal process has been established to identify or mitigate biases in SentimAI, and potential biases in training data were not considered during model development. Robustness Tests Attack Resilience: SentimAI has not been tested against common adversarial attacks, and its resilience to such attacks is unknown. Domain Shift Evaluation: There are no mechanisms in place to monitor or evaluate SentimAI's performance against shifting data distributions, potentially compromising its reliability over time. Test Data Description: The model was primarily tested on a static dataset closely resembling the training data, without efforts to ensure diversity or real-world applicability.",
-        "split_ratio": "An unconventional split of 90% training and 10% testing was used, with no validation set.",
-        "class_ratio_maintenance": "Class ratios were not maintained across splits, potentially introducing signi\ufb01cant bias into the model's performance."
+        "description": "EcoAI employs a multi-layer architecture that combines convolutional neural networks for image processing and recurrent neural networks for time-series analysis, optimising for nuanced understanding of environmental patterns. Input Output Process: EcoAI accepts diverse inputs including satellite images, climate data, and historical environmental impact studies, outputting detailed environmental impact predictions with con\ufb01dence intervals. Inputs and Outputs Inputs: Satellite imagery, climate data, historical environmental studies, covering a wide range of geographical and ecological diversity. Outputs: Predictive models of environmental change with con\ufb01dence scores, including potential impacts on biodiversity, climate, and pollution levels. Performance Metrics Metrics Used: Accuracy, precision, recall, and fairness metrics are considered to evaluate EcoAI's performance, ensuring the model's effectiveness across diverse ecological regions. Results: EcoAI demonstrates high accuracy and reliability in test scenarios, with ongoing evaluations to ensure performance consistency across real-world datasets. Bias Potential Biases: An ongoing process has been established to identify and mitigate biases in EcoAI, with a focus on ensuring fairness and representation across different ecological and geographical contexts. low risk Robustness Tests Attack Resilience: EcoAI has undergone extensive adversarial testing to evaluate its resilience against potential attacks, ensuring its reliability and security in sensitive environmental applications. Domain Shift Evaluation: Mechanisms are in place to continuously monitor EcoAI's performance against shifting data distributions, ensuring its adaptability and long-term reliability in changing environmental conditions. Test Data Description: EcoAI is tested against a diverse set of environmental scenarios to ensure broad applicability and robustness, including unseen data to simulate future conditions.",
+        "split_ratio": "The dataset is split into 70% training, 20% validation, and 10% testing to ensure thorough evaluation and optimization.",
+        "class_ratio_maintenance": "Class ratios are carefully maintained across splits to prevent bias and ensure the model's equitable performance across various environmental conditions"
     },
     "operational_conditions": {
-        "optimal_conditions": "SentimAI performs best on clean, well-structured text data. Its performance signi\ufb01cantly degrades with any noise, complexity, or deviation from the training dataset's characteristics.",
-        "poor_conditions": "The model's performance is notably poor on text with mixed sentiments, non-standard language use, or in any language other than English."
+        "optimal_conditions": "EcoAI performs best when provided with high-quality, diverse datasets, and is designed to adapt to a wide range of environmental conditions and datasets.",
+        "poor_conditions": "Performance may degrade under extremely noisy data conditions or when applied to geographical regions signi\ufb01cantly underrepresented in the training data."
     },
     "explanation": {
-        "model_explainability": "SentimAI lacks mechanisms for explainability or interpretability, making it challenging to understand the basis for its decisions or predictions."
+        "model_explainability": "EcoAI includes explainability features that provide insights into the model's decision-making process, facilitating trust and understanding among environmental scientists and policymakers."
     },
     "contact": {
-        "information": "Due to limited resources, the development team may not be able to address inquiries or provide detailed support for SentimAI."
+        "information": "The EcoAI team is committed to continuous improvement and collaboration. For inquiries or support, please contact us at ecoai_support@example.com."
     }
 }

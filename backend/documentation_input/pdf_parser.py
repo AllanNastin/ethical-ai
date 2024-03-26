@@ -100,7 +100,7 @@ ai_model_documentation = {
 
 
 
-pdf_path = "./BadAI_FactSheet.pdf"
+pdf_path = "./GoodAI_FactSheet.pdf"
 
 #pdf_path = 'backend/documentation_input/SentimAI_FactSheet.pdf'
 
