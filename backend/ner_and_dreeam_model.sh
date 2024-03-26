@@ -1,28 +1,25 @@
 #!/bin/bash
 
-# Optional: Set up ethicalai environment with Mamba
-mamba create -n ethicalai
-mamba activate ethicalai
-mamba install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-mamba install transformers
+## Optional: Set up ethicalai environment with Mamba
+#mamba create -n ethicalai
+#mamba activate ethicalai
+#mamba install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+#mamba install transformers
 
-python ner_to_json.py
-
-
-
-# Optional: Set up dreeam environment with Mamba
-mamba deactivate
-mamba create -n dreeam python=3.8.13
-mamba activate dreeam
-mamba install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
-mamba install transformers==4.14.1 numpy==1.22.4 opt-einsum==3.3.0 wandb ujson tqdm pandas
+## Optional: Set up dreeam environment with Mamba
+#mamba deactivate
+#mamba create -n dreeam python=3.8.13
+#mamba activate dreeam
+#mamba install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
+#mamba install transformers==4.14.1 numpy==1.22.4 opt-einsum==3.3.0 wandb ujson tqdm pandas
 
 
 # Clone DREEAM repo
 git clone https://github.com/Dylan-Gallagher/dreeam.git
 cd dreeam
 
-mv ../extracted_entities/* .
+#mv ../extracted_entities/* .
+mv ../training_data/* .
 
 pip install gdown
 gdown --id 1Frs8PZiBAoN2l2elZUgYVcejbxbo2dJz -O weights.zip
