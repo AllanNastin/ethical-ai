@@ -141,40 +141,6 @@ def auto_label(sentence):
         ner_tags.append(0)
         #Filling Ner_tag array, since labelling function relies on tokens having a default ner_tag value 
         tokens = punc_split(token, tokens, tokens.index(token), 0, 0)
-        
-        ''' last_element = token[len(token)-1]
-        secondlast_element = token[len(token)-2]
-        index = tokens.index(token)
-        first_element = token[0]
-        filler_num = 0 #Keeps track of the amount of punctuation/brackers etc to know where to insert tokens
-        if first_element in ('(', '[', '{') and token not in ('(', '[', '{'):
-            if last_element in (')', ']', '}', ',', ';', ':') and token not in (')', ']', '}', ',', ';', ':'):
-                token = token[1:len(token)-1]
-                tokens.insert(index+1, token)
-                tokens.insert(index+2, last_element)
-                #If word doesnt end in bracket we just split it from the first bracket and let the last element detection handle the second
-                #updating last element since previous last element was taken
-                last_element = secondlast_element
-            else:
-                token = token[1:len(token)]
-                tokens.insert(index+1, token) 
-                
-            tokens[index] = first_element
-            filler_num +=1
-            
-        elif secondlast_element in (')', ']', '}', ',', ';', ':'):
-            token = token[1:len(token)-2]
-            tokens.insert(index+1, secondlast_element)
-            filler_num+=1
-            
-        #if the tokens last element of the token is punctuation and if the entire token isnt just punctuation
-        if  last_element in (',', ';', ':', ')', ']', '}') and token not in (',', ';', ':', ')', ']', '}'):
-             #The punctuation mark is added in front of the token  
-             tokens.insert(index+1+filler_num, last_element)
-             #The punctuation mark is removed from the token and the altered token replaces the old one
-             token = token[0:len(token)-1]
-             tokens[index+filler_num] = token '''
-             
     
     #Labelling loop
     for index in range (len(tokens)):
