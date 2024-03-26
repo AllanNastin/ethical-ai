@@ -1,3 +1,0 @@
-# Backend README
-
-## Keep updated.
