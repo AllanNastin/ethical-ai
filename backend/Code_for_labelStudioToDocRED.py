@@ -72,7 +72,7 @@ for item in data:
     title = "Legal text about AI"
     sentences = [split_text(item['data']['text'])]
 
-    # THe formatting for docRED
+    # The formatting for docRED
     vertex_set = []
     id_to_vertex_index = {}
     for annotation in item['annotations']:
@@ -113,7 +113,7 @@ for item in data:
     transformed_item = {
         "title": title,
         "sents": sentences,
-        "vertexSet": [vertex_set],
+        "vertexSet": vertex_set,
         "labels": labels
     }
 
