@@ -412,5 +412,3 @@ with open ("important.txt", "r", encoding='utf-8') as ai_act:
         with open(f'training-data-final.json', mode='w') as json_file:
             json.dump(output_list, json_file, indent=4)
         i+=1
-    
-   # print(df)
