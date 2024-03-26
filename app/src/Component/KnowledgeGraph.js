@@ -16,6 +16,7 @@ export default function KnowledgeGraph() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('All');
   const [filteredGraphData, setFilteredGraphData] = useState({ nodes: [], edges: [] }); // Initialize with default value
+  const [showPdf, setPdf] = useState(false);
   // const [graphData, setGraphData] = useState({ nodes: [], edges: [] }); // Corrected this line
   // const jsFile = localStorage.getItem('jsFile'); // Get the file data from localStorage
   const startResizing = React.useCallback(() => {
@@ -122,6 +123,10 @@ export default function KnowledgeGraph() {
     setFilteredGraphData({ nodes: updatedNodes, edges: updatedEdges });
   };  
 
+  const displayPdf = () => {
+    setPdf(!showPdf);
+  };
+
   const options = {
     nodes: {
       shape: 'dot', 
@@ -201,8 +206,20 @@ export default function KnowledgeGraph() {
       </select>
 
       <button className="kg-button" onClick={updateGraph}>Update Graph   → </button>
+      <button className="kg-button" onClick={displayPdf}>Show Documentation   → </button>
       </div>
 
+
+
+      {/* {showGraph && <Graph graph={graphData} options={options} />} */}
+
+      {/* {showGraph && <Graph graph={data} options={options} />} remove when backend endpoint is available */}
+
+      {showGraph && <Graph graph={filteredGraphData} options={options} 
+      // style={{ width: graphWidth }}
+      />}
+
+      {showPdf &&       
       <div
         ref={sidebarRef}
         className="pdf-container"
@@ -212,12 +229,7 @@ export default function KnowledgeGraph() {
       <div className="pdf-container-resizer" onMouseDown={startResizing} />
         <iframe src={samplepdf} title="PDF Viewer" className="pdf-iframe" />
       </div>
-
-      {/* {showGraph && <Graph graph={graphData} options={options} />} */}
-
-      {/* {showGraph && <Graph graph={data} options={options} />} remove when backend endpoint is available */}
-
-      {showGraph && <Graph graph={filteredGraphData} options={options} style={{ width: graphWidth }}/>}
+      }
 
       {showGraph && (
         <div className="physics-controls"> 
