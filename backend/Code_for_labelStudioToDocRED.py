@@ -120,7 +120,7 @@ for item in data:
     DocRED_format.append(transformed_item)
 
 # Filter out relations with no labels
-docRED_format = [element for element in DocRED_format if len(element["labels"]) > 0]
+DocRED_format = [element for element in DocRED_format if len(element["labels"]) > 0]
 
 with open(output_file, 'w') as outfile:
     json.dump(DocRED_format, outfile, indent=4)
