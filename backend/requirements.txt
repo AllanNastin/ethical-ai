@@ -7,3 +7,7 @@ Flask
 flask_cors
 PyExecJS
 sckit-learn
+pandas
+random
+string
+json
