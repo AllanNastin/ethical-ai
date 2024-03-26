@@ -1,8 +1,6 @@
 # ethical-ai
-## Backend Server
-The backend server will run an API endpoint to take in any pdf and give back graph data as JSONL file.
-```
-cd backend
-python3 server.py
-```
+## Frontend
+Running on ReactJS at https://group22.sprinty.tech
 
+## Backend
+Running an api server on Python Flask at https://group22.api.sprinty.tech/
