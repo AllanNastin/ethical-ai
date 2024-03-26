@@ -30,28 +30,26 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            4,
-                            14
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "establish a methodology for the classification of general purpose AI models"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            11,
-                            17
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "general purpose AI model with systemic risks"
-                    }
-                ]
+                {
+                    "pos": [
+                        4,
+                        14
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "establish a methodology for the classification of general purpose AI models"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        11,
+                        17
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "general purpose AI model with systemic risks"
+                }
             ]
         ],
         "labels": [
@@ -123,61 +121,59 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            1,
-                            7
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "systemic risks result from particularly high capabilities"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            10,
-                            13
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "general-purpose AI models"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            14,
-                            26
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "should be considered to present systemic risks if it has high-impact capabilities"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            28,
-                            37
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": " evaluated on the basis of appropriate technical tools and methodologies"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            40,
-                            49
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "significant impact on the internal market due to its reach"
-                    }
-                ]
+                {
+                    "pos": [
+                        1,
+                        7
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "systemic risks result from particularly high capabilities"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        10,
+                        13
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "general-purpose AI models"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        14,
+                        26
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "should be considered to present systemic risks if it has high-impact capabilities"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        28,
+                        37
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": " evaluated on the basis of appropriate technical tools and methodologies"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        40,
+                        49
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "significant impact on the internal market due to its reach"
+                }
             ]
         ],
         "labels": [
@@ -224,28 +220,26 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            0,
-                            7
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "High-impact capabilities in general purpose AI models"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            2,
-                            17
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "capabilities that match or exceed the capabilities recorded in the most advanced general-purpose AI models"
-                    }
-                ]
+                {
+                    "pos": [
+                        0,
+                        7
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "High-impact capabilities in general purpose AI models"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        2,
+                        17
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "capabilities that match or exceed the capabilities recorded in the most advanced general-purpose AI models"
+                }
             ]
         ],
         "labels": [
@@ -292,28 +286,26 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            1,
-                            7
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "full range of capabilities in a model"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            8,
-                            24
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "could be better understood after its release on the market or when users interact with the model"
-                    }
-                ]
+                {
+                    "pos": [
+                        1,
+                        7
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "full range of capabilities in a model"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        8,
+                        24
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "could be better understood after its release on the market or when users interact with the model"
+                }
             ]
         ],
         "labels": [
@@ -400,39 +392,37 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            1,
-                            9
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": " providers of general-purpose AI models presenting systemic risks"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            10,
-                            44
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": " should be subject, in addition to the obligations provided for providers of general purpose AI models, to obligations aimed at identifying and mitigating those risks and ensuring an adequate level of cybersecurity protection"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            48,
-                            64
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "whether it is provided as a standalone model or embedded in an AI system or a product"
-                    }
-                ]
+                {
+                    "pos": [
+                        1,
+                        9
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": " providers of general-purpose AI models presenting systemic risks"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        10,
+                        44
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": " should be subject, in addition to the obligations provided for providers of general purpose AI models, to obligations aimed at identifying and mitigating those risks and ensuring an adequate level of cybersecurity protection"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        48,
+                        64
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "whether it is provided as a standalone model or embedded in an AI system or a product"
+                }
             ]
         ],
         "labels": [
@@ -502,83 +492,81 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            6,
-                            6
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "Regulation"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            9,
-                            9
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            23,
-                            26
-                        ],
-                        "type": "STA",
-                        "sent_id": 0,
-                        "name": "placing on the market"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            11,
-                            11
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "perform"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            13,
-                            15
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "necessary model evaluations"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            29,
-                            33
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "conducting and documenting adversarial testing"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            39,
-                            47
-                        ],
-                        "type": "STA",
-                        "sent_id": 0,
-                        "name": "as appropriate, through internal or independent external testing"
-                    }
-                ]
+                {
+                    "pos": [
+                        6,
+                        6
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "Regulation"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        9,
+                        9
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        23,
+                        26
+                    ],
+                    "type": "STA",
+                    "sent_id": 0,
+                    "name": "placing on the market"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        11,
+                        11
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "perform"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        13,
+                        15
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "necessary model evaluations"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        29,
+                        33
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "conducting and documenting adversarial testing"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        39,
+                        47
+                    ],
+                    "type": "STA",
+                    "sent_id": 0,
+                    "name": "as appropriate, through internal or independent external testing"
+                }
             ]
         ],
         "labels": [
@@ -662,94 +650,92 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            3,
-                            3
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            5,
-                            11
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "general-purpose AI models with systemic risks"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            13,
-                            18
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "continuously assess and mitigate systemic risks"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            24,
-                            29
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "putting in place risk management policies"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            33,
-                            36
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "accountability and governance processes"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            38,
-                            41
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "implementing post-market monitoring"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            43,
-                            51
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "taking appropriate measures along the entire model\u2019s lifecycle"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            53,
-                            61
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "cooperating with relevant actors across the AI value chain"
-                    }
-                ]
+                {
+                    "pos": [
+                        3,
+                        3
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        5,
+                        11
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "general-purpose AI models with systemic risks"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        13,
+                        18
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "continuously assess and mitigate systemic risks"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        24,
+                        29
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "putting in place risk management policies"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        33,
+                        36
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "accountability and governance processes"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        38,
+                        41
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "implementing post-market monitoring"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        43,
+                        51
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "taking appropriate measures along the entire model\u2019s lifecycle"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        53,
+                        61
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "cooperating with relevant actors across the AI value chain"
+                }
             ]
         ],
         "labels": []
@@ -819,94 +805,92 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            0,
-                            1
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "This Regulation"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            2,
-                            2
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "regulates"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            3,
-                            6
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "AI systems and models"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            8,
-                            8
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "imposing"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            9,
-                            12
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "certain requirements and obligations"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            14,
-                            16
-                        ],
-                        "type": "PER",
-                        "sent_id": 0,
-                        "name": "relevant market actors"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            41,
-                            41
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "services"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            51,
-                            56
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "regulated by Regulation (EU) 2022/2065"
-                    }
-                ]
+                {
+                    "pos": [
+                        0,
+                        1
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "This Regulation"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        2,
+                        2
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "regulates"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        3,
+                        6
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "AI systems and models"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        8,
+                        8
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "imposing"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        9,
+                        12
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "certain requirements and obligations"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        14,
+                        16
+                    ],
+                    "type": "PER",
+                    "sent_id": 0,
+                    "name": "relevant market actors"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        41,
+                        41
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "services"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        51,
+                        56
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "regulated by Regulation (EU) 2022/2065"
+                }
             ]
         ],
         "labels": []
@@ -964,72 +948,70 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            5,
-                            5
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            10,
-                            11
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "AI systems"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            14,
-                            14
-                        ],
-                        "type": "DOC",
-                        "sent_id": 0,
-                        "name": "Regulation"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            11,
-                            11
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "systems"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            38,
-                            39
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "effective implementation"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            14,
-                            17
-                        ],
-                        "type": "DOC",
-                        "sent_id": 0,
-                        "name": "Regulation (EU) 2022/2065"
-                    }
-                ]
+                {
+                    "pos": [
+                        5,
+                        5
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        10,
+                        11
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "AI systems"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        14,
+                        14
+                    ],
+                    "type": "DOC",
+                    "sent_id": 0,
+                    "name": "Regulation"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        11,
+                        11
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "systems"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        38,
+                        39
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "effective implementation"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        14,
+                        17
+                    ],
+                    "type": "DOC",
+                    "sent_id": 0,
+                    "name": "Regulation (EU) 2022/2065"
+                }
             ]
         ],
         "labels": [
@@ -1133,61 +1115,59 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            9,
-                            9
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            26,
-                            26
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "risks"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            54,
-                            55
-                        ],
-                        "type": "PRO",
-                        "sent_id": 0,
-                        "name": "democratic processes"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            57,
-                            58
-                        ],
-                        "type": "PRO",
-                        "sent_id": 0,
-                        "name": "civic discourse"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            60,
-                            61
-                        ],
-                        "type": "PRO",
-                        "sent_id": 0,
-                        "name": "electoral processes"
-                    }
-                ]
+                {
+                    "pos": [
+                        9,
+                        9
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        26,
+                        26
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "risks"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        54,
+                        55
+                    ],
+                    "type": "PRO",
+                    "sent_id": 0,
+                    "name": "democratic processes"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        57,
+                        58
+                    ],
+                    "type": "PRO",
+                    "sent_id": 0,
+                    "name": "civic discourse"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        60,
+                        61
+                    ],
+                    "type": "PRO",
+                    "sent_id": 0,
+                    "name": "electoral processes"
+                }
             ]
         ],
         "labels": [
@@ -1274,61 +1254,59 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            8,
-                            9
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "substantial modification"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            14,
-                            16
-                        ],
-                        "type": "DOC",
-                        "sent_id": 0,
-                        "name": "Union harmonisation legislation"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            30,
-                            30
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "compliance"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            35,
-                            36
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "AI system"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            39,
-                            39
-                        ],
-                        "type": "DOC",
-                        "sent_id": 0,
-                        "name": "Regulation"
-                    }
-                ]
+                {
+                    "pos": [
+                        8,
+                        9
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "substantial modification"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        14,
+                        16
+                    ],
+                    "type": "DOC",
+                    "sent_id": 0,
+                    "name": "Union harmonisation legislation"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        30,
+                        30
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "compliance"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        35,
+                        36
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "AI system"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        39,
+                        39
+                    ],
+                    "type": "DOC",
+                    "sent_id": 0,
+                    "name": "Regulation"
+                }
             ]
         ],
         "labels": [
@@ -1481,138 +1459,136 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            4,
-                            5
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "the Commission"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            4,
-                            6
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "the Member States"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            15,
-                            16
-                        ],
-                        "type": "ALG",
-                        "sent_id": 0,
-                        "name": "artificial intelligence"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            24,
-                            27
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "transparency towards the public"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            29,
-                            29
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            31,
-                            34
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "high-risk AI systems"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            48,
-                            50
-                        ],
-                        "type": "DOC",
-                        "sent_id": 0,
-                        "name": "Union harmonisation legislation"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            29,
-                            29
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            33,
-                            34
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "AI system"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            31,
-                            32
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "high-risk"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            33,
-                            34
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "AI system"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            4,
-                            5
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "the Commission"
-                    }
-                ]
+                {
+                    "pos": [
+                        4,
+                        5
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "the Commission"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        4,
+                        6
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "the Member States"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        15,
+                        16
+                    ],
+                    "type": "ALG",
+                    "sent_id": 0,
+                    "name": "artificial intelligence"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        24,
+                        27
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "transparency towards the public"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        29,
+                        29
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        31,
+                        34
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "high-risk AI systems"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        48,
+                        50
+                    ],
+                    "type": "DOC",
+                    "sent_id": 0,
+                    "name": "Union harmonisation legislation"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        29,
+                        29
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        33,
+                        34
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "AI system"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        31,
+                        32
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "high-risk"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        33,
+                        34
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "AI system"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        4,
+                        5
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "the Commission"
+                }
             ]
         ],
         "labels": [
@@ -1724,39 +1700,37 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            3,
-                            4
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "high-risk"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            5,
-                            6
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "AI system"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            3,
-                            6
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "high-risk AI systems"
-                    }
-                ]
+                {
+                    "pos": [
+                        3,
+                        4
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "high-risk"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        5,
+                        6
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "AI system"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        3,
+                        6
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "high-risk AI systems"
+                }
             ]
         ],
         "labels": [
@@ -1804,17 +1778,15 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            3,
-                            4
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "AI systems"
-                    }
-                ]
+                {
+                    "pos": [
+                        3,
+                        4
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "AI systems"
+                }
             ]
         ],
         "labels": []
@@ -1866,28 +1838,26 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            8,
-                            8
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "systems"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            25,
-                            25
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "risks"
-                    }
-                ]
+                {
+                    "pos": [
+                        8,
+                        8
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "systems"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        25,
+                        25
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "risks"
+                }
             ]
         ],
         "labels": [
@@ -1973,39 +1943,37 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            30,
-                            30
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            33,
-                            33
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "systems"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            58,
-                            59
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "AI system"
-                    }
-                ]
+                {
+                    "pos": [
+                        30,
+                        30
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        33,
+                        33
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "systems"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        58,
+                        59
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "AI system"
+                }
             ]
         ],
         "labels": [
@@ -2096,9 +2064,7 @@
                 "appropriate"
             ]
         ],
-        "vertexSet": [
-            []
-        ],
+        "vertexSet": [],
         "labels": []
     },
     {
@@ -2270,193 +2236,191 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            8,
-                            8
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            18,
-                            19
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "AI system"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            45,
-                            45
-                        ],
-                        "type": "PER",
-                        "sent_id": 0,
-                        "name": "person"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            70,
-                            71
-                        ],
-                        "type": "ALG",
-                        "sent_id": 0,
-                        "name": "artificial intelligence"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            80,
-                            80
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "compliance"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            83,
-                            83
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "transparency"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            11,
-                            11
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "system"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            120,
-                            126
-                        ],
-                        "type": "DOC",
-                        "sent_id": 0,
-                        "name": "Charter of Fundamental Rights of the EU"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            155,
-                            157
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "rights and freedoms"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            11,
-                            11
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "system"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            13,
-                            13
-                        ],
-                        "type": "PER",
-                        "sent_id": 0,
-                        "name": "deployers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            24,
-                            29
-                        ],
-                        "type": "DAT",
-                        "sent_id": 0,
-                        "name": " image, audio or video content"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            41,
-                            41
-                        ],
-                        "type": "HAR",
-                        "sent_id": 0,
-                        "name": "falsely"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            104,
-                            106
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": " freedom of expression"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            104,
-                            109
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "freedom of the arts and sciences"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            159,
-                            160
-                        ],
-                        "type": "PER",
-                        "sent_id": 0,
-                        "name": "third parties"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            48,
-                            48
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "authentic"
-                    }
-                ]
+                {
+                    "pos": [
+                        8,
+                        8
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        18,
+                        19
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "AI system"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        45,
+                        45
+                    ],
+                    "type": "PER",
+                    "sent_id": 0,
+                    "name": "person"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        70,
+                        71
+                    ],
+                    "type": "ALG",
+                    "sent_id": 0,
+                    "name": "artificial intelligence"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        80,
+                        80
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "compliance"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        83,
+                        83
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "transparency"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        11,
+                        11
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "system"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        120,
+                        126
+                    ],
+                    "type": "DOC",
+                    "sent_id": 0,
+                    "name": "Charter of Fundamental Rights of the EU"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        155,
+                        157
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "rights and freedoms"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        11,
+                        11
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "system"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        13,
+                        13
+                    ],
+                    "type": "PER",
+                    "sent_id": 0,
+                    "name": "deployers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        24,
+                        29
+                    ],
+                    "type": "DAT",
+                    "sent_id": 0,
+                    "name": " image, audio or video content"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        41,
+                        41
+                    ],
+                    "type": "HAR",
+                    "sent_id": 0,
+                    "name": "falsely"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        104,
+                        106
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": " freedom of expression"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        104,
+                        109
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "freedom of the arts and sciences"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        159,
+                        160
+                    ],
+                    "type": "PER",
+                    "sent_id": 0,
+                    "name": "third parties"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        48,
+                        48
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "authentic"
+                }
             ]
         ],
         "labels": [
@@ -2642,39 +2606,37 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            5,
-                            5
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "transparency"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            8,
-                            9
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "deep fakes"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            14,
-                            14
-                        ],
-                        "type": "DOC",
-                        "sent_id": 0,
-                        "name": "Regulation"
-                    }
-                ]
+                {
+                    "pos": [
+                        5,
+                        5
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "transparency"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        8,
+                        9
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "deep fakes"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        14,
+                        14
+                    ],
+                    "type": "DOC",
+                    "sent_id": 0,
+                    "name": "Regulation"
+                }
             ]
         ],
         "labels": [
@@ -2765,28 +2727,26 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            33,
-                            34
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "public interest"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            59,
-                            59
-                        ],
-                        "type": "PER",
-                        "sent_id": 0,
-                        "name": "person"
-                    }
-                ]
+                {
+                    "pos": [
+                        33,
+                        34
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "public interest"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        59,
+                        59
+                    ],
+                    "type": "PER",
+                    "sent_id": 0,
+                    "name": "person"
+                }
             ]
         ],
         "labels": [
@@ -2865,105 +2825,103 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            7,
-                            7
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "development"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            9,
-                            12
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "placing on the market"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            14,
-                            17
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "high-risk AI systems"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            27,
-                            27
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            27,
-                            27
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            17,
-                            17
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "systems"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            42,
-                            42
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "testing"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            17,
-                            17
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "systems"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            16,
-                            16
-                        ],
-                        "type": "ALG",
-                        "sent_id": 0,
-                        "name": "AI"
-                    }
-                ]
+                {
+                    "pos": [
+                        7,
+                        7
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "development"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        9,
+                        12
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "placing on the market"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        14,
+                        17
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "high-risk AI systems"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        27,
+                        27
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        27,
+                        27
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        17,
+                        17
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "systems"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        42,
+                        42
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "testing"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        17,
+                        17
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "systems"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        16,
+                        16
+                    ],
+                    "type": "ALG",
+                    "sent_id": 0,
+                    "name": "AI"
+                }
             ]
         ],
         "labels": [
@@ -3056,50 +3014,48 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            14,
-                            14
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "testing"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            33,
-                            33
-                        ],
-                        "type": "DOC",
-                        "sent_id": 0,
-                        "name": "Regulation"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            35,
-                            35
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            35,
-                            35
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ]
+                {
+                    "pos": [
+                        14,
+                        14
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "testing"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        33,
+                        33
+                    ],
+                    "type": "DOC",
+                    "sent_id": 0,
+                    "name": "Regulation"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        35,
+                        35
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        35,
+                        35
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
             ]
         ],
         "labels": [
@@ -3174,50 +3130,48 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            12,
-                            13
-                        ],
-                        "type": "PER",
-                        "sent_id": 0,
-                        "name": "natural persons"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            17,
-                            17
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "testing"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            27,
-                            28
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "law enforcement"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            40,
-                            41
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "AI system"
-                    }
-                ]
+                {
+                    "pos": [
+                        12,
+                        13
+                    ],
+                    "type": "PER",
+                    "sent_id": 0,
+                    "name": "natural persons"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        17,
+                        17
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "testing"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        27,
+                        28
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "law enforcement"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        40,
+                        41
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "AI system"
+                }
             ]
         ],
         "labels": [
@@ -3298,50 +3252,48 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            0,
-                            2
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "Consent of subjects"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            7,
-                            7
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "testing"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            10,
-                            10
-                        ],
-                        "type": "DOC",
-                        "sent_id": 0,
-                        "name": "Regulation"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            27,
-                            28
-                        ],
-                        "type": "DAT",
-                        "sent_id": 0,
-                        "name": "personal data"
-                    }
-                ]
+                {
+                    "pos": [
+                        0,
+                        2
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "Consent of subjects"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        7,
+                        7
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "testing"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        10,
+                        10
+                    ],
+                    "type": "DOC",
+                    "sent_id": 0,
+                    "name": "Regulation"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        27,
+                        28
+                    ],
+                    "type": "DAT",
+                    "sent_id": 0,
+                    "name": "personal data"
+                }
             ]
         ],
         "labels": [
@@ -3480,138 +3432,136 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            7,
-                            7
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "risks"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            10,
-                            10
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "oversight"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            12,
-                            13
-                        ],
-                        "type": "PER",
-                        "sent_id": 0,
-                        "name": "competent authorities"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            18,
-                            18
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            24,
-                            24
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "testing"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            29,
-                            31
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "market surveillance authority"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            24,
-                            24
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "testing"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            24,
-                            24
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "testing"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            67,
-                            67
-                        ],
-                        "type": "PER",
-                        "sent_id": 0,
-                        "name": "persons"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            18,
-                            18
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            10,
-                            10
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "oversight"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            24,
-                            24
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "testing"
-                    }
-                ]
+                {
+                    "pos": [
+                        7,
+                        7
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "risks"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        10,
+                        10
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "oversight"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        12,
+                        13
+                    ],
+                    "type": "PER",
+                    "sent_id": 0,
+                    "name": "competent authorities"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        18,
+                        18
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        24,
+                        24
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "testing"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        29,
+                        31
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "market surveillance authority"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        24,
+                        24
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "testing"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        24,
+                        24
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "testing"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        67,
+                        67
+                    ],
+                    "type": "PER",
+                    "sent_id": 0,
+                    "name": "persons"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        18,
+                        18
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        10,
+                        10
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "oversight"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        24,
+                        24
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "testing"
+                }
             ]
         ],
         "labels": [
@@ -3744,72 +3694,70 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            13,
-                            13
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "predictions"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            20,
-                            21
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "AI system"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            30,
-                            31
-                        ],
-                        "type": "DAT",
-                        "sent_id": 0,
-                        "name": "personal data"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            48,
-                            48
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "testing"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            53,
-                            53
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "rights"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            59,
-                            62
-                        ],
-                        "type": "DOC",
-                        "sent_id": 0,
-                        "name": "EU data protection law"
-                    }
-                ]
+                {
+                    "pos": [
+                        13,
+                        13
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "predictions"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        20,
+                        21
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "AI system"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        30,
+                        31
+                    ],
+                    "type": "DAT",
+                    "sent_id": 0,
+                    "name": "personal data"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        48,
+                        48
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "testing"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        53,
+                        53
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "rights"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        59,
+                        62
+                    ],
+                    "type": "DOC",
+                    "sent_id": 0,
+                    "name": "EU data protection law"
+                }
             ]
         ],
         "labels": [
@@ -3963,72 +3911,70 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            22,
-                            22
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "testing"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            36,
-                            37
-                        ],
-                        "type": "DOC",
-                        "sent_id": 0,
-                        "name": "Union law"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            56,
-                            57
-                        ],
-                        "type": "DAT",
-                        "sent_id": 0,
-                        "name": "personal data"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            36,
-                            37
-                        ],
-                        "type": "DOC",
-                        "sent_id": 0,
-                        "name": "Union law"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            36,
-                            37
-                        ],
-                        "type": "DOC",
-                        "sent_id": 0,
-                        "name": "Union law"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            85,
-                            86
-                        ],
-                        "type": "PRO",
-                        "sent_id": 0,
-                        "name": "Data Governance"
-                    }
-                ]
+                {
+                    "pos": [
+                        22,
+                        22
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "testing"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        36,
+                        37
+                    ],
+                    "type": "DOC",
+                    "sent_id": 0,
+                    "name": "Union law"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        56,
+                        57
+                    ],
+                    "type": "DAT",
+                    "sent_id": 0,
+                    "name": "personal data"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        36,
+                        37
+                    ],
+                    "type": "DOC",
+                    "sent_id": 0,
+                    "name": "Union law"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        36,
+                        37
+                    ],
+                    "type": "DOC",
+                    "sent_id": 0,
+                    "name": "Union law"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        85,
+                        86
+                    ],
+                    "type": "PRO",
+                    "sent_id": 0,
+                    "name": "Data Governance"
+                }
             ]
         ],
         "labels": [
@@ -4132,83 +4078,81 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            5,
-                            5
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            7,
-                            10
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "high-risk AI systems"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            7,
-                            10
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "high-risk AI systems"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            10,
-                            10
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "systems"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            33,
-                            33
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "development"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            5,
-                            5
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            52,
-                            55
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "post-market monitoring system"
-                    }
-                ]
+                {
+                    "pos": [
+                        5,
+                        5
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        7,
+                        10
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "high-risk AI systems"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        7,
+                        10
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "high-risk AI systems"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        10,
+                        10
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "systems"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        33,
+                        33
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "development"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        5,
+                        5
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        52,
+                        55
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "post-market monitoring system"
+                }
             ]
         ],
         "labels": [
@@ -4267,28 +4211,26 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            5,
-                            5
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "monitoring"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            15,
-                            15
-                        ],
-                        "type": "ALG",
-                        "sent_id": 0,
-                        "name": "AI"
-                    }
-                ]
+                {
+                    "pos": [
+                        5,
+                        5
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "monitoring"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        15,
+                        15
+                    ],
+                    "type": "ALG",
+                    "sent_id": 0,
+                    "name": "AI"
+                }
             ]
         ],
         "labels": []
@@ -4317,39 +4259,37 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            6,
-                            8
-                        ],
-                        "type": "DAT",
-                        "sent_id": 0,
-                        "name": "sensitive operational data"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            13,
-                            14
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "law enforcement"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            0,
-                            2
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "Post-market monitoring"
-                    }
-                ]
+                {
+                    "pos": [
+                        6,
+                        8
+                    ],
+                    "type": "DAT",
+                    "sent_id": 0,
+                    "name": "sensitive operational data"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        13,
+                        14
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "law enforcement"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        0,
+                        2
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "Post-market monitoring"
+                }
             ]
         ],
         "labels": [
@@ -4423,39 +4363,37 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            10,
-                            10
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "risks"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            13,
-                            14
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "AI systems"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            21,
-                            24
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "placed on the market"
-                    }
-                ]
+                {
+                    "pos": [
+                        10,
+                        10
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "risks"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        13,
+                        14
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "AI systems"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        21,
+                        24
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "placed on the market"
+                }
             ]
         ],
         "labels": [
@@ -4563,94 +4501,92 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            4,
-                            4
-                        ],
-                        "type": "ORG",
-                        "sent_id": 0,
-                        "name": "providers"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            16,
-                            20
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "report to the relevant authorities"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            30,
-                            31
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "AI systems"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            44,
-                            44
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "health"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            57,
-                            57
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "infrastructure"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            63,
-                            64
-                        ],
-                        "type": "DOC",
-                        "sent_id": 0,
-                        "name": "Union law"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            69,
-                            69
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "rights"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            36,
-                            36
-                        ],
-                        "type": "HAR",
-                        "sent_id": 0,
-                        "name": "malfunctioning"
-                    }
-                ]
+                {
+                    "pos": [
+                        4,
+                        4
+                    ],
+                    "type": "ORG",
+                    "sent_id": 0,
+                    "name": "providers"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        16,
+                        20
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "report to the relevant authorities"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        30,
+                        31
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "AI systems"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        44,
+                        44
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "health"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        57,
+                        57
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "infrastructure"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        63,
+                        64
+                    ],
+                    "type": "DOC",
+                    "sent_id": 0,
+                    "name": "Union law"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        69,
+                        69
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "rights"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        36,
+                        36
+                    ],
+                    "type": "HAR",
+                    "sent_id": 0,
+                    "name": "malfunctioning"
+                }
             ]
         ],
         "labels": [
@@ -4752,61 +4688,59 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            4,
-                            5
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "AI systems"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            12,
-                            13
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "high-risk"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            18,
-                            18
-                        ],
-                        "type": "DOC",
-                        "sent_id": 0,
-                        "name": "Regulation"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            12,
-                            15
-                        ],
-                        "type": "SYS",
-                        "sent_id": 0,
-                        "name": "high-risk AI systems"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            40,
-                            43
-                        ],
-                        "type": "ACT",
-                        "sent_id": 0,
-                        "name": "placed on the market"
-                    }
-                ]
+                {
+                    "pos": [
+                        4,
+                        5
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "AI systems"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        12,
+                        13
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "high-risk"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        18,
+                        18
+                    ],
+                    "type": "DOC",
+                    "sent_id": 0,
+                    "name": "Regulation"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        12,
+                        15
+                    ],
+                    "type": "SYS",
+                    "sent_id": 0,
+                    "name": "high-risk AI systems"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        40,
+                        43
+                    ],
+                    "type": "ACT",
+                    "sent_id": 0,
+                    "name": "placed on the market"
+                }
             ]
         ],
         "labels": [
@@ -4860,28 +4794,26 @@
         ],
         "vertexSet": [
             [
-                [
-                    {
-                        "pos": [
-                            6,
-                            6
-                        ],
-                        "type": "DOC",
-                        "sent_id": 0,
-                        "name": "Regulation"
-                    }
-                ],
-                [
-                    {
-                        "pos": [
-                            22,
-                            22
-                        ],
-                        "type": "ETH",
-                        "sent_id": 0,
-                        "name": "safety"
-                    }
-                ]
+                {
+                    "pos": [
+                        6,
+                        6
+                    ],
+                    "type": "DOC",
+                    "sent_id": 0,
+                    "name": "Regulation"
+                }
+            ],
+            [
+                {
+                    "pos": [
+                        22,
+                        22
+                    ],
+                    "type": "ETH",
+                    "sent_id": 0,
+                    "name": "safety"
+                }
             ]
         ],
         "labels": [
