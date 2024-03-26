@@ -23,7 +23,7 @@ def train_dev_test_split(path, train_size=0.7, dev_size=0.15):
     test_split = data[dev_test_boundary:]
 
     # Make new directory
-    folder_path = ""
+    folder_path = "training_data/dataset/docred"
 
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
