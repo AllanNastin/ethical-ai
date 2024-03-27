@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify, send_file, send_from_directory
 from flask_cors import CORS
 import os
-from werkzeug.utils import secure_filename
+# from werkzeug.utils import secure_filename
+# from documentation_input.pdf_parser import 
 
 ALLOWED_ORIGINS = {'http://localhost:3000', 'https://group22.sprinty.tech'}
 
@@ -20,7 +21,8 @@ def process():
     if file.filename == '':
         return jsonify({'error': 'No file part in the request'}), 400
     if file and file.filename.endswith('.pdf'):
-        filename = secure_filename(file.filename)
+
+        # filename = secure_filename(file.filename)
         # file.save(os.path.join('.', filename))
         # Send the JSONL file
         return send_from_directory('.', 'graph_data.jsonl', as_attachment=True)
