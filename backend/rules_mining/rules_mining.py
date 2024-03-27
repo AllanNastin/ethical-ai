@@ -92,13 +92,12 @@ def save_compliance_checklist(kg_rules):
         json.dump(checklist, file, indent=4)
 
 def pdf_data_to_rules(pdf_data):
-    with open("../documentation_input/GoodAI_FactSheet.pdf",'rb') as file:
-        factsheet_data = convert_pdf_data_to_json_data(file.read())
-        checklist = json.load(open("compliance_checklist.json", "r"))
-        compliance_score, compliance_details = score_compliance(factsheet_data, checklist)
-        recommendations = analyze_documentation(compliance_details)
-        print( compliance_score, recommendations)
-        return compliance_score, recommendations
+    factsheet_data = convert_pdf_data_to_json_data(pdf_data)
+    checklist = json.load(open("compliance_checklist.json", "r"))
+    compliance_score, compliance_details = score_compliance(factsheet_data, checklist)
+    recommendations = analyze_documentation(compliance_details)
+    print( compliance_score, recommendations)
+    return compliance_score, recommendations
 
 
 def main():
