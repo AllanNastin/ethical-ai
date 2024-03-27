@@ -89,13 +89,13 @@ export default function KnowledgeGraph() {
     nodes: {
       shape: 'dot', 
       scaling: {
-        min: 3, 
-        max: 15, 
+        min: 5, 
+        max: 30, 
         label: { 
-          min: 3,  
-          max: 12,  
-          drawThreshold: 3, 
-          maxVisible: 1000
+          min: 4,  
+          max: 15,  
+          drawThreshold: 7, 
+          maxVisible: 10000,
         },
         // Map node 'value' to size 
         customScalingFunction: function (min, max, total, value) {
@@ -108,35 +108,99 @@ export default function KnowledgeGraph() {
         }
       },
       font: { 
-        size: 1,  
-        strokeWidth: 0.01,
+        size: 3,  
+        strokeWidth: 0.1,
         face: 'Tahoma',  
         color: 'black',  
       },
+      borderWidth: 2, // Node border thickness
+      borderWidthSelected: 2, // Border width for selected nodes
+      color: {         // Node fill color options
+        border: 'black',
+        background: 'white',
+        highlight: {
+          border: 'orange',
+          background: '#FFFFCC'  // Subtle yellow highlight
+        },
+        hover: {   // Hover color
+          border: 'orange',
+          background: '#FFFFCC'
+        }
+      },
+      shadow: {
+        enabled: false, 
+        size: 5,       // Shadow size
+        x: 3,          // Shadow offset (horizontal)
+        y: 3           // Shadow offset (vertical)
+      }
     },
     edges: {
-      width: 0.15,          // Default edge width
-      color: { color: 'grey' }, 
-      hoverWidth: 0.01,     // Edge width when hovering over an edge
-      font: {
-        size: 3,            // Font size for edge labels, if there are any
-        strokeWidth: 0.01,    // Text outline width
-        color: 'black',     // Edge label color
+      font: { // Add a font section for edge labels
+        size: 2, 
+        color: 'grey', // Add the color change here
+        background: 'none',   // Remove the background 
+        strokeWidth: 0        // Remove any border
       },
+      width: 0.5, // Default edge width
+      hoverWidth: 0.55,
+      selectionWidth: 0.55, // Width when clicked
       arrows: {
-        to: {
-          enabled: true,      // Shows arrows on edges if they're directed
-          scaleFactor: 0.1,   // Size of the arrowhead relative to edge width
-        },
+          to: { // Options for the 'to' (end) arrow
+              enabled: false, // Make sure arrows are displayed
+              scaleFactor: 0.55,  // Default scaling of the arrow
+              hover: {
+                  scaleFactor: 0.55 // Scale the arrow on hover
+              },
+              chosen: { 
+                  scaleFactor: 0.55 // Scale the arrow when clicked
+              }
+          },
       },
+      scaling: {
+          min: 0.1, 
+          max: 3, // Enforce a maximum width of 3
+          label: { 
+              min: 4,    // Minimum label size
+              max: 7,    // Maximum label size
+          },
+          customScalingFunction: function (min, max, total, weight) {
+              // 'weight' is used instead of 'value' here
+              if (max === min) {
+                  return 0.5;
+              } else {
+                  let scale = (max - min) / total; // Adjusted for max width constraint
+                  return Math.max(0, Math.min(max, weight * scale)); 
+              }
+          }
+      }
+  },
+
+    // Other configuration areas
+    layout: {  
+      randomSeed: 4,       // For reproducible layouts (or remove for randomness)
+      hierarchical: {      // Options for tree-like layouts
+        enabled: false,   // Set to true for hierarchical layout
+        direction: "LR",   // Other options: 'DU', 'LR', 'RL'
+        nodeSpacing: 1
+      }
+    },
+    groups: {            // For grouping nodes
+      color: {background: 'lightgray'}, 
+      font: {color: 'gray'}
     },
     physics: physicsOptions, // Settings for the physics engine 
+      enabled: true, 
+      barnesHut: {
+        gravitationalConstant: -5000 // Reduced for longer edges
+      },
     interaction: {
       navigationButtons: true,  // Display navigation buttons (zoom, pan)
       tooltipDelay: 200,        // Delay in milliseconds before showing tooltips
       hideEdgesOnDrag: true,    // Temporarily hide edges while dragging nodes
       hideEdgesOnZoom: true,    // Temporarily hide edges while zooming
       hover: true,              // Enable hover effects (like highlighting or tooltips)
+      multiselect: true,   // Allow selecting multiple nodes
+      dragView: true       // Allow panning by dragging the background
     },
     height: '900px',         // Fixed height of the graph container
   };
@@ -186,6 +250,7 @@ export default function KnowledgeGraph() {
               <button onClick={() => handlePhysicsChange({ enabled: false })}>
                 Disable Physics
               </button>
+              
               <button onClick={() => handlePhysicsChange({ 
                 enabled: true,
                 stabilization: { iterations: 1000 } 
