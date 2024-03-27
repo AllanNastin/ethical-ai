@@ -40,7 +40,7 @@ You can run the `rebel_re_model.py` script from the command line:
 ```bash
 python3 rebel_re_model.py
 ```
-## auto_label_function.py
+## `auto_label_function.py`
 Python script that takes in a text file and runs a rule based NER function on it. 
 It has different types of outputs that you can switch between by changing the function called at
 ```python
@@ -50,7 +50,10 @@ e.g you can output the entities found in the rules based NER in label studio for
 ```python
 output_list = output_list + better_studio(token_list, tags_list, sentences)
 ```
-You can also output the entities as strings instead of ints by uncommenting
+
+By not running either of these functions and simply outputting the tokens_list and tags_list you can get the NER data in a standard format
+
+You can also output the entities as ints instead of strings by uncommenting
 ```python
       #for tag in return_list[1]: 
           # int_tags.append(label2id.get(tag))
