@@ -105,7 +105,7 @@ ai_model_documentation = {
     }
 }
 
-def convert_pdf_to_json(pdf_data):
+def convert_pdf_data_to_json_data(pdf_data):
     text_data = parse_pdf_to_doc(pdf_data)
     parsed_data = parse_text_into_sections(text_data, ai_model_documentation)
     return json.dumps(parsed_data, indent=4)
