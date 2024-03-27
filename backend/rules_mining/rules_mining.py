@@ -1,4 +1,10 @@
 import json
+import os
+original_path = os.getcwd()
+import sys
+sys.path.insert(0, '../documentation_input')
+from pdf_parser import convert_pdf_data_to_json_data
+os.chdir(original_path)
 
 # Load data from files
 def load_data(file_path):
@@ -85,7 +91,14 @@ def save_compliance_checklist(kg_rules):
     with open("compliance_checklist.json", "w", encoding="utf-8") as file:
         json.dump(checklist, file, indent=4)
 
-# def pdf_data_to_rules(pdf_data):
+def pdf_data_to_rules(pdf_data):
+    with open("../documentation_input/GoodAI_FactSheet.pdf",'rb') as file:
+        factsheet_data = convert_pdf_data_to_json_data(file.read())
+        checklist = json.load(open("compliance_checklist.json", "r"))
+        compliance_score, compliance_details = score_compliance(factsheet_data, checklist)
+        recommendations = analyze_documentation(compliance_details)
+        print( compliance_score, recommendations)
+        return compliance_score, recommendations
 
 
 def main():
