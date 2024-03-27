@@ -7,3 +7,5 @@ Flask
 flask_cors
 PyExecJS
 sckit-learn
+pandas
+
