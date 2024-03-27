@@ -7,9 +7,9 @@ pip install -r requirements.txt
 ```
 
 ## `server.py`
-Creates 2 endpoints at `http://localhost:3000`  
-`GET http://localhost:3000` returns `Hello, GET Method`  
-`POST http://localhost:3000/upload` takes PDF file, returns predefined graph data in JSONL containing nodes and edges.
+Creates 2 endpoints at `http://localhost:8000`  
+`GET http://localhost:8000` returns `Hello, GET Method`  
+`POST http://localhost:8000/upload` takes PDF file, returns `compliance_score, recommendations` in json format.
 
 ## `/documentation_input/pdf_parser.py`
 `convert_pdf_data_to_json_data(pdf_data)` takes pdf_data (NOT FILE) and returns fact sheet data in json format
