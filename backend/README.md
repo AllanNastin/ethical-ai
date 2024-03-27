@@ -11,6 +11,13 @@ Creates 2 endpoints at `http://localhost:3000`
 `GET http://localhost:3000` returns `Hello, GET Method`  
 `POST http://localhost:3000/upload` takes PDF file, returns predefined graph data in JSONL containing nodes and edges.
 
+## `/documentation_input/pdf_parser.py`
+`convert_pdf_data_to_json_data(pdf_data)` takes pdf_data (NOT FILE) and returns fact sheet data in json format
+
+## `/rules_mining/rules_mining.py`
+`pdf_data_to_rules(factsheet_data)` takes factsheet data in json format (NOT FILE) and returns `compliance_score, recommendations`
+
+
 ## `js_to_jsonl.py`
 Use: `js_to_jsonl(inputFileName,outputFileName)`  
 `inputFileName` is required, `outputFileName` can be `None` to be same as `inputFileName`.
