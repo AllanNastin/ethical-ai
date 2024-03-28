@@ -9,7 +9,7 @@ ADD ./server.py /app
 ADD ./server-requirements.txt /app
 ADD ./documentation_input/pdf_parser.py /app/documentation_input/
 ADD ./rules_mining/rules_mining.py /app/rules_mining/
-ADD ./comlpiance_checklist.json /app
+ADD ./compliance_checklist.json /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r server-requirements.txt
