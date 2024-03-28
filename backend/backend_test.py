@@ -1,5 +1,7 @@
 import unittest
 import os
+import server
+from flask import json
 from pdf_to_str import pdf_to_str
 
 class TestPdfToStr(unittest.TestCase):
@@ -29,6 +31,37 @@ vote on 14 June 2023.
 trilogues  were  held,  during  which  some  of  the  less  controversial  parts  of  the  proposal  were 
 agreed and compromise was also found on the provisions concerning measures in support of"""
         self.assertEqual(result.strip(), expected_output.strip())
+
+if __name__ == '__main__':
+    unittest.main()
+    
+class TestServer(unittest.TestCase):
+
+    def setUp(self):
+        server.app.testing = True
+        self.client = server.app.test_client()
+
+    def test_home_endpoint(self):
+        # Test the home endpoint
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data.decode(), 'Hello, GET Method')
+
+    def test_upload_without_file(self):
+        # Test file upload without a file
+        response = self.client.post('/upload', data={})
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.json, {'error': 'No file part in the request'})
+
+    def test_upload_with_invalid_file_type(self):
+        # Test file upload with invalid file type
+        data = {
+            'file': (bytes("dummy content", 'utf-8'), 'dummy.txt')
+        }
+        response = self.client.post('/upload', data=data, content_type='multipart/form-data')
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.json, {'error': 'Invalid file type'})
+
 
 if __name__ == '__main__':
     unittest.main()
