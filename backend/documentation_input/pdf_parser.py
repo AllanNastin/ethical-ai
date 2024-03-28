@@ -42,6 +42,13 @@ def save_to_py(data, file_name="../rules_mining/factsheet_data.py"):
         file.write("json_data = ")
         json.dump(data, file, indent=4)
 
+def parse_pdf_to_doc(pdf_data):
+    with fitz.open(stream=pdf_data, filetype="pdf") as doc:
+        text = ''
+        for page in doc:
+            text += page.get_text()
+    return text
+
 # Updated dictionary to match the structure and content of your PDF text output
 ai_model_documentation = {
     "model": {
@@ -98,22 +105,27 @@ ai_model_documentation = {
     }
 }
 
+def convert_pdf_data_to_json_data(pdf_data):
+    text_data = parse_pdf_to_doc(pdf_data)
+    parsed_data = parse_text_into_sections(text_data, ai_model_documentation)
+    return json.dumps(parsed_data, indent=4)
 
 
-pdf_path = "./GoodAI_FactSheet.pdf"
+if __name__ == "__main__":
+    pdf_path = "./GoodAI_FactSheet.pdf"
 
-#pdf_path = 'backend/documentation_input/SentimAI_FactSheet.pdf'
+    #pdf_path = 'backend/documentation_input/SentimAI_FactSheet.pdf'
 
-# Assuming you've already run the parse_model_doc function and have the pdf_text variable
-pdf_text = parse_model_doc(pdf_path)
+    # Assuming you've already run the parse_model_doc function and have the pdf_text variable
+    pdf_text = parse_model_doc(pdf_path)
 
-# Let's use the provided text output directly for demonstration, assuming it's stored in pdf_text
-parsed_data = parse_text_into_sections(pdf_text, ai_model_documentation)
+    # Let's use the provided text output directly for demonstration, assuming it's stored in pdf_text
+    parsed_data = parse_text_into_sections(pdf_text, ai_model_documentation)
 
-# Save the structured dictionary to a JSON file
-save_to_json(parsed_data)
+    # Save the structured dictionary to a JSON file
+    save_to_json(parsed_data)
 
-# Save the structured dictionary to a Python file
-save_to_py(parsed_data)
+    # Save the structured dictionary to a Python file
+    save_to_py(parsed_data)
 
-print("Data has been parsed and saved to output.json.")
+    print("Data has been parsed and saved to output.json.")

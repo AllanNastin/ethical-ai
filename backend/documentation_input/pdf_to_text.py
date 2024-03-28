@@ -18,7 +18,7 @@ def parse_model_doc(pdf_path):
     return text
 
 # Path to your PDF file
-pdf_path = './SentimAI_FactSheet.pdf'
+pdf_path = './GoodAI_FactSheet.pdf'
 
 # Convert the PDF to text
 pdf_text = parse_model_doc(pdf_path)

@@ -80,6 +80,18 @@ def expand_acronym(acronym):
     }
     return expansions.get(acronym, "Unknown Category")
 
+def save_compliance_checklist(kg_rules):
+    checklist = generate_compliance_checklist(kg_rules)
+    with open("compliance_checklist.json", "w", encoding="utf-8") as file:
+        json.dump(checklist, file, indent=4)
+
+def pdf_data_to_rules(factsheet_data):
+    checklist = json.load(open("compliance_checklist.json", "r"))
+    compliance_score, compliance_details = score_compliance(factsheet_data, checklist)
+    recommendations = analyze_documentation(compliance_details)
+    return compliance_score, recommendations
+
+
 def main():
     factsheet_path = "factsheet_data.py"
     kg_path = "kg_data.jsonl"
