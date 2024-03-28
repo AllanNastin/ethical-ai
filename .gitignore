@@ -1,5 +1,9 @@
 # Other
 .DS_Store
+# venv
+bin/
+*venv*
+share/
 
 # venv
 bin/
