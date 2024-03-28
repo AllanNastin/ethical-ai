@@ -6,3 +6,5 @@ torch
 Flask
 flask_cors
 PyExecJS
+scikit-learn
+PyMuPDF

@@ -5,6 +5,10 @@ bin/
 *venv*
 share/
 
+# venv
+bin/
+*venv*
+share/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
