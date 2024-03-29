@@ -47,3 +47,24 @@ You can run the `rebel_re_model.py` script from the command line:
 ```bash
 python3 rebel_re_model.py
 ```
+## `auto_label_function.py`
+Python script that takes in a text file and runs a rule based NER function on it. 
+It has different types of outputs that you can switch between by changing the function called at
+```python
+output_list = output_list + parser_to_docred(token_list, tags_list, sentences)
+```
+e.g you can output the entities found in the rules based NER in label studio format by changing one line
+```python
+output_list = output_list + better_studio(token_list, tags_list, sentences)
+```
+
+By not running either of these functions and simply outputting the tokens_list and tags_list you can get the NER data in a standard format
+
+You can also output the entities as ints instead of strings by uncommenting
+```python
+      #for tag in return_list[1]: 
+          # int_tags.append(label2id.get(tag))
+      #int_tags_list.append(int_tags)
+```
+and returning int_tags_list instead of tags_list in the paragraph_to_labeled_sentences function
+
