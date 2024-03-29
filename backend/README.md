@@ -35,6 +35,20 @@ This script produces the following files in the `knowledge_graph/` directory:
 - `knowledge_graph.html`
 - `relations.jsonl`
 
+## `ner_to_docred.py`
+Python script that takes in a json of a NER model's output and turns it into docred format
+This script produces the following files in the `extracted_entities/dataset/docred/` directory:
+- `ner_output.json`
+
+## `ner_to_docred.py`
+Python script that takes in a json of a NER model's output and turns it into docred format
+This script produces the following files in the `extracted_entities/dataset/docred/` directory:
+- `ner_output.json`
+- 
+## `auto_ner_to_docred.py`
+Python script that takes in a json of a the `auto_label_function.py` script and turns it into docred format
+it reads in a file `training-data-final.json` and outputs `output.json`
+
 ### Sample usage:
 You can run the `rebel_re_model.py` script from the command line:
 ```bash
