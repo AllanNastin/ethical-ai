@@ -3,7 +3,10 @@ import Graph from 'react-vis-network-graph';
 // import { edges, nodes } from './Data/data'; // Import your data , remove once backend endpoint is available
 // import { fetchGraphData } from '../Service/api';
 import './KnowledgeGraph.css';
-import samplepdf from "./ai_act_draft.pdf";
+import samplepdf from "./GoodAI_FactSheet.pdf";
+import pdfToText from 'react-pdftotext'
+import {nodes} from "../Component/DataParsing/data.js";
+
 
 export default function KnowledgeGraph() {
   const [physicsOptions, setPhysicsOptions] = useState({ enabled: true });
@@ -11,38 +14,72 @@ export default function KnowledgeGraph() {
   const sidebarRef = useRef(null);
   const [isResizing, setIsResizing] = useState(false);
   const [sidebarWidth, setSidebarWidth] = useState(700);
-  const [graphWidth, setGraphWidth] = useState(window.innerWidth-700);
   const [showGraph, setShowGraph] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('All');
   const [filteredGraphData, setFilteredGraphData] = useState({ nodes: [], edges: [] }); // Initialize with default value
   const [showPdf, setPdf] = useState(false);
+  const [text, setText] = useState("")
+  const [textLoading, setTextLoading] = useState(true);
+  const [highlightApplied, setHighlightApplied] = useState(false);
+
   // const [graphData, setGraphData] = useState({ nodes: [], edges: [] }); // Corrected this line
   // const jsFile = localStorage.getItem('jsFile'); // Get the file data from localStorage
   const startResizing = React.useCallback(() => {
     setIsResizing(true);
-    console.log("resizing")
   }, []);
 
   const stopResizing = React.useCallback(() => {
     setIsResizing(false);
-    console.log("not resizing")
   }, []);
 
   const resize = React.useCallback(
     (mouseMoveEvent) => {
-      console.log("mouse move!")
       if (isResizing) {
         setSidebarWidth(
           sidebarRef.current.getBoundingClientRect().right- mouseMoveEvent.clientX
-        );
-        setGraphWidth(
-          window.innerWidth-(sidebarRef.current.getBoundingClientRect().right- mouseMoveEvent.clientX)
         );
       }
     },
     [isResizing]
   );
+
+  const handleSpanClick = (event) => {
+    const clickedWord = event.target.textContent;
+    const isHighlighted = event.target.classList.contains('highlighted'); // Check if the clicked word is highlighted
+  
+    if (isHighlighted && clickedWord) {
+      setSearchTerm(clickedWord);
+      setFilter('All');
+      updateGraph();
+    }
+  };
+
+  
+
+  useEffect(() => {
+    fetch(samplepdf)
+      .then(response => response.blob())
+      .then(blob => {
+        pdfToText(blob)
+          .then(text => {
+            setText(text);
+            setTextLoading(false); // Set textLoading to false when text is loaded
+          })
+          .catch(error => {
+            setTextLoading(false); // Set textLoading to false in case of error
+            console.error("Failed to extract text from pdf:", error);
+          });
+      })
+      .catch(error => {
+        setTextLoading(false); // Set textLoading to false in case of error
+        console.error("Failed to load PDF file:", error);
+      });
+  }, []); // Empty dependency array ensures this effect runs only once, similar to componentDidMount
+  
+  
+  
+
 
   useEffect(() => {
     window.addEventListener("mousemove", resize);
@@ -73,6 +110,8 @@ export default function KnowledgeGraph() {
     };
     fetchData();
   }, []);
+
+  
 
   const handlePhysicsChange = (option) => {
     setPhysicsOptions(option);
@@ -123,9 +162,33 @@ export default function KnowledgeGraph() {
     setFilteredGraphData({ nodes: updatedNodes, edges: updatedEdges });
   };  
 
+
   const displayPdf = () => {
+    if (!showPdf && text && nodes.length > 0 && !highlightApplied) {
+      const highlightLabels = () => {
+        let highlightedText = text;
+        nodes.forEach(node => {
+          const regex = new RegExp(`\\b${node.label}\\b`, "gi");
+          highlightedText = highlightedText.replace(regex, match => {
+            // Check if the word has already been highlighted
+            if (!highlightedText.includes(`<span class="highlighted" >${match}</span>`)) {
+              return `<span class="highlighted" >${match}</span>`;
+            } else {
+              return match;
+            }
+          });
+        });
+        setText(highlightedText);
+        setHighlightApplied(!highlightApplied);
+      };
+
+      highlightLabels();
+    }
+
     setPdf(!showPdf);
   };
+
+  
 
   const options = {
     nodes: {
@@ -219,16 +282,27 @@ export default function KnowledgeGraph() {
       // style={{ width: graphWidth }}
       />}
 
-      {showPdf &&       
-      <div
-        ref={sidebarRef}
-        className="pdf-container"
-        style={{ width: sidebarWidth }}
-        //onMouseDown={(e) => e.preventDefault()}
-      >
-      <div className="pdf-container-resizer" onMouseDown={startResizing} />
-        <iframe src={samplepdf} title="PDF Viewer" className="pdf-iframe" />
-      </div>
+    {showPdf &&
+      
+        <div>
+          <div
+            ref={sidebarRef}
+            className="pdf-container"
+            style={{ width: sidebarWidth }}
+          >
+            <div className="pdf-container-resizer" onMouseDown={startResizing} />
+            <div className="text-container">
+              {textLoading ? (
+                <div>Loading...</div>
+              ) : (
+                <>
+                  <h2>Extracted Text:</h2>
+                  <div dangerouslySetInnerHTML={{ __html: text }} onClick={handleSpanClick} />
+                </>
+              )}
+            </div>
+          </div>
+        </div>
       }
 
       {showGraph && (

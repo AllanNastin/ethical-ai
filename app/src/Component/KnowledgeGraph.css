@@ -22,6 +22,7 @@
     background-color: white; /* Set the background color same as the top section */
     z-index: 1; /* Ensure the sidebar is above the content */
     overflow-y: auto; /* Enable vertical scrolling if content exceeds the height */
+    overflow: visible; /* Allow content to overflow container boundaries */
     border-left: 1px solid #ccc; /* Add a border to separate the sidebar from the main content */
     /*padding: 20px;  Add padding to the sidebar content */
   }
@@ -35,12 +36,39 @@
 
   .pdf-container .pdf-container-resizer {
     width: 25px;
-    z-index: 2; /* Ensure the sidebar is above the content */
+    z-index: 3; /* Ensure the sidebar is above the content */
     background: #dadbdcb4;
   }
 
   .pdf-container .pdf-container-resizer:hover {
     background: #818282b4;
+  }
+
+  .text-container {
+    width: 95%; /* Make the iframe take up the full width of the sidebar */
+    z-index: 1;
+    right: 0px;
+    font-size: 20px; /* Set font size for the pre element */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds the height */
+  }
+  
+  .text-container h2 {
+    margin-bottom: 10px; /* Add margin below the heading */
+    font-size: 50px; /* Set font size for the heading */
+  }
+  
+  /* Style for highlighted labels */
+  .text-container .highlighted {
+    background-color: yellow; /* Change the background color */
+    color: black; /* Change the text color */
+    padding: 2px; /* Add padding to create some space around the highlighted text */
+    cursor: pointer; /* Change the cursor to indicate interactivity */
+  }
+
+  /* Hover effect for highlighted labels */
+  .text-container .highlighted:hover {
+    background-color: orange; /* Change the background color on hover */
+    color: white; /* Change the text color on hover */
   }
   
   .react-vis-network-graph {
