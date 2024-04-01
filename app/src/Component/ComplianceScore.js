@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './ComplianceScore.css';
+import RecommendationCard from './RecommendationsCard'; 
 
 function ComplianceScore() {
   const [score, setScore] = useState(0); 
@@ -30,10 +31,10 @@ function ComplianceScore() {
           </div>
       </div>
       <div className="text">
-      <h2>Our Recommendations:</h2>
-        {improvements.map((improvement, index) => (
-          <p className="improvement" key={index}>{improvement}</p>
-        ))}
+      <h2>Our Recommendations</h2>
+          {improvements.map((improvement, index) => (
+            <RecommendationCard key={index} recommendation={improvement} />
+          ))}
       </div>
       </div>
     );
@@ -62,9 +63,9 @@ function ComplianceScore() {
         {gradient && (
           <defs>
             <linearGradient id="score-gradient">
-              <stop offset="0%" stopColor="red" />
-              <stop offset="25%" stopColor="orange" />
-              <stop offset="100%" stopColor="green" />
+            <stop offset="0%" stopColor="#002c5d" /> 
+            <stop offset="25%" stopColor="#007bff" /> 
+            <stop offset="100%" stopColor="#b3d7ff" />
             </linearGradient>
           </defs>
         )}
