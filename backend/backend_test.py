@@ -1,3 +1,4 @@
+import io
 import unittest
 import server
 
@@ -22,12 +23,11 @@ class TestServer(unittest.TestCase):
     def test_upload_with_invalid_file_type(self):
         # Test file upload with invalid file type
         data = {
-            'file': (bytes("dummy content", 'utf-8'), 'dummy.txt')
+            'file': (io.BytesIO(b"dummy content"), 'dummy.txt')
         }
         response = self.client.post('/upload', data=data, content_type='multipart/form-data')
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response.json, {'error': 'Invalid file type'})
-
 
 if __name__ == '__main__':
     unittest.main()
