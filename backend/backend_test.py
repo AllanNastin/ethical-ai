@@ -1,6 +1,5 @@
 import unittest
 import server
-from documentation_input.pdf_to_text import parse_model_doc
 
 class TestServer(unittest.TestCase):
 
