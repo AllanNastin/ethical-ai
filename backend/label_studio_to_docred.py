@@ -41,7 +41,7 @@ relations_mapping = {
 
 # labelStudioOutput = files.upload()
 
-path = 'label_studio_data.json'
+path = 'training_data/label_studio_data.json'
 with open(path, "r") as file:
     data = json.load(file)
 
@@ -61,7 +61,7 @@ def split_text(text):
     return re.findall(r"[\w']+|[.,!?;]", text)
 
 
-output_file = 'DocRed_format_of_labelStudio.json'
+output_file = 'training_data/DocRed_format_of_labelStudio.json'
 variable = []
 title = "title: \"Legal text about AI\"\n"
 variable.append(title)
@@ -85,7 +85,7 @@ for item in data:
                         if not word_found and word in sentences[0]:  # Check if the word is in the sentence
                             word_index = sentences[0].index(word)
                             word_count = len(words)
-                            end_position = (word_index + word_count) - 1
+                            end_position = word_index + word_count
                             word_found = True
                             vertex = {
                                 "pos": [word_index, end_position],
