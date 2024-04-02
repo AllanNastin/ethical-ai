@@ -4,6 +4,7 @@ import Home from './Component/Pages/Home';
 import Graph from './Component/Pages/Graph';
 import Navbar from './Component/NavBar';
 import About from './Component/Pages/About'
+import ComplianceScore from './Component/Pages/Compliance';
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/' element={<Home onUploadSuccess={handleUploadSuccess} />} />
         <Route path='/graph' element={<Graph uploadSuccess={uploadSuccess} />} />
         <Route path='/about' element={<About />} />
+        <Route path='/compliance' element={<ComplianceScore />} />
       </Routes>
     </Router>
   );
