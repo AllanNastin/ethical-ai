@@ -12,7 +12,7 @@ git clone https://github.com/Dylan-Gallagher/dreeam.git
 cd dreeam
 
 #mv ../extracted_entities/* .
-mv ../training_data/* .
+mv ../dataset/* .
 
 # Optional: Download pretrained weights using gdown. Alternatively, download directly from Google Drive https://drive.google.com/file/d/1Frs8PZiBAoN2l2elZUgYVcejbxbo2dJz/view?usp=sharing
 #pip install gdown
