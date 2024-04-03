@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Graph from 'react-vis-network-graph';
 import { useNavigate } from 'react-router-dom';
-import { edges, nodes } from './Data/data'; // Import your data , remove once backend endpoint is available
+import { edges, nodes } from './Data/data_1'; // Import your data , remove once backend endpoint is available
 // import { fetchGraphData } from '../Service/api';
 import './KnowledgeGraph.css';
 
