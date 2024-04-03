@@ -5,6 +5,7 @@ import Graph from './Component/Pages/Graph';
 import Navbar from './Component/NavBar'; 
 import LegendBox from './Component/legendBox';
 import About from './Component/Pages/About';
+import ComplianceScore from './Component/Pages/Compliance';
 import './App.css';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           } 
         />
         <Route path='/about' element={<About />} />
+        <Route path='/compliance' element={<ComplianceScore />} />
       </Routes>
     </Router>
   );
