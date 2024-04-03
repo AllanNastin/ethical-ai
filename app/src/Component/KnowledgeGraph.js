@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Graph from 'react-vis-network-graph';
 import { useNavigate } from 'react-router-dom';
-import { edges, nodes } from './Data/data'; // Import your data , remove once backend endpoint is available
+import { edges, nodes } from './Data/data'; 
 import './KnowledgeGraph.css';
-
 
 
 export default function KnowledgeGraph() {
@@ -62,17 +61,17 @@ export default function KnowledgeGraph() {
       if (typeof jsonObject === 'string') {
           jsonObject = JSON.parse(jsonObject); 
       }
-
+  
       Object.entries(jsonObject).forEach(([key, value]) => {
           if (typeof value === 'object' && value !== null) {
-              htmlString += <div><span class="json-key">${key}:</span> <div class="json-nested">${jsonToHtml(value, true)}</div></div>;
+              htmlString += `<div><span class="json-key">${key}:</span> <div class="json-nested">${jsonToHtml(value, true)}</div></div>`;
           } else {
-              htmlString += <div><span class="json-key">${key}:</span> <span class="json-value">${value}</span></div>;
+              htmlString += `<div><span class="json-key">${key}:</span> <span class="json-value">${value}</span></div>`;
           }
       });
-
+  
       if (!isNested) htmlString += '</div>';
-
+  
       return htmlString;
   }
 
@@ -81,9 +80,7 @@ export default function KnowledgeGraph() {
     if (storedData) {
       try {
         const factsheetData = JSON.parse(storedData);
-        console.log(factsheetData)
         const htmlContent = jsonToHtml(factsheetData);
-        console.log(htmlContent)
         setText(htmlContent);
       } catch (error) {
         console.error("Failed to process factsheet data:", error);
@@ -93,6 +90,7 @@ export default function KnowledgeGraph() {
     }
     setTextLoading(false); 
   }, []);
+  
   
 
 
