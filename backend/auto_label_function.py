@@ -392,11 +392,28 @@ def better_studio(tokens_list, tag_lists, sentences):
 
     return output
 
+
+
+
+
+def filter_text(text):
+    oldlen = len(text)
+    newlen = oldlen -1
+    while newlen < oldlen:
+        oldlen = newlen
+        text = text.replace("  ", " ")
+        newlen = len(text)
+    return text
+
 set_to_lower()
+
+
+
 #Reads from the ai act parsed by Dylans parsing function.              
-with open ("important.txt", "r", encoding='utf-8') as ai_act:
+with open ("ai_act/ai-act.txt", "r", encoding='utf-8') as ai_act:
     full_text = ai_act.read()
-    paragraphs = full_text.split("\n\n")
+    full_text = filter_text(full_text)
+    paragraphs = full_text.split("\n")
     for i in range(len(paragraphs)):
         paragraphs[i] = paragraphs[i].replace("\n", "")
         while len(paragraphs[i]) != 0 and (paragraphs[i][0] == " "):
@@ -405,8 +422,9 @@ with open ("important.txt", "r", encoding='utf-8') as ai_act:
     i = 0
     output_list = []
     for paragraph in paragraphs:
-        token_list, tags_list, sentences = paragraph_to_labeled_sentences(paragraph)
-        output_list = output_list + better_studio(token_list, tags_list, sentences)
+        if (paragraph != ""):
+            token_list, tags_list, sentences = paragraph_to_labeled_sentences(paragraph)
+            output_list = output_list + better_studio(token_list, tags_list, sentences)
         
     # Outputs the tokens and ner tags into training data jsonl
     with open(f'training-data-final.json', mode='w') as json_file:
