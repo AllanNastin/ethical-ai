@@ -408,7 +408,8 @@ with open ("important.txt", "r", encoding='utf-8') as ai_act:
         token_list, tags_list, sentences = paragraph_to_labeled_sentences(paragraph)
         output_list = output_list + better_studio(token_list, tags_list, sentences)
         
-        # Outputs the tokens and ner tags into training data jsonl
-        with open(f'training-data-final.json', mode='w') as json_file:
-            json.dump(output_list, json_file, indent=4)
-        i+=1
+        i += 1
+
+    # Outputs the tokens and ner tags into training data jsonl
+    with open(f'training-data-final.json', mode='w') as json_file:
+        json.dump(output_list, json_file, indent=4)
