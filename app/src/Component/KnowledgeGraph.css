@@ -23,7 +23,7 @@
     z-index: 1; /* Ensure the sidebar is above the content */
     overflow-y: auto; /* Enable vertical scrolling if content exceeds the height */
     border-left: 1px solid #ccc; /* Add a border to separate the sidebar from the main content */
-    /*padding: 20px;  Add padding to the sidebar content */
+    padding: 20px;  
   }
 
   .pdf-container iframe {
@@ -33,11 +33,11 @@
     right: 0px;
   }
 
-  .pdf-container .pdf-container-resizer {
+  /* .pdf-container .pdf-container-resizer {
     width: 25px;
     z-index: 3; /* Ensure the sidebar is above the content */
-    background: #dadbdcb4;
-  }
+    /* background: #dadbdcb4; */
+  /* } */ */
 
   .pdf-container .pdf-container-resizer:hover {
     background: #818282b4;
