@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Graph from 'react-vis-network-graph';
-// import { edges, nodes } from './Data/data'; // Import your data , remove once backend endpoint is available
+import { useNavigate } from 'react-router-dom';
+import { edges, nodes } from './Data/data'; // Import your data , remove once backend endpoint is available
 // import { fetchGraphData } from '../Service/api';
 import './KnowledgeGraph.css';
 
@@ -13,24 +14,32 @@ export default function KnowledgeGraph() {
   const [filteredGraphData, setFilteredGraphData] = useState({ nodes: [], edges: [] }); // Initialize with default value
   // const [graphData, setGraphData] = useState({ nodes: [], edges: [] }); // Corrected this line
   // const jsFile = localStorage.getItem('jsFile'); // Get the file data from localStorage
+  const navigate = useNavigate();
+
+  const goToCompliance = () => {
+    navigate('/compliance');
+  };
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const fetchedData = JSON.parse(localStorage.getItem('data'));
-        // console.log("Fetched data: ", fetchedData); // Debug fetchedData
-        if (fetchedData) {
-          // Transform the data into the format { nodes: [], edges: [] }
-          const nodes = fetchedData.filter(item => item.nodes).map(item => item.nodes);
-          const edges = fetchedData.filter(item => item.edges).map(item => item.edges);
-          const graphData = { nodes, edges };
-          // setGraphData(graphData);
-          setFilteredGraphData(graphData);
-          setShowGraph(true);
-        }
-      } catch (error) {
-        console.error("Failed to fetch graph data from local storage: ", error);
-      }
+  //     try {
+  //       const fetchedData = JSON.parse(localStorage.getItem('data'));
+  //       // console.log("Fetched data: ", fetchedData); // Debug fetchedData
+  //       if (fetchedData) {
+  //         // Transform the data into the format { nodes: [], edges: [] }
+  //         const nodes = fetchedData.filter(item => item.nodes).map(item => item.nodes);
+  //         const edges = fetchedData.filter(item => item.edges).map(item => item.edges);
+  //         const graphData = { nodes, edges };
+  //         // setGraphData(graphData);
+  //         setFilteredGraphData(graphData);
+  //         setShowGraph(true);
+  //       }
+  //     } catch (error) {
+  //       console.error("Failed to fetch graph data from local storage: ", error);
+  //     }
+      const graphData = { nodes, edges };
+      setFilteredGraphData(graphData);
+      setShowGraph(true);
     };
     fetchData();
   }, []);
@@ -163,6 +172,8 @@ export default function KnowledgeGraph() {
       </select>
 
       <button className="kg-button" onClick={updateGraph}>Update Graph   → </button>
+
+      <button className="kg-button" onClick={goToCompliance}>Get Compliance Score →</button>
       </div>
 
       {/* {showGraph && <Graph graph={graphData} options={options} />} */}
