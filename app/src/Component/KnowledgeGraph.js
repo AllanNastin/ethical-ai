@@ -2,11 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import Graph from 'react-vis-network-graph';
 import { useNavigate } from 'react-router-dom';
 import { edges, nodes } from './Data/data'; // Import your data , remove once backend endpoint is available
-// import { fetchGraphData } from '../Service/api';
 import './KnowledgeGraph.css';
-import samplepdf from "./GoodAI_FactSheet.pdf";
-import pdfToText from 'react-pdftotext'
-// import {nodes} from "../Component/DataParsing/data.js";
+
 
 
 export default function KnowledgeGraph() {
@@ -60,26 +57,42 @@ export default function KnowledgeGraph() {
   
 
   useEffect(() => {
-    fetch(samplepdf)
-      .then(response => response.blob())
-      .then(blob => {
-        pdfToText(blob)
-          .then(text => {
-            setText(text);
-            setTextLoading(false); // Set textLoading to false when text is loaded
-          })
-          .catch(error => {
-            setTextLoading(false); // Set textLoading to false in case of error
-            console.error("Failed to extract text from pdf:", error);
-          });
-      })
-      .catch(error => {
-        setTextLoading(false); // Set textLoading to false in case of error
-        console.error("Failed to load PDF file:", error);
+    function jsonToHtml(jsonObject, isNested = false) {
+      let htmlString = isNested ? '' : '<div class="json-container">';
+      if (typeof jsonObject === 'string') {
+          jsonObject = JSON.parse(jsonObject); 
+      }
+
+      Object.entries(jsonObject).forEach(([key, value]) => {
+          if (typeof value === 'object' && value !== null) {
+              htmlString += <div><span class="json-key">${key}:</span> <div class="json-nested">${jsonToHtml(value, true)}</div></div>;
+          } else {
+              htmlString += <div><span class="json-key">${key}:</span> <span class="json-value">${value}</span></div>;
+          }
       });
-  }, []); // Empty dependency array ensures this effect runs only once, similar to componentDidMount
-  
-  
+
+      if (!isNested) htmlString += '</div>';
+
+      return htmlString;
+  }
+
+
+    const storedData = localStorage.getItem('factsheetData');
+    if (storedData) {
+      try {
+        const factsheetData = JSON.parse(storedData);
+        console.log(factsheetData)
+        const htmlContent = jsonToHtml(factsheetData);
+        console.log(htmlContent)
+        setText(htmlContent);
+      } catch (error) {
+        console.error("Failed to process factsheet data:", error);
+      }
+    } else {
+      console.log("No factsheet data found in local storage.");
+    }
+    setTextLoading(false); 
+  }, []);
   
 
 
@@ -309,7 +322,7 @@ export default function KnowledgeGraph() {
                 <div>Loading...</div>
               ) : (
                 <>
-                  <h2>Extracted Text:</h2>
+                  <h2>AI Model Documentation</h2>
                   <div dangerouslySetInnerHTML={{ __html: text }} onClick={handleSpanClick} />
                 </>
               )}
