@@ -5,7 +5,6 @@ networkx
 pyvis
 torch
 Flask
-flask
 flask_cors
 PyExecJS
 scikit-learn

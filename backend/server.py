@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file, send_from_directory
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 from documentation_input.pdf_parser import convert_pdf_data_to_json_data
 from rules_mining.rules_mining import pdf_data_to_rules
