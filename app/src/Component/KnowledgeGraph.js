@@ -108,7 +108,7 @@ export default function KnowledgeGraph() {
         }
       },
       font: { 
-        size: 3,  
+        size: 5,  
         strokeWidth: 0.1,
         face: 'Tahoma',  
         color: 'black',  
@@ -136,8 +136,8 @@ export default function KnowledgeGraph() {
     },
     edges: {
       font: { // Add a font section for edge labels
-        size: 2, 
-        color: 'grey', // Add the color change here
+        size: 4, 
+        color: '#000000', // Add the color change here
         background: 'none',   // Remove the background 
         strokeWidth: 0        // Remove any border
       },
@@ -160,8 +160,8 @@ export default function KnowledgeGraph() {
           min: 0.1, 
           max: 3, // Enforce a maximum width of 3
           label: { 
-              min: 4,    // Minimum label size
-              max: 7,    // Maximum label size
+              min: 7,    // Minimum label size
+              max: 10,    // Maximum label size
           },
           customScalingFunction: function (min, max, total, weight) {
               // 'weight' is used instead of 'value' here
