@@ -6,7 +6,7 @@ import { edges, nodes } from './Data/data'; // Import your data , remove once ba
 import './KnowledgeGraph.css';
 import samplepdf from "./GoodAI_FactSheet.pdf";
 import pdfToText from 'react-pdftotext'
-import {nodes} from "../Component/DataParsing/data.js";
+// import {nodes} from "../Component/DataParsing/data.js";
 
 
 export default function KnowledgeGraph() {
