@@ -320,17 +320,19 @@ def label_studio_format(tokens_list, tag_lists, sentences):
 
 
 def is_alphanumeric_without_hyphen(word):
-    return word.replace('-', '').isalnum()
+    return (word.replace('-', '').replace('/', '').replace('\\', '').isalnum())
+
 def get_character_index(word_list, target_word_index):
     if target_word_index < 0 or target_word_index >= len(word_list):
         return -1  # Invalid index
+
 
     character_index = 0
     for i in range(target_word_index):
         word = word_list[i]
         if word.isalnum():  # If the word contains only alphanumeric characters
             character_index += len(word) + 1
-        elif ("-" in word and is_alphanumeric_without_hyphen(word)):
+        elif (("-" in word or "/" in word or "\\" in word) and is_alphanumeric_without_hyphen(word)):
             character_index += len(word) + 1
         else:
             character_index += len(word)  # Add the length of the punctuation or bracket
@@ -345,6 +347,8 @@ def better_studio(tokens_list, tag_lists, sentences):
         output.append({})
         output[len(output) - 1]["id"] = 2
         output[len(output)-1]["data"] = {"text" : sentences[i]}
+        if ("environments and to a capability of AI systems to derive models and/or algorithms from " in sentences[i]):
+            print("A")
         output[len(output) - 1]["predictions"] = [{}]
 
         entity_starts = []
@@ -366,7 +370,6 @@ def better_studio(tokens_list, tag_lists, sentences):
             while next_tag_index < len(tag_lists[i]) and (tag_lists[i][next_tag_index][0] == "I"):
                 next_tag_index += 1
             span = (next_tag_index-1) - entity_starts[k]
-
             start_index = get_character_index(tokens_list[i], entity_starts[k])
 
             output[len(output) - 1]["predictions"][0]["result"][k]["value"]["start"] = start_index
