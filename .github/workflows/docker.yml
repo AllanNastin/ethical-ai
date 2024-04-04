@@ -39,6 +39,8 @@ jobs:
 
   frontend:
     runs-on: ubuntu-latest
+    env:
+      REACT_APP_API_URL: https://group22.api.sprinty.tech
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

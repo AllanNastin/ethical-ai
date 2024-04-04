@@ -11,7 +11,7 @@ function Home({ onUploadSuccess }) {
     let formData = new FormData();
     formData.append('file', file);
 
-    fetch('http://localhost:8000/upload', {
+    fetch(`${process.env.REACT_APP_API_URL}/upload`, {
       method: 'POST',
       body: formData
     })
