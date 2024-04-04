@@ -42,9 +42,9 @@ def score_compliance(factsheet, checklist):
                 compliance_details["missing_requirements"][category].append(requirement)
                 missing += 1
 
-    print(f"{present = }")
-    print(f"{missing = }")
-    print(f"total = {present + missing}")
+    #print(f"{present = }")
+    #print(f"{missing = }")
+    #print(f"total = {present + missing}")
     score = ((min(max(present + 17, 0), present+missing)) / missing) * 100
     # Determine risk level and adjust the score
     if 'high risk' in factsheet_str:
