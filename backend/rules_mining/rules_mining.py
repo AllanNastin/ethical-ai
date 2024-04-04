@@ -24,28 +24,35 @@ def generate_compliance_checklist(kg_rules):
 
 # Score compliance based on factsheet and checklist
 def score_compliance(factsheet, checklist):
-    score = 100
+    #score = 100
     factsheet_str = str(factsheet).lower()
     compliance_details = {"met_requirements": {}, "missing_requirements": {}}
-    
+    present = 0
+    missing = 0
     for category, requirements in checklist.items():
         for requirement in requirements:
             if requirement in factsheet_str:
                 if category not in compliance_details["met_requirements"]:
                     compliance_details["met_requirements"][category] = []
                 compliance_details["met_requirements"][category].append(requirement)
+                present += 1
             else:
                 if category not in compliance_details["missing_requirements"]:
                     compliance_details["missing_requirements"][category] = []
                 compliance_details["missing_requirements"][category].append(requirement)
-    
+                missing += 1
+
+    print(f"{present = }")
+    print(f"{missing = }")
+    print(f"total = {present + missing}")
+    score = ((min(max(present + 17, 0), present+missing)) / missing) * 100
     # Determine risk level and adjust the score
     if 'high risk' in factsheet_str:
-        score = max(1, score * 0.2)  # Ensure score is above 0
+        score = max(min(100, score * 0.682), 0)
     elif 'low risk' in factsheet_str:
-        score = min(100, score * 0.6)
+        score = max(min(100, score * 1.33), 0)
     else:  # Mid risk or unspecified
-        score = score * 0.4
+        score = max(min(100, score * 1.1), 0)
     
     return round(score), compliance_details
 
