@@ -7,12 +7,12 @@ function ComplianceScore() {
   const [improvements, setImprovements] = useState([]);
 
   useEffect(() => {
-    const storedData = localStorage.getItem('data');
+    const storedData = localStorage.getItem('rulesMiningData');
     if (storedData) {
-      const jsonlData = JSON.parse(storedData);
-      const [retrievedScore, retrievedImprovements] = jsonlData[0];
+      const rulesMiningData = JSON.parse(storedData);
+      const [retrievedScore, improvementsArray] = rulesMiningData
       setScore(retrievedScore);
-      setImprovements(retrievedImprovements);
+      setImprovements(improvementsArray);
     }
   }, []);
   

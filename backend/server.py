@@ -22,7 +22,11 @@ def process():
     if file and file.filename.endswith('.pdf'):
         factsheet_data = convert_pdf_data_to_json_data(file.read())
         rules_mining =  pdf_data_to_rules(factsheet_data)
-        return jsonify(rules_mining), 200
+        response_data = {
+                'factsheet_data': factsheet_data,
+                'rules_mining_data': rules_mining
+            }
+        return jsonify(response_data), 200
     else:
         return jsonify({'error': 'Invalid file type'}), 400
 
