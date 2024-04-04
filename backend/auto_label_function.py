@@ -320,17 +320,19 @@ def label_studio_format(tokens_list, tag_lists, sentences):
 
 
 def is_alphanumeric_without_hyphen(word):
-    return word.replace('-', '').isalnum()
+    return (word.replace('-', '').replace('/', '').replace('\\', '').isalnum())
+
 def get_character_index(word_list, target_word_index):
     if target_word_index < 0 or target_word_index >= len(word_list):
         return -1  # Invalid index
+
 
     character_index = 0
     for i in range(target_word_index):
         word = word_list[i]
         if word.isalnum():  # If the word contains only alphanumeric characters
             character_index += len(word) + 1
-        elif ("-" in word and is_alphanumeric_without_hyphen(word)):
+        elif (("-" in word or "/" in word or "\\" in word) and is_alphanumeric_without_hyphen(word)):
             character_index += len(word) + 1
         else:
             character_index += len(word)  # Add the length of the punctuation or bracket
@@ -345,6 +347,8 @@ def better_studio(tokens_list, tag_lists, sentences):
         output.append({})
         output[len(output) - 1]["id"] = 2
         output[len(output)-1]["data"] = {"text" : sentences[i]}
+        # if ("environments and to a capability of AI systems to derive models and/or algorithms from " in sentences[i]):
+            # print("A")
         output[len(output) - 1]["predictions"] = [{}]
 
         entity_starts = []
@@ -366,7 +370,6 @@ def better_studio(tokens_list, tag_lists, sentences):
             while next_tag_index < len(tag_lists[i]) and (tag_lists[i][next_tag_index][0] == "I"):
                 next_tag_index += 1
             span = (next_tag_index-1) - entity_starts[k]
-
             start_index = get_character_index(tokens_list[i], entity_starts[k])
 
             output[len(output) - 1]["predictions"][0]["result"][k]["value"]["start"] = start_index
@@ -392,11 +395,28 @@ def better_studio(tokens_list, tag_lists, sentences):
 
     return output
 
+
+
+
+
+def filter_text(text):
+    oldlen = len(text)
+    newlen = oldlen -1
+    while newlen < oldlen:
+        oldlen = newlen
+        text = text.replace("  ", " ")
+        newlen = len(text)
+    return text
+
 set_to_lower()
+
+
+
 #Reads from the ai act parsed by Dylans parsing function.              
-with open ("important.txt", "r", encoding='utf-8') as ai_act:
+with open ("ai_act/ai-act.txt", "r", encoding='utf-8') as ai_act:
     full_text = ai_act.read()
-    paragraphs = full_text.split("\n\n")
+    full_text = filter_text(full_text)
+    paragraphs = full_text.split("\n")
     for i in range(len(paragraphs)):
         paragraphs[i] = paragraphs[i].replace("\n", "")
         while len(paragraphs[i]) != 0 and (paragraphs[i][0] == " "):
@@ -405,11 +425,11 @@ with open ("important.txt", "r", encoding='utf-8') as ai_act:
     i = 0
     output_list = []
     for paragraph in paragraphs:
-        token_list, tags_list, sentences = paragraph_to_labeled_sentences(paragraph)
-        output_list = output_list + better_studio(token_list, tags_list, sentences)
+        if (paragraph != ""):
+            token_list, tags_list, sentences = paragraph_to_labeled_sentences(paragraph)
+            output_list = output_list + better_studio(token_list, tags_list, sentences)
         
-        i += 1
-
     # Outputs the tokens and ner tags into training data jsonl
     with open(f'training-data-final.json', mode='w') as json_file:
         json.dump(output_list, json_file, indent=4)
+    i+=1
