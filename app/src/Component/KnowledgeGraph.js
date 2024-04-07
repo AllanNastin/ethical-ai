@@ -1,20 +1,110 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Graph from 'react-vis-network-graph';
 import { useNavigate } from 'react-router-dom';
 import { edges, nodes } from './Data/data_1'; // Import your data , remove once backend endpoint is available
 // import { fetchGraphData } from '../Service/api';
 import './KnowledgeGraph.css';
 
+
 export default function KnowledgeGraph() {
   const [physicsOptions, setPhysicsOptions] = useState({ enabled: true });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const sidebarRef = useRef(null);
+  const [isResizing, setIsResizing] = useState(false);
+  const [sidebarWidth, setSidebarWidth] = useState(700);
   const [showGraph, setShowGraph] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('All');
   const [filteredGraphData, setFilteredGraphData] = useState({ nodes: [], edges: [] }); // Initialize with default value
+  const [showPdf, setPdf] = useState(false);
+  const [text, setText] = useState("")
+  const [textLoading, setTextLoading] = useState(true);
+  const [highlightApplied, setHighlightApplied] = useState(false);
+
   // const [graphData, setGraphData] = useState({ nodes: [], edges: [] }); // Corrected this line
   // const jsFile = localStorage.getItem('jsFile'); // Get the file data from localStorage
-  const navigate = useNavigate();
+
+  const startResizing = React.useCallback(() => {
+    setIsResizing(true);
+  }, []);
+
+  const stopResizing = React.useCallback(() => {
+    setIsResizing(false);
+  }, []);
+
+  const resize = React.useCallback(
+    (mouseMoveEvent) => {
+      if (isResizing) {
+        setSidebarWidth(
+          sidebarRef.current.getBoundingClientRect().right- mouseMoveEvent.clientX
+        );
+      }
+    },
+    [isResizing]
+  );
+
+  const handleSpanClick = (event) => {
+    const clickedWord = event.target.textContent;
+    const isHighlighted = event.target.classList.contains('highlighted'); // Check if the clicked word is highlighted
+  
+    if (isHighlighted && clickedWord) {
+      setSearchTerm(clickedWord);
+      setFilter('All');
+      updateGraph();
+    }
+  };
+
+  
+
+  useEffect(() => {
+    function jsonToHtml(jsonObject, isNested = false) {
+      let htmlString = isNested ? '' : '<div class="json-container">';
+      if (typeof jsonObject === 'string') {
+          jsonObject = JSON.parse(jsonObject); 
+      }
+  
+      Object.entries(jsonObject).forEach(([key, value]) => {
+          if (typeof value === 'object' && value !== null) {
+              htmlString += `<div><span class="json-key">${key}:</span> <div class="json-nested">${jsonToHtml(value, true)}</div></div>`;
+          } else {
+              htmlString += `<div><span class="json-key">${key}:</span> <span class="json-value">${value}</span></div>`;
+          }
+      });
+  
+      if (!isNested) htmlString += '</div>';
+  
+      return htmlString;
+  }
+
+
+    const storedData = localStorage.getItem('factsheetData');
+    if (storedData) {
+      try {
+        const factsheetData = JSON.parse(storedData);
+        const htmlContent = jsonToHtml(factsheetData);
+        setText(htmlContent);
+      } catch (error) {
+        console.error("Failed to process factsheet data:", error);
+      }
+    } else {
+      console.log("No factsheet data found in local storage.");
+    }
+    setTextLoading(false); 
+  }, []);
+  
+  
+
+
+  useEffect(() => {
+    window.addEventListener("mousemove", resize);
+    window.addEventListener("mouseup", stopResizing);
+    return () => {
+      window.removeEventListener("mousemove", resize);
+      window.removeEventListener("mouseup", stopResizing);
+    };
+  }, [resize, stopResizing]);
+  
+   const navigate = useNavigate();
 
   const goToCompliance = () => {
     navigate('/compliance');
@@ -43,6 +133,8 @@ export default function KnowledgeGraph() {
     };
     fetchData();
   }, []);
+
+  
 
   const handlePhysicsChange = (option) => {
     setPhysicsOptions(option);
@@ -92,6 +184,34 @@ export default function KnowledgeGraph() {
     }
     setFilteredGraphData({ nodes: updatedNodes, edges: updatedEdges });
   };  
+
+
+  const displayPdf = () => {
+    if (!showPdf && text && nodes.length > 0 && !highlightApplied) {
+      const highlightLabels = () => {
+        let highlightedText = text;
+        nodes.forEach(node => {
+          const regex = new RegExp(`\\b${node.label}\\b`, "gi");
+          highlightedText = highlightedText.replace(regex, match => {
+            // Check if the word has already been highlighted
+            if (!highlightedText.includes(`<span class="highlighted" >${match}</span>`)) {
+              return `<span class="highlighted" >${match}</span>`;
+            } else {
+              return match;
+            }
+          });
+        });
+        setText(highlightedText);
+        setHighlightApplied(!highlightApplied);
+      };
+
+      highlightLabels();
+    }
+
+    setPdf(!showPdf);
+  };
+
+  
 
   const options = {
 
@@ -240,15 +360,43 @@ export default function KnowledgeGraph() {
       </select>
 
       <button className="kg-button" onClick={updateGraph}>Update Graph   → </button>
+      <button className="kg-button" onClick={displayPdf}>Show Documentation   → </button>
 
       <button className="kg-button" onClick={goToCompliance}>Get Compliance Score →</button>
       </div>
+
+
 
       {/* {showGraph && <Graph graph={graphData} options={options} />} */}
 
       {/* {showGraph && <Graph graph={data} options={options} />} remove when backend endpoint is available */}
 
-      {showGraph && <Graph graph={filteredGraphData} options={options} />}
+      {showGraph && <Graph graph={filteredGraphData} options={options} 
+      // style={{ width: graphWidth }}
+      />}
+
+    {showPdf &&
+      
+        <div>
+          <div
+            ref={sidebarRef}
+            className="pdf-container"
+            style={{ width: sidebarWidth }}
+          >
+            <div className="pdf-container-resizer" onMouseDown={startResizing} />
+            <div className="text-container">
+              {textLoading ? (
+                <div>Loading...</div>
+              ) : (
+                <>
+                  <h2>AI Model Documentation</h2>
+                  <div dangerouslySetInnerHTML={{ __html: text }} onClick={handleSpanClick} />
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      }
 
       {showGraph && (
         <div className="physics-controls"> 
