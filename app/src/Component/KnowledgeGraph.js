@@ -157,12 +157,13 @@ export default function KnowledgeGraph() {
           to: { // Options for the 'to' (end) arrow
               enabled: false, // Make sure arrows are displayed
               scaleFactor: 0.55,  // Default scaling of the arrow
-              hover: {
-                  scaleFactor: 0.55 // Scale the arrow on hover
-              },
-              chosen: { 
-                  scaleFactor: 0.55 // Scale the arrow when clicked
-              }
+              // hover: {
+              //     scaleFactor: 0.55 // Scale the arrow on hover
+              // }
+              // },
+              // chosen: { 
+              //     scaleFactor: 0.55 // Scale the arrow when clicked
+              // }
           },
       },
       scaling: {
@@ -186,6 +187,7 @@ export default function KnowledgeGraph() {
 
     // Other configuration areas
     layout: {  
+      improvedLayout: false,
       randomSeed: 4,       // For reproducible layouts (or remove for randomness)
       hierarchical: {      // Options for tree-like layouts
         enabled: false,   // Set to true for hierarchical layout
@@ -197,11 +199,12 @@ export default function KnowledgeGraph() {
       color: {background: 'lightgray'}, 
       font: {color: 'gray'}
     },
-    physics: physicsOptions, // Settings for the physics engine 
-      enabled: true, 
-      barnesHut: {
-        gravitationalConstant: -5000 // Reduced for longer edges
-      },
+    physics: physicsOptions,
+    // physics: physicsOptions, // Settings for the physics engine 
+    //   enabled: true, 
+    //   barnesHut: {
+    //     gravitationalConstant: -5000 // Reduced for longer edges
+    //   },
     interaction: {
       navigationButtons: true,  // Display navigation buttons (zoom, pan)
       tooltipDelay: 200,        // Delay in milliseconds before showing tooltips
