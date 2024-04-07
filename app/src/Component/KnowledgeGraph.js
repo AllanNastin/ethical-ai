@@ -1,20 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Graph from 'react-vis-network-graph';
-// import { edges, nodes } from './Data/data'; // Import your data , remove once backend endpoint is available
+import { useNavigate } from 'react-router-dom';
+import { edges, nodes } from './Data/data_2.js'; // Import your data , remove once backend endpoint is available app/src/Component/Data/data_1.js
 // import { fetchGraphData } from '../Service/api';
 import './KnowledgeGraph.css';
 
 
 export default function KnowledgeGraph() {
-  
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const sidebarRef = useRef(null);
+  const [isResizing, setIsResizing] = useState(false);
+  const [sidebarWidth, setSidebarWidth] = useState(700);
   const [showGraph, setShowGraph] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('All');
   const [filteredGraphData, setFilteredGraphData] = useState({ nodes: [], edges: [] }); // Initialize with default value
-  // const [graphData, setGraphData] = useState({ nodes: [], edges: [] }); // Corrected this line
-  // const jsFile = localStorage.getItem('jsFile'); // Get the file data from localStorage
-  
+  const [showPdf, setPdf] = useState(false);
+  const [text, setText] = useState("")
+  const [textLoading, setTextLoading] = useState(true);
+  const [highlightApplied, setHighlightApplied] = useState(false);
+
 
   const [physicsOptions, setPhysicsOptions] = useState({
     enabled: true, // Physics enabled by default
@@ -28,28 +33,115 @@ export default function KnowledgeGraph() {
     stabilization: { iterations: 150 } // Moderate stabilization
   });
 
+
+  const startResizing = React.useCallback(() => {
+    setIsResizing(true);
+  }, []);
+
+  const stopResizing = React.useCallback(() => {
+    setIsResizing(false);
+  }, []);
+
+  const resize = React.useCallback(
+    (mouseMoveEvent) => {
+      if (isResizing) {
+        setSidebarWidth(
+          sidebarRef.current.getBoundingClientRect().right- mouseMoveEvent.clientX
+        );
+      }
+    },
+    [isResizing]
+  );
+
+  const handleSpanClick = (event) => {
+    const clickedWord = event.target.textContent;
+    const isHighlighted = event.target.classList.contains('highlighted'); // Check if the clicked word is highlighted
+  
+    if (isHighlighted && clickedWord) {
+      setSearchTerm(clickedWord);
+      setFilter('All');
+      updateGraph();
+    }
+  };
+
+
+  useEffect(() => {
+    function jsonToHtml(jsonObject, isNested = false) {
+      let htmlString = isNested ? '' : '<div class="json-container">';
+      if (typeof jsonObject === 'string') {
+          jsonObject = JSON.parse(jsonObject); 
+      }
+  
+      Object.entries(jsonObject).forEach(([key, value]) => {
+          if (typeof value === 'object' && value !== null) {
+              htmlString += `<div><span class="json-key">${key}:</span> <div class="json-nested">${jsonToHtml(value, true)}</div></div>`;
+          } else {
+              htmlString += `<div><span class="json-key">${key}:</span> <span class="json-value">${value}</span></div>`;
+          }
+      });
+  
+      if (!isNested) htmlString += '</div>';
+  
+      return htmlString;
+  }
+
+    const storedData = localStorage.getItem('factsheetData');
+    if (storedData) {
+      try {
+        const factsheetData = JSON.parse(storedData);
+        const htmlContent = jsonToHtml(factsheetData);
+        setText(htmlContent);
+      } catch (error) {
+        console.error("Failed to process factsheet data:", error);
+      }
+    } else {
+      console.log("No factsheet data found in local storage.");
+    }
+    setTextLoading(false); 
+  }, []);
+  
+
+  useEffect(() => {
+    window.addEventListener("mousemove", resize);
+    window.addEventListener("mouseup", stopResizing);
+    return () => {
+      window.removeEventListener("mousemove", resize);
+      window.removeEventListener("mouseup", stopResizing);
+    };
+  }, [resize, stopResizing]);
+  
+   const navigate = useNavigate();
+
+  const goToCompliance = () => {
+    navigate('/compliance');
+  };
+
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const fetchedData = JSON.parse(localStorage.getItem('data'));
-        // console.log("Fetched data: ", fetchedData); // Debug fetchedData
-        if (fetchedData) {
-          // Transform the data into the format { nodes: [], edges: [] }
-          const nodes = fetchedData.filter(item => item.nodes).map(item => item.nodes);
-          const edges = fetchedData.filter(item => item.edges).map(item => item.edges);
-          const graphData = { nodes, edges };
-          // setGraphData(graphData);
-          setFilteredGraphData(graphData);
-          setShowGraph(true);
-        }
-      } catch (error) {
-        console.error("Failed to fetch graph data from local storage: ", error);
-      }
+  //     try {
+  //       const fetchedData = JSON.parse(localStorage.getItem('data'));
+  //       // console.log("Fetched data: ", fetchedData); // Debug fetchedData
+  //       if (fetchedData) {
+  //         // Transform the data into the format { nodes: [], edges: [] }
+  //         const nodes = fetchedData.filter(item => item.nodes).map(item => item.nodes);
+  //         const edges = fetchedData.filter(item => item.edges).map(item => item.edges);
+  //         const graphData = { nodes, edges };
+  //         // setGraphData(graphData);
+  //         setFilteredGraphData(graphData);
+  //         setShowGraph(true);
+  //       }
+  //     } catch (error) {
+  //       console.error("Failed to fetch graph data from local storage: ", error);
+  //     }
+      const graphData = { nodes, edges };
+      setFilteredGraphData(graphData);
+      setShowGraph(true);
     };
     fetchData();
   }, []);
 
   
+
   const handlePhysicsChange = (option) => {
     setPhysicsOptions(option);
     setIsDropdownOpen(false); // Close dropdown after selection
@@ -99,6 +191,34 @@ export default function KnowledgeGraph() {
     setFilteredGraphData({ nodes: updatedNodes, edges: updatedEdges });
   };  
 
+
+  const displayPdf = () => {
+    if (!showPdf && text && nodes.length > 0 && !highlightApplied) {
+      const highlightLabels = () => {
+        let highlightedText = text;
+        nodes.forEach(node => {
+          const regex = new RegExp(`\\b${node.label}\\b`, "gi");
+          highlightedText = highlightedText.replace(regex, match => {
+            // Check if the word has already been highlighted
+            if (!highlightedText.includes(`<span class="highlighted" >${match}</span>`)) {
+              return `<span class="highlighted" >${match}</span>`;
+            } else {
+              return match;
+            }
+          });
+        });
+        setText(highlightedText);
+        setHighlightApplied(!highlightApplied);
+      };
+
+      highlightLabels();
+    }
+
+    setPdf(!showPdf);
+  };
+
+  
+
   const options = {
     groups: {
       ORG: { color: { background: '#DC143C' }}, // Deep Red
@@ -115,7 +235,7 @@ export default function KnowledgeGraph() {
       MAR: { color: { background: '#FF6347' }}, // Coral
       DOC: { color: { background: '#8a3ffc' }}, // Lavender
       ETH: { color: { background: '#ff7eb6' }}  // Light Pink
-    },
+  },
     nodes: {
       shape: 'dot', 
       scaling: {
@@ -127,7 +247,7 @@ export default function KnowledgeGraph() {
           drawThreshold: 8, 
           maxVisible: 10000,
         },
-        // Map node 'value' to size 
+          // Map node 'value' to size 
         customScalingFunction: function (min, max, total, value) {
           if (max === min) {
             return 0.5; 
@@ -187,6 +307,15 @@ export default function KnowledgeGraph() {
     },
     
   },// Other configuration areas
+    // other configuration options...
+    layout: {
+      improvedLayout: false,
+      randomSeed: 4, // other layout configurations...
+      hierarchical: {
+        enabled: false,
+        direction: "LR", // other hierarchical settings...
+      },
+    },
   physics: physicsOptions, // Settings for the physics engine 
   interaction: {
     navigationButtons: true,  // Display navigation buttons (zoom, pan)
@@ -218,21 +347,51 @@ export default function KnowledgeGraph() {
       />
 
       <select onChange={handleFilterChange} className="filter-dropdown">
-        <option value="All">All Groups</option>
+        <option value="group">All Groups</option>
         {[...new Set(filteredGraphData.nodes.map(node => node.group))] // Changed nodes to filteredGraphData.nodes
           .map(group => <option key={group} value={group}>{group}</option>)}
       </select>
 
       <button className="kg-button" onClick={updateGraph}>Update Graph   → </button>
+      <button className="kg-button" onClick={displayPdf}>Show Documentation   → </button>
+
+      <button className="kg-button" onClick={goToCompliance}>Get Compliance Score →</button>
       </div>
+
+
 
       {/* {showGraph && <Graph graph={graphData} options={options} />} */}
 
       {/* {showGraph && <Graph graph={data} options={options} />} remove when backend endpoint is available */}
 
-      {showGraph && <Graph graph={filteredGraphData} options={options} />}
+      {showGraph && <Graph graph={filteredGraphData} options={options} 
+      // style={{ width: graphWidth }}
+      />}
 
-      {showGraph && (
+    {showPdf &&
+      
+        <div>
+          <div
+            ref={sidebarRef}
+            className="pdf-container"
+            style={{ width: sidebarWidth }}
+          >
+            <div className="pdf-container-resizer" onMouseDown={startResizing} />
+            <div className="text-container">
+              {textLoading ? (
+                <div>Loading...</div>
+              ) : (
+                <>
+                  <h2>AI Model Documentation</h2>
+                  <div dangerouslySetInnerHTML={{ __html: text }} onClick={handleSpanClick} />
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      }
+
+{showGraph && (
         <div className="physics-controls"> 
           <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
             Physics Options

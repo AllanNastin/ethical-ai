@@ -1,33 +1,32 @@
 .legend-container {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 20px;
-    position: absolute;   
-    top: 200px;           /* Position from the top */
-    right: 20px;  
-    background-color: #f0f0f0
-  }
-  
-  .color-box {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin-right: 10px;
-  } 
-  
-  .definitions {
-     margin-left: 25px; 
-     list-style-type: disc; 
-  }
-  
-  .hide-legend-btn {
-    position: absolute;    
-    top: 175px;
-    right: 50px; 
-    background-color: #81a2e6; 
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px; 
-    cursor: pointer;
-  }  
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  position: absolute;
+  top: 200px;           /* Position from the top */
+  right: 20px;
+  background-color: #f0f0f0
+}
 
+.color-box {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+} 
+
+.definitions {
+   margin-left: 25px; 
+   list-style-type: disc; 
+}
+
+.hide-legend-btn {
+  position: absolute;
+  top: 175px;
+  right: 50px; 
+  background-color: #0052cc; 
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px; 
+  cursor: pointer;
+}

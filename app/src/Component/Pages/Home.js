@@ -11,7 +11,7 @@ function Home({ onUploadSuccess }) {
     let formData = new FormData();
     formData.append('file', file);
 
-    fetch('http://127.0.0.1:8000/upload', {
+    fetch('http://localhost:8000/upload', {
       method: 'POST',
       body: formData
     })
@@ -19,13 +19,14 @@ function Home({ onUploadSuccess }) {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        return response.text(); // Get the response as text
+        return response.json(); // Get the response as json
       })
-      .then(text => {
+      .then(data => {
         // Split the text by line and parse each line as JSON
-        const jsonlData = text.split('\n').filter(line => line.trim() !== '').map(line => JSON.parse(line));
+        const { factsheet_data, rules_mining_data } = data;
         // Store the JSONL data in local storage
-        localStorage.setItem('data', JSON.stringify(jsonlData));
+        localStorage.setItem('factsheetData', JSON.stringify(factsheet_data));
+        localStorage.setItem('rulesMiningData', JSON.stringify(rules_mining_data));
         onUploadSuccess();
         navigate("/graph");
       })

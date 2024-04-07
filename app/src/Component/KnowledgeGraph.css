@@ -8,6 +8,68 @@
     background-color: white;
   }
   
+  .pdf-container {
+    display: flex;
+    border-right: #e9e9e9 1px solid;
+    flex-direction: row;
+    background: #ffffff;
+    box-shadow: -8px 2px 22px -7px rgba(0, 0, 0, 0.25);
+    border-radius: 10px 0px 0px 10px;
+    height: calc(100vh - 170px); /* Make the sidebar stretch to the height of the container */
+    position: fixed; /* Fixed position to stay visible while scrolling */
+    top: 170px; /* Align to the top of the container, taking into account the height of the top section */
+    right: 0; /* Align to the right side of the container */
+    background-color: white; /* Set the background color same as the top section */
+    z-index: 1; /* Ensure the sidebar is above the content */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds the height */
+    border-left: 1px solid #ccc; /* Add a border to separate the sidebar from the main content */
+    padding: 20px;  
+  }
+
+  .pdf-container iframe {
+    width: 95%; /* Make the iframe take up the full width of the sidebar */
+    height: 100%; /* Make the iframe take up the full height of the sidebar */
+    border: none; /* Remove border from the iframe */
+    right: 0px;
+  }
+
+  /* .pdf-container .pdf-container-resizer {
+    width: 25px;
+    z-index: 3; /* Ensure the sidebar is above the content */
+    /* background: #dadbdcb4; */
+  /* } */ */
+
+  .pdf-container .pdf-container-resizer:hover {
+    background: #818282b4;
+  }
+
+  .text-container {
+    width: 95%; /* Make the iframe take up the full width of the sidebar */
+    z-index: 1;
+    right: 0px;
+    font-size: 20px; /* Set font size for the pre element */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds the height */
+  }
+  
+  .text-container h2 {
+    margin-bottom: 10px; /* Add margin below the heading */
+    font-size: 50px; /* Set font size for the heading */
+  }
+  
+  /* Style for highlighted labels */
+  .text-container .highlighted {
+    background-color: yellow; /* Change the background color */
+    color: black; /* Change the text color */
+    padding: 2px; /* Add padding to create some space around the highlighted text */
+    cursor: pointer; /* Change the cursor to indicate interactivity */
+  }
+
+  /* Hover effect for highlighted labels */
+  .text-container .highlighted:hover {
+    background-color: orange; /* Change the background color on hover */
+    color: white; /* Change the text color on hover */
+  }
+  
   .react-vis-network-graph {
     width: 100%; 
     height: 900px;
@@ -95,3 +157,14 @@
   display: none;
 }
 
+.json-key { 
+  font-weight: bold; 
+  }
+  
+  .json-value { 
+  color: #333; 
+  }
+  
+  .json-nested { 
+  margin-left: 20px; 
+  }
