@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Graph from 'react-vis-network-graph';
 import { useNavigate } from 'react-router-dom';
-import { edges, nodes } from './Data/data_2.js'; // Import your data , remove once backend endpoint is available app/src/Component/Data/data_1.js
+import { edges, nodes } from './Data/dreamData.js'; // Import your data , remove once backend endpoint is available app/src/Component/Data/data_1.js
 // import { fetchGraphData } from '../Service/api';
 import './KnowledgeGraph.css';
 
@@ -239,7 +239,7 @@ export default function KnowledgeGraph() {
     nodes: {
       shape: 'dot', 
       scaling: {
-        min: 3, 
+        min: 5, 
         max: 40, 
         label: { 
           min: 7,  
