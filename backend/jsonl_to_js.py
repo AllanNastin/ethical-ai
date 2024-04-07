@@ -39,7 +39,7 @@ def generate_nodes(input_file, centrality_values):
         'ORG': '#FF0000',  # Red
         'PER': '#0000FF',  # Blue
         'LOC': '#008000',  # Green
-        'SYS': '#0043ce',  # Gold
+        'SYS': '#0043ce',  # Strong Blue
         'ACT': '#FFA500',  # Orange
         'SPA': '#800080',  # Purple
         'STA': '#C0C0C0',  # Silver
