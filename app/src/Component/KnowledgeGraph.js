@@ -4,8 +4,9 @@ import Graph from 'react-vis-network-graph';
 // import { fetchGraphData } from '../Service/api';
 import './KnowledgeGraph.css';
 
+
 export default function KnowledgeGraph() {
-  const [physicsOptions, setPhysicsOptions] = useState({ enabled: true });
+  
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showGraph, setShowGraph] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -13,6 +14,19 @@ export default function KnowledgeGraph() {
   const [filteredGraphData, setFilteredGraphData] = useState({ nodes: [], edges: [] }); // Initialize with default value
   // const [graphData, setGraphData] = useState({ nodes: [], edges: [] }); // Corrected this line
   // const jsFile = localStorage.getItem('jsFile'); // Get the file data from localStorage
+  
+
+  const [physicsOptions, setPhysicsOptions] = useState({
+    enabled: true, // Physics enabled by default
+    barnesHut: { // Default to Barnes-Hut configuration
+      gravitationalConstant: -30000,
+      centralGravity: 0.1,
+      springLength: 150,
+      avoidOverlap: 1,
+      damping: 1,
+    },
+    stabilization: { iterations: 150 } // Moderate stabilization
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,6 +49,7 @@ export default function KnowledgeGraph() {
     fetchData();
   }, []);
 
+  
   const handlePhysicsChange = (option) => {
     setPhysicsOptions(option);
     setIsDropdownOpen(false); // Close dropdown after selection
@@ -85,16 +100,31 @@ export default function KnowledgeGraph() {
   };  
 
   const options = {
-
+    groups: {
+      ORG: { color: { background: '#DC143C' }}, // Deep Red
+      PER: { color: { background: '#E040FB' }}, // Vivid Pink
+      LOC: { color: { background: '#FF8C00' }}, // Orange
+      DAT: { color: { background: '#42be65' }}, // Deep Green
+      SYS: { color: { background: '#001d6c' }}, // Deep Blue
+      ACT: { color: { background: '#00BFFF' }}, // Bright Blue 
+      SPA: { color: { background: '#7FFF00' }}, // Yellow-Green
+      STA: { color: { background: '#FFD700' }}, // Gold 
+      ALG: { color: { background: '#005d5d' }}, // Dark Teal
+      PRO: { color: { background: '#76D7C4' }}, // Light Green
+      HAR: { color: { background: '#B22222' }}, // Brick Red
+      MAR: { color: { background: '#FF6347' }}, // Coral
+      DOC: { color: { background: '#8a3ffc' }}, // Lavender
+      ETH: { color: { background: '#ff7eb6' }}  // Light Pink
+    },
     nodes: {
       shape: 'dot', 
       scaling: {
-        min: 5, 
-        max: 30, 
+        min: 3, 
+        max: 40, 
         label: { 
-          min: 4,  
-          max: 15,  
-          drawThreshold: 7, 
+          min: 7,  
+          max: 25,  
+          drawThreshold: 8, 
           maxVisible: 10000,
         },
         // Map node 'value' to size 
@@ -113,26 +143,10 @@ export default function KnowledgeGraph() {
         face: 'Tahoma',  
         color: 'black',  
       },
-      borderWidth: 2, // Node border thickness
-      borderWidthSelected: 2, // Border width for selected nodes
-      color: {         // Node fill color options
-        border: 'black',
-        background: 'white',
-        highlight: {
-          border: 'orange',
-          background: '#FFFFCC'  // Subtle yellow highlight
-        },
-        hover: {   // Hover color
-          border: 'orange',
-          background: '#FFFFCC'
-        }
-      },
-      shadow: {
-        enabled: false, 
-        size: 5,       // Shadow size
-        x: 3,          // Shadow offset (horizontal)
-        y: 3           // Shadow offset (vertical)
-      }
+      // border: '#a6c8ff',
+      // borderWidth: 2, // Node border thickness
+      // borderWidthSelected: 2, // Border width for selected nodes
+      shadow: true,
     },
     edges: {
       font: { // Add a font section for edge labels
@@ -140,69 +154,51 @@ export default function KnowledgeGraph() {
         color: '#000000', // Add the color change here
         background: 'none',   // Remove the background 
         strokeWidth: 0        // Remove any border
+        
       },
       width: 0.5, // Default edge width
+      color: {
+        opacity: 2.0
+      },
       hoverWidth: 0.55,
       selectionWidth: 0.55, // Width when clicked
       arrows: {
-          to: { // Options for the 'to' (end) arrow
-              enabled: false, // Make sure arrows are displayed
-              scaleFactor: 0.55,  // Default scaling of the arrow
-              hover: {
-                  scaleFactor: 0.55 // Scale the arrow on hover
-              },
-              chosen: { 
-                  scaleFactor: 0.55 // Scale the arrow when clicked
-              }
+          to: { 
+              enabled: true, // Make sure arrows are displayed
+              scaleFactor: 0.3,  // Default scaling of the arrow
           },
       },
-      scaling: {
-          min: 0.1, 
-          max: 3, // Enforce a maximum width of 3
-          label: { 
-              min: 7,    // Minimum label size
-              max: 10,    // Maximum label size
-          },
-          customScalingFunction: function (min, max, total, weight) {
-              // 'weight' is used instead of 'value' here
-              if (max === min) {
-                  return 0.5;
-              } else {
-                  let scale = (max - min) / total; // Adjusted for max width constraint
-                  return Math.max(0, Math.min(max, weight * scale)); 
-              }
+      chosen: { // Container for edge selection/hover behavior 
+        edge: function(values, id, selected, hovering) {
+          if (hovering) {
+            values.width = 2;  
+            values.color = '#ff8389'; 
+          } else if (hovering) {
+            values.opacity = 0.6; 
           }
-      }
-  },
-
-    // Other configuration areas
-    layout: {  
-      randomSeed: 4,       // For reproducible layouts (or remove for randomness)
-      hierarchical: {      // Options for tree-like layouts
-        enabled: false,   // Set to true for hierarchical layout
-        direction: "LR",   // Other options: 'DU', 'LR', 'RL'
-        nodeSpacing: 1
-      }
-    },
-    groups: {            // For grouping nodes
-      color: {background: 'lightgray'}, 
-      font: {color: 'gray'}
-    },
-    physics: physicsOptions, // Settings for the physics engine 
-      enabled: true, 
-      barnesHut: {
-        gravitationalConstant: -5000 // Reduced for longer edges
       },
-    interaction: {
-      navigationButtons: true,  // Display navigation buttons (zoom, pan)
-      tooltipDelay: 200,        // Delay in milliseconds before showing tooltips
-      hideEdgesOnDrag: true,    // Temporarily hide edges while dragging nodes
-      hideEdgesOnZoom: true,    // Temporarily hide edges while zooming
-      hover: true,              // Enable hover effects (like highlighting or tooltips)
-      multiselect: true,   // Allow selecting multiple nodes
-      dragView: true       // Allow panning by dragging the background
+        label: function(values, id, selected, hovering) {
+          if (hovering) { 
+            values.color = '#000000';
+            values.size *= 2.3;  // Slightly increase the label size
+          }
+        }
+      
     },
-    height: '900px',         // Fixed height of the graph container
+    
+  },// Other configuration areas
+  physics: physicsOptions, // Settings for the physics engine 
+  interaction: {
+    navigationButtons: true,  // Display navigation buttons (zoom, pan)
+    tooltipDelay: 200,        // Delay in milliseconds before showing tooltips
+    hideEdgesOnDrag: true,    // Temporarily hide edges while dragging nodes
+    hideEdgesOnZoom: true,    // Temporarily hide edges while zooming
+    hover: true,              // Enable hover effects (like highlighting or tooltips)
+    hoverConnectedEdges: true,
+    multiselect: true,   // Allow selecting multiple nodes
+    dragView: true       // Allow panning by dragging the background
+  },
+  height: '1000px',         // Fixed height of the graph container
   };
 
   // const data = { nodes: nodes, edges: edges }; //remove when backend endpoint is available
@@ -241,7 +237,6 @@ export default function KnowledgeGraph() {
           <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
             Physics Options
           </button>
-
           {isDropdownOpen && (
             <div className="dropdown-content">
               <button onClick={() => handlePhysicsChange({ enabled: true })}>
@@ -250,29 +245,29 @@ export default function KnowledgeGraph() {
               <button onClick={() => handlePhysicsChange({ enabled: false })}>
                 Disable Physics
               </button>
-              
               <button onClick={() => handlePhysicsChange({ 
-                enabled: true,
-                stabilization: { iterations: 1000 } 
-              })}>
-                Stable Layout
-              </button>
-              <button onClick={() => handlePhysicsChange({ 
-                enabled: true,
-                barnesHut: { 
-                    gravitationalConstant: -5000 
-                } 
+                  enabled: true,
+                  barnesHut: {
+                    gravitationalConstant: -60000,
+                    centralGravity: 0.3,
+                    springLength: 300,
+                    avoidOverlap: 1,
+                    damping: 1,
+                  },
+                  stabilization: { iterations: 2500 }
               })}>
                 Strong Repulsion
               </button>
               <button onClick={() => handlePhysicsChange({ 
                   enabled: true,
                   barnesHut: {
-                    gravitationalConstant: -2000,
-                    centralGravity: 0.1,
-                    springLength: 150,
-                    damping: 0.05
-                  } 
+                    gravitationalConstant: -30000,
+                    centralGravity: 1,
+                    springLength: 170,
+                    avoidOverlap: 1,
+                    damping: 1,
+                  },
+                  stabilization: { iterations: 2500 }
               })}>
                 Barnes-Hut Layout 
               </button>
