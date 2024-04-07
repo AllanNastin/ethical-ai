@@ -93,7 +93,8 @@ def save_compliance_checklist(kg_rules):
         json.dump(checklist, file, indent=4)
 
 def pdf_data_to_rules(factsheet_data):
-    checklist = json.load(open("compliance_checklist.json", "r"))
+    with open("compliance_checklist.json", "r") as file:
+        checklist = json.load(file)
     compliance_score, compliance_details = score_compliance(factsheet_data, checklist)
     recommendations = analyze_documentation(compliance_details)
     return compliance_score, recommendations
