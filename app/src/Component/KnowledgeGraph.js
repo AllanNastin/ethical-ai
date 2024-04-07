@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Graph from 'react-vis-network-graph';
 import { useNavigate } from 'react-router-dom';
-import { edges, nodes } from './Data/dreamData.js'; // Import your data , remove once backend endpoint is available app/src/Component/Data/data_1.js
+import { edges, nodes } from './Data/finalData.js'; // Import your data , remove once backend endpoint is available app/src/Component/Data/data_1.js
 // import { fetchGraphData } from '../Service/api';
 import './KnowledgeGraph.css';
 
@@ -25,12 +25,12 @@ export default function KnowledgeGraph() {
     enabled: true, // Physics enabled by default
     barnesHut: { // Default to Barnes-Hut configuration
       gravitationalConstant: -30000,
-      centralGravity: 0.1,
-      springLength: 150,
-      avoidOverlap: 1,
-      damping: 1,
+      centralGravity: 0.01,
+      springLength: 75,
+      avoidOverlap: 0.5,
+      damping: 0.5,
     },
-    stabilization: { iterations: 150 } // Moderate stabilization
+    stabilization: { iterations: 230 } // Moderate stabilization
   });
 
 
@@ -220,6 +220,7 @@ export default function KnowledgeGraph() {
   
 
   const options = {
+    autoResize: true,
     groups: {
       ORG: { color: { background: '#DC143C' }}, // Deep Red
       PER: { color: { background: '#E040FB' }}, // Vivid Pink
@@ -266,19 +267,18 @@ export default function KnowledgeGraph() {
       // border: '#a6c8ff',
       // borderWidth: 2, // Node border thickness
       // borderWidthSelected: 2, // Border width for selected nodes
-      shadow: true,
+      shadow: false,
     },
     edges: {
       font: { // Add a font section for edge labels
-        size: 4, 
+        size: 6, 
         color: '#000000', // Add the color change here
         background: 'none',   // Remove the background 
-        strokeWidth: 0        // Remove any border
-        
+        strokeWidth: 0,        // Remove any border
       },
       width: 0.5, // Default edge width
       color: {
-        opacity: 2.0
+        opacity: 1.0
       },
       hoverWidth: 0.55,
       selectionWidth: 0.55, // Width when clicked
@@ -305,6 +305,11 @@ export default function KnowledgeGraph() {
         }
       
     },
+    length: undefined,
+    smooth: {
+      type: 'dynamic',
+      roundness: 0.5,
+    }
     
   },// Other configuration areas
     // other configuration options...
@@ -422,7 +427,7 @@ export default function KnowledgeGraph() {
                   barnesHut: {
                     gravitationalConstant: -30000,
                     centralGravity: 1,
-                    springLength: 170,
+                    springLength: 75,
                     avoidOverlap: 1,
                     damping: 1,
                   },
