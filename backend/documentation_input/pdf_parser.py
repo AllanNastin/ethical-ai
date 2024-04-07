@@ -108,7 +108,12 @@ ai_model_documentation = {
 def convert_pdf_data_to_json_data(pdf_data):
     text_data = parse_pdf_to_doc(pdf_data)
     parsed_data = parse_text_into_sections(text_data, ai_model_documentation)
-    return json.dumps(parsed_data, indent=4)
+
+    # Check for empty fields
+    empty_fields = [key for key, value in parsed_data.items() if not value or (isinstance(value, dict) and not all(value.values()))]
+
+    return json.dumps({'parsed_data': parsed_data, 'empty_fields': empty_fields}, indent=4)
+
 
 
 if __name__ == "__main__":
