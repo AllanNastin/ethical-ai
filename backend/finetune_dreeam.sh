@@ -26,6 +26,8 @@ mv ../dataset/* .
 python run.py --do_train \
 --data_dir dataset/docred \
 --transformer_type roberta \
+--replace_output_layer \
+--freeze_early_layers \
 --model_name_or_path roberta-large \
 --display_name test_training_run_1 \
 --train_file train.json \
@@ -42,7 +44,7 @@ python run.py --do_train \
 --evi_thresh 0.2 \
 --evi_lambda 1.0 \
 --warmup_ratio 0.1 \
---num_train_epochs 1.0 \
+--num_train_epochs 30.0 \
 --seed 22 \
 --num_class 26
 
