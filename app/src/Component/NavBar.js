@@ -15,6 +15,7 @@ function NavBar() {
       <h1>Compliance Assistant</h1>
       <div className="navbar-main-links">
         <Link to="/about" className="navbar-item">About</Link>
+        <Link to="/graph2" className="navbar-item">Knowledge Graph</Link>
       </div>
       <div className="navbar-right">
         <a href="https://github.com/AllanNastin/ethical-ai" target="_blank" rel="noopener noreferrer" className="navbar-item">
