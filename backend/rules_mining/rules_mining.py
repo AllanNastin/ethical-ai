@@ -45,14 +45,14 @@ def score_compliance(factsheet, checklist):
     #print(f"{present = }")
     #print(f"{missing = }")
     #print(f"total = {present + missing}")
-    score = ((min(max(present + 17, 0), present+missing)) / missing) * 100
+    score = ((min(max(present + 12, 0), present+missing)) / missing) * 100
     # Determine risk level and adjust the score
     if 'high risk' in factsheet_str:
         score = max(min(100, score * 0.682), 0)
     elif 'low risk' in factsheet_str:
-        score = max(min(100, score * 1.33), 0)
+        score = max(min(100, score * 1.47), 0)
     else:  # Mid risk or unspecified
-        score = max(min(100, score * 1.1), 0)
+        score = max(min(100, score * 1.03), 0)
     
     return round(score), compliance_details
 
