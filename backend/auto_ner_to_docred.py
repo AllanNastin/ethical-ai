@@ -90,7 +90,7 @@ def auto_ner_to_docred(data):
                         token_count += text[:tag_dict["value"]["start"]].count(tokens_char)
                     pos1 = token_count
 
-            pos2 = pos1 + (len(tag_dict["value"]["text"].split())) - 1
+            pos2 = pos1 + len(tag_dict["value"]["text"].split())
             entType = tag_dict["value"]["labels"][0]
             sentId = i
             name = tag_dict["value"]["text"]
