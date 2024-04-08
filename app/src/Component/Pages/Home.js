@@ -37,7 +37,7 @@ function Home({ onUploadSuccess }) {
           localStorage.setItem('factsheetData', JSON.stringify(factsheet_data));
           localStorage.setItem('rulesMiningData', JSON.stringify(rules_mining_data));
           onUploadSuccess();
-          navigate("/graph");
+          navigate("/knowledge-graph");
         }
       })
       .catch(error => {
