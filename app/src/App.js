@@ -22,7 +22,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home onUploadSuccess={handleUploadSuccess} />} />
         <Route 
-          path='/graph' 
+          path='/knowledge-graph' 
           element={
             <Graph uploadSuccess={uploadSuccess}>
               <LegendBox /> 
@@ -31,7 +31,7 @@ function App() {
         />
         <Route path='/about' element={<About />} />
         <Route path='/compliance' element={<ComplianceScore />} />
-        <Route path='/graph2' element={<Graph2 />} />
+        <Route path='/graph' element={<Graph2 />} />
       </Routes>
     </Router>
   );
