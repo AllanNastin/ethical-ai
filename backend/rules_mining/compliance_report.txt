@@ -1,4 +1,4 @@
-Compliance Score: 87
+Compliance Score: 80
 Recommendations:
 - For ETH (Ethical Considerations), consider addressing: human agency, privacy, compliance, transparency, compliance, human oversight, technical robustness, compliance, transparency towards the public, transparency towards the public, transparency.
 - For SYS (System Characteristics), consider addressing: ai systems.
