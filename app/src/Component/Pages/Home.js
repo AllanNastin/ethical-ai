@@ -49,7 +49,7 @@ function Home({ onUploadSuccess }) {
   };
 
   const goToKnowledgeGraph = () => {
-    navigate("/graph2");
+    navigate("/graph");
   };
   
 
