@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../App.css';
 import PDFUpload from '../PDFUpload';
 import { useNavigate } from 'react-router-dom';
 import leftImage from '../Images/home.png';
+import Modal from '../Modal';
 
 function Home({ onUploadSuccess }) {
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalFields, setModalFields] = useState([]); // Store the fields array
+  const [modalContent, setModalContent] = useState(''); // Store the content
 
   const handlePDFUpload = (file) => {
     let formData = new FormData();
@@ -15,23 +19,35 @@ function Home({ onUploadSuccess }) {
       method: 'POST',
       body: formData
     })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+      .then(response => response.json().then(data => ({ status: response.status, body: data })))
+      .then(res => {
+        if (res.status !== 200) {
+          if (res.body.empty_fields) {
+            setModalFields(res.body.empty_fields); // Set the fields directly
+            setIsModalOpen(true); // Open the modal
+          } else {
+            // Handle other errors
+            setModalFields([]);
+            setIsModalOpen(true);
+            setModalContent(`There was a problem with the file upload. ${res.body.error}`);
+          }
+        } else {
+          // Success case remains unchanged
+          const { factsheet_data, rules_mining_data } = res.body;
+          localStorage.setItem('factsheetData', JSON.stringify(factsheet_data));
+          localStorage.setItem('rulesMiningData', JSON.stringify(rules_mining_data));
+          onUploadSuccess();
+          navigate("/graph");
         }
-        return response.json(); // Get the response as json
       })
-      .then(data => {
-        // Split the text by line and parse each line as JSON
-        const { factsheet_data, rules_mining_data } = data;
-        // Store the JSONL data in local storage
-        localStorage.setItem('factsheetData', JSON.stringify(factsheet_data));
-        localStorage.setItem('rulesMiningData', JSON.stringify(rules_mining_data));
-        onUploadSuccess();
-        navigate("/graph");
-      })
-      .catch(error => console.log('There was a problem with the fetch operation: ' + error.message));
+      .catch(error => {
+        console.log('There was a problem with the fetch operation: ' + error.message);
+        setIsModalOpen(true);
+        setModalFields([]); // Ensure fields are cleared for non-field errors
+        setModalContent('There was an error processing your request.');
+      });
   };
+  
 
   // const handleButtonClick = () => {
   //   // test get
@@ -54,6 +70,20 @@ function Home({ onUploadSuccess }) {
           <PDFUpload onUpload={handlePDFUpload} />
         </div>
       </div>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <p>The factsheet uploaded does not follow the structure required.</p>
+        {modalFields.length > 0 && (
+          <>
+            <p>Missing or empty fields:</p>
+            <ul>
+              {modalFields.map((field, index) => (
+                <li key={index}>{field}</li>
+              ))}
+            </ul>
+          </>
+        )}
+        {modalFields.length === 0 && <p>{modalContent}</p>}
+      </Modal>
     </div>
   );
 }
