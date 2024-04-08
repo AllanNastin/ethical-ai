@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify, send_file, send_from_directory
 from flask_cors import CORS
-import os
-from werkzeug.utils import secure_filename
+from documentation_input.pdf_parser import convert_pdf_data_to_json_data
+from rules_mining.rules_mining import pdf_data_to_rules
+import json
 
 ALLOWED_ORIGINS = {'http://localhost:3000', 'https://group22.sprinty.tech'}
 
@@ -20,12 +21,20 @@ def process():
     if file.filename == '':
         return jsonify({'error': 'No file part in the request'}), 400
     if file and file.filename.endswith('.pdf'):
-        filename = secure_filename(file.filename)
-        # file.save(os.path.join('.', filename))
-        # Send the JSONL file
-        return send_from_directory('.', 'graph_data.jsonl', as_attachment=True)
+        response = json.loads(convert_pdf_data_to_json_data(file.read()))
+        factsheet_data = response['parsed_data']
+        empty_fields = response['empty_fields']
+        if empty_fields:
+            return jsonify({'error': 'Some fields are empty', 'empty_fields': empty_fields}), 400
+        rules_mining = pdf_data_to_rules(json.dumps(factsheet_data))
+        response_data = {
+            'factsheet_data': factsheet_data,
+            'rules_mining_data': rules_mining
+        }
+        return jsonify(response_data), 200
     else:
         return jsonify({'error': 'Invalid file type'}), 400
+
 
 if __name__ == '__main__':
     print("App is starting")

@@ -1,6 +1,14 @@
 # Other
 .DS_Store
+# venv
+bin/
+*venv*
+share/
 
+# venv
+bin/
+*venv*
+share/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -124,7 +132,6 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
 .venv
 env/
 venv/
@@ -155,6 +162,9 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# DREEAM repo
+backend/dreeam
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
