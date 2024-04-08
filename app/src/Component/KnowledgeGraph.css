@@ -37,7 +37,7 @@
     width: 25px;
     z-index: 3; /* Ensure the sidebar is above the content */
     /* background: #dadbdcb4; */
-  /* } */ */
+  /* } */
 
   .pdf-container .pdf-container-resizer:hover {
     background: #818282b4;
