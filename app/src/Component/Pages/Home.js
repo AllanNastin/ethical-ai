@@ -47,6 +47,10 @@ function Home({ onUploadSuccess }) {
         setModalContent('There was an error processing your request.');
       });
   };
+
+  const goToKnowledgeGraph = () => {
+    navigate("/graph2");
+  };
   
 
   // const handleButtonClick = () => {
@@ -67,7 +71,10 @@ function Home({ onUploadSuccess }) {
           <p>Test your AI model to see if it is compliant with the EU AI Act</p>
           {/* sample button to test fetch */}
           {/* <button onClick={handleButtonClick}>Test Fetch {"(Check Console)"}</button> */}
+          <div className="button-container">
           <PDFUpload onUpload={handlePDFUpload} />
+          <button className="ibm-button" onClick={goToKnowledgeGraph}>See Knowledge Graph   → </button>
+        </div>
         </div>
       </div>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>

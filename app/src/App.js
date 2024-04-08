@@ -6,6 +6,7 @@ import Navbar from './Component/NavBar';
 import LegendBox from './Component/legendBox';
 import About from './Component/Pages/About';
 import ComplianceScore from './Component/Pages/Compliance';
+import Graph2 from './Component/Pages/Graph2';
 import './App.css';
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home onUploadSuccess={handleUploadSuccess} />} />
         <Route 
-          path='/graph' 
+          path='/knowledge-graph' 
           element={
             <Graph uploadSuccess={uploadSuccess}>
               <LegendBox /> 
@@ -30,6 +31,7 @@ function App() {
         />
         <Route path='/about' element={<About />} />
         <Route path='/compliance' element={<ComplianceScore />} />
+        <Route path='/graph' element={<Graph2 />} />
       </Routes>
     </Router>
   );
