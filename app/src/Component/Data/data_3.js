@@ -2384,14 +2384,6 @@ export var edges =
         "weight": 4
     },
     {
-        "from": 1,
-        "to": 2,
-        "color": "#808080",
-        "label": "Governs or guides",
-        "edge details": "Head node: Regulation\nHead node group: DOC\nTail node: Ai system\nTail node group: SYS",
-        "weight": 2
-    },
-    {
         "from": 2,
         "to": 19,
         "color": "#808080",
@@ -2761,14 +2753,6 @@ export var edges =
     },
     {
         "from": 2,
-        "to": 56,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Natural persons\nTail node group: PER",
-        "weight": 3
-    },
-    {
-        "from": 2,
         "to": 63,
         "color": "#808080",
         "label": "Consider",
@@ -2873,14 +2857,6 @@ export var edges =
     },
     {
         "from": 2,
-        "to": 56,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Natural persons\nTail node group: PER",
-        "weight": 5
-    },
-    {
-        "from": 2,
         "to": 52,
         "color": "#808080",
         "label": "Utilizes",
@@ -2944,14 +2920,6 @@ export var edges =
         "weight": 4
     },
     {
-        "from": 2,
-        "to": 36,
-        "color": "#808080",
-        "label": "Must be",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Safety\nTail node group: ETH",
-        "weight": 4
-    },
-    {
         "from": 42,
         "to": 2,
         "color": "#808080",
@@ -2973,14 +2941,6 @@ export var edges =
         "color": "#808080",
         "label": "Consider",
         "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Health\nTail node group: ETH",
-        "weight": 10
-    },
-    {
-        "from": 2,
-        "to": 36,
-        "color": "#808080",
-        "label": "Should be",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Safety\nTail node group: ETH",
         "weight": 10
     },
     {
@@ -3006,22 +2966,6 @@ export var edges =
         "label": "Are central to",
         "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Components\nTail node group: ALG",
         "weight": 3
-    },
-    {
-        "from": 1,
-        "to": 2,
-        "color": "#808080",
-        "label": "Governs or guides",
-        "edge details": "Head node: Regulation\nHead node group: DOC\nTail node: Ai system\nTail node group: SYS",
-        "weight": 10
-    },
-    {
-        "from": 1,
-        "to": 2,
-        "color": "#808080",
-        "label": "Has implications for",
-        "edge details": "Head node: Regulation\nHead node group: DOC\nTail node: Ai system\nTail node group: SYS",
-        "weight": 5
     },
     {
         "from": 66,
@@ -3056,28 +3000,12 @@ export var edges =
         "weight": 5
     },
     {
-        "from": 71,
-        "to": 2,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Rights\nHead node group: ETH\nTail node: Ai system\nTail node group: SYS",
-        "weight": 3
-    },
-    {
         "from": 2,
         "to": 66,
         "color": "#808080",
         "label": "Works with",
         "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Law enforcement\nTail node group: ORG",
         "weight": 2
-    },
-    {
-        "from": 2,
-        "to": 40,
-        "color": "#808080",
-        "label": "Must be",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Transparency\nTail node group: ETH",
-        "weight": 6
     },
     {
         "from": 40,
@@ -3120,44 +3048,12 @@ export var edges =
         "weight": 15
     },
     {
-        "from": 66,
-        "to": 2,
-        "color": "#808080",
-        "label": "Utilizes",
-        "edge details": "Head node: Law enforcement\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
-        "weight": 16
-    },
-    {
-        "from": 83,
-        "to": 2,
-        "color": "#808080",
-        "label": "Utilizes",
-        "edge details": "Head node: Union\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
-        "weight": 17
-    },
-    {
         "from": 83,
         "to": 84,
         "color": "#808080",
         "label": "Utilizes",
         "edge details": "Head node: Union\nHead node group: ORG\nTail node: High risk AI systems\nTail node group: SYS",
         "weight": 18
-    },
-    {
-        "from": 66,
-        "to": 2,
-        "color": "#808080",
-        "label": "Utilizes",
-        "edge details": "Head node: Law enforcement\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
-        "weight": 19
-    },
-    {
-        "from": 66,
-        "to": 84,
-        "color": "#808080",
-        "label": "Utilizes",
-        "edge details": "Head node: Law enforcement\nHead node group: ORG\nTail node: High risk AI systems\nTail node group: SYS",
-        "weight": 20
     },
     {
         "from": 66,
@@ -3174,14 +3070,6 @@ export var edges =
         "label": "Governs or guides",
         "edge details": "Head node: Union\nHead node group: ORG\nTail node: Person\nTail node group: PER",
         "weight": 12
-    },
-    {
-        "from": 66,
-        "to": 85,
-        "color": "#808080",
-        "label": "Governs or guides",
-        "edge details": "Head node: Law enforcement\nHead node group: ORG\nTail node: Person\nTail node group: PER",
-        "weight": 13
     },
     {
         "from": 64,
@@ -3224,36 +3112,12 @@ export var edges =
         "weight": 3
     },
     {
-        "from": 87,
-        "to": 88,
-        "color": "#808080",
-        "label": "Contains",
-        "edge details": "Head node: Natural person\nHead node group: PER\nTail node: Characteristic\nTail node group: ETH",
-        "weight": 4
-    },
-    {
         "from": 88,
         "to": 87,
         "color": "#808080",
         "label": "Applies to",
         "edge details": "Head node: Characteristic\nHead node group: ETH\nTail node: Natural person\nTail node group: PER",
         "weight": 1
-    },
-    {
-        "from": 66,
-        "to": 84,
-        "color": "#808080",
-        "label": "Utilizes",
-        "edge details": "Head node: Law enforcement\nHead node group: ORG\nTail node: High risk AI systems\nTail node group: SYS",
-        "weight": 21
-    },
-    {
-        "from": 83,
-        "to": 2,
-        "color": "#808080",
-        "label": "Utilizes",
-        "edge details": "Head node: Union\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
-        "weight": 22
     },
     {
         "from": 2,
@@ -3336,14 +3200,6 @@ export var edges =
         "weight": 3
     },
     {
-        "from": 83,
-        "to": 2,
-        "color": "#808080",
-        "label": "Utilizes",
-        "edge details": "Head node: Union\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
-        "weight": 24
-    },
-    {
         "from": 93,
         "to": 56,
         "color": "#808080",
@@ -3360,22 +3216,6 @@ export var edges =
         "weight": 5
     },
     {
-        "from": 1,
-        "to": 2,
-        "color": "#808080",
-        "label": "Governs or guides",
-        "edge details": "Head node: Regulation\nHead node group: DOC\nTail node: Ai system\nTail node group: SYS",
-        "weight": 14
-    },
-    {
-        "from": 83,
-        "to": 2,
-        "color": "#808080",
-        "label": "Utilizes",
-        "edge details": "Head node: Union\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
-        "weight": 25
-    },
-    {
         "from": 94,
         "to": 2,
         "color": "#808080",
@@ -3390,14 +3230,6 @@ export var edges =
         "label": "Can be",
         "edge details": "Head node: Democratic processes\nHead node group: PRO\nTail node: High risk\nTail node group: ETH",
         "weight": 6
-    },
-    {
-        "from": 67,
-        "to": 84,
-        "color": "#808080",
-        "label": "Contains",
-        "edge details": "Head node: Risks\nHead node group: ETH\nTail node: High risk AI systems\nTail node group: SYS",
-        "weight": 8
     },
     {
         "from": 2,
@@ -3430,14 +3262,6 @@ export var edges =
         "label": "Contains",
         "edge details": "Head node: Charter\nHead node group: DOC\nTail node: Ai system\nTail node group: SYS",
         "weight": 9
-    },
-    {
-        "from": 2,
-        "to": 56,
-        "color": "#808080",
-        "label": "Has implications for",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Natural persons\nTail node group: PER",
-        "weight": 8
     },
     {
         "from": 84,
@@ -3536,30 +3360,6 @@ export var edges =
         "weight": 4
     },
     {
-        "from": 4,
-        "to": 74,
-        "color": "#808080",
-        "label": "Has implications for",
-        "edge details": "Head node: Artificial Intelligence\nHead node group: ALG\nTail node: Health\nTail node group: ETH",
-        "weight": 13
-    },
-    {
-        "from": 4,
-        "to": 71,
-        "color": "#808080",
-        "label": "Has implications for",
-        "edge details": "Head node: Artificial Intelligence\nHead node group: ALG\nTail node: Rights\nTail node group: ETH",
-        "weight": 14
-    },
-    {
-        "from": 67,
-        "to": 2,
-        "color": "#808080",
-        "label": "Involved in",
-        "edge details": "Head node: Risks\nHead node group: ETH\nTail node: Ai system\nTail node group: SYS",
-        "weight": 5
-    },
-    {
         "from": 99,
         "to": 4,
         "color": "#808080",
@@ -3632,14 +3432,6 @@ export var edges =
         "weight": 9
     },
     {
-        "from": 99,
-        "to": 2,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Provider\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
-        "weight": 10
-    },
-    {
         "from": 2,
         "to": 67,
         "color": "#808080",
@@ -3654,14 +3446,6 @@ export var edges =
         "label": "Interact with",
         "edge details": "Head node: Deployed\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
         "weight": 11
-    },
-    {
-        "from": 2,
-        "to": 92,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: High risk\nTail node group: ETH",
-        "weight": 6
     },
     {
         "from": 105,
@@ -3681,14 +3465,6 @@ export var edges =
     },
     {
         "from": 99,
-        "to": 2,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Provider\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
-        "weight": 12
-    },
-    {
-        "from": 99,
         "to": 1,
         "color": "#808080",
         "label": "Interact with",
@@ -3704,28 +3480,12 @@ export var edges =
         "weight": 6
     },
     {
-        "from": 2,
-        "to": 92,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: High risk\nTail node group: ETH",
-        "weight": 7
-    },
-    {
         "from": 106,
         "to": 105,
         "color": "#808080",
         "label": "Interact with",
         "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Training\nTail node group: ACT",
         "weight": 14
-    },
-    {
-        "from": 2,
-        "to": 80,
-        "color": "#808080",
-        "label": "Utilizes",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: High quality data\nTail node group: DAT",
-        "weight": 28
     },
     {
         "from": 107,
@@ -3750,22 +3510,6 @@ export var edges =
         "label": "Has implications for",
         "edge details": "Head node: High quality data\nHead node group: DAT\nTail node: High risk\nTail node group: ETH",
         "weight": 15
-    },
-    {
-        "from": 105,
-        "to": 92,
-        "color": "#808080",
-        "label": "Consider",
-        "edge details": "Head node: Training\nHead node group: ACT\nTail node: High risk\nTail node group: ETH",
-        "weight": 13
-    },
-    {
-        "from": 2,
-        "to": 39,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Compliance\nTail node group: ETH",
-        "weight": 8
     },
     {
         "from": 108,
@@ -3832,52 +3576,12 @@ export var edges =
         "weight": 9
     },
     {
-        "from": 2,
-        "to": 101,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Characteristics\nTail node group: ETH",
-        "weight": 10
-    },
-    {
-        "from": 2,
-        "to": 111,
-        "color": "#808080",
-        "label": "Utilizes",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Datasets\nTail node group: DAT",
-        "weight": 32
-    },
-    {
-        "from": 105,
-        "to": 1,
-        "color": "#808080",
-        "label": "Require",
-        "edge details": "Head node: Training\nHead node group: ACT\nTail node: Regulation\nTail node group: DOC",
-        "weight": 14
-    },
-    {
         "from": 113,
         "to": 39,
         "color": "#808080",
         "label": "Consider",
         "edge details": "Head node: Testing\nHead node group: ACT\nTail node: Compliance\nTail node group: ETH",
         "weight": 15
-    },
-    {
-        "from": 2,
-        "to": 38,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Privacy\nTail node group: ETH",
-        "weight": 11
-    },
-    {
-        "from": 2,
-        "to": 90,
-        "color": "#808080",
-        "label": "Utilizes",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Personal data\nTail node group: DAT",
-        "weight": 33
     },
     {
         "from": 90,
@@ -3888,22 +3592,6 @@ export var edges =
         "weight": 17
     },
     {
-        "from": 105,
-        "to": 1,
-        "color": "#808080",
-        "label": "Require",
-        "edge details": "Head node: Training\nHead node group: ACT\nTail node: Regulation\nTail node group: DOC",
-        "weight": 15
-    },
-    {
-        "from": 2,
-        "to": 39,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Compliance\nTail node group: ETH",
-        "weight": 12
-    },
-    {
         "from": 106,
         "to": 2,
         "color": "#808080",
@@ -3912,28 +3600,12 @@ export var edges =
         "weight": 15
     },
     {
-        "from": 2,
-        "to": 12,
-        "color": "#808080",
-        "label": "Based on",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Algorithms\nTail node group: ALG",
-        "weight": 5
-    },
-    {
         "from": 106,
         "to": 37,
         "color": "#808080",
         "label": "Governs or guides",
         "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Data governance\nTail node group: PRO",
         "weight": 19
-    },
-    {
-        "from": 2,
-        "to": 105,
-        "color": "#808080",
-        "label": "Involved in",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Training\nTail node group: ACT",
-        "weight": 8
     },
     {
         "from": 46,
@@ -3969,22 +3641,6 @@ export var edges =
     },
     {
         "from": 2,
-        "to": 39,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Compliance\nTail node group: ETH",
-        "weight": 14
-    },
-    {
-        "from": 114,
-        "to": 39,
-        "color": "#808080",
-        "label": "Consider",
-        "edge details": "Head node: Post market monitoring\nHead node group: ACT\nTail node: Compliance\nTail node group: ETH",
-        "weight": 17
-    },
-    {
-        "from": 2,
         "to": 97,
         "color": "#808080",
         "label": "Involved in",
@@ -4014,14 +3670,6 @@ export var edges =
         "label": "Involved in",
         "edge details": "Head node: Risk management system\nHead node group: SYS\nTail node: Documentation\nTail node group: ACT",
         "weight": 11
-    },
-    {
-        "from": 2,
-        "to": 97,
-        "color": "#808080",
-        "label": "Involved in",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Documentation\nTail node group: ACT",
-        "weight": 12
     },
     {
         "from": 2,
@@ -4080,14 +3728,6 @@ export var edges =
         "weight": 18
     },
     {
-        "from": 2,
-        "to": 101,
-        "color": "#808080",
-        "label": "Contains",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Characteristics\nTail node group: ETH",
-        "weight": 14
-    },
-    {
         "from": 119,
         "to": 120,
         "color": "#808080",
@@ -4118,14 +3758,6 @@ export var edges =
         "label": "Helps",
         "edge details": "Head node: Instructions for use\nHead node group: DOC\nTail node: Deployed\nTail node group: ORG",
         "weight": 2
-    },
-    {
-        "from": 104,
-        "to": 2,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Deployed\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
-        "weight": 17
     },
     {
         "from": 118,
@@ -4272,14 +3904,6 @@ export var edges =
         "weight": 19
     },
     {
-        "from": 2,
-        "to": 77,
-        "color": "#808080",
-        "label": "Contains",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Components\nTail node group: ALG",
-        "weight": 17
-    },
-    {
         "from": 77,
         "to": 2,
         "color": "#808080",
@@ -4320,60 +3944,12 @@ export var edges =
         "weight": 25
     },
     {
-        "from": 67,
-        "to": 2,
-        "color": "#808080",
-        "label": "Based on",
-        "edge details": "Head node: Risks\nHead node group: ETH\nTail node: Ai system\nTail node group: SYS",
-        "weight": 7
-    },
-    {
-        "from": 67,
-        "to": 2,
-        "color": "#808080",
-        "label": "Based on",
-        "edge details": "Head node: Risks\nHead node group: ETH\nTail node: Ai system\nTail node group: SYS",
-        "weight": 8
-    },
-    {
-        "from": 2,
-        "to": 92,
-        "color": "#808080",
-        "label": "Can be",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: High risk\nTail node group: ETH",
-        "weight": 8
-    },
-    {
-        "from": 2,
-        "to": 92,
-        "color": "#808080",
-        "label": "Can be",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: High risk\nTail node group: ETH",
-        "weight": 9
-    },
-    {
-        "from": 56,
-        "to": 84,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Natural persons\nHead node group: PER\nTail node: High risk AI systems\nTail node group: SYS",
-        "weight": 17
-    },
-    {
         "from": 71,
         "to": 84,
         "color": "#808080",
         "label": "Has implications for",
         "edge details": "Head node: Rights\nHead node group: ETH\nTail node: High risk AI systems\nTail node group: SYS",
         "weight": 20
-    },
-    {
-        "from": 2,
-        "to": 92,
-        "color": "#808080",
-        "label": "Can be",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: High risk\nTail node group: ETH",
-        "weight": 10
     },
     {
         "from": 93,
@@ -4416,30 +3992,6 @@ export var edges =
         "weight": 19
     },
     {
-        "from": 2,
-        "to": 107,
-        "color": "#808080",
-        "label": "Should not be",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Models\nTail node group: SYS",
-        "weight": 7
-    },
-    {
-        "from": 2,
-        "to": 77,
-        "color": "#808080",
-        "label": "Contains",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Components\nTail node group: ALG",
-        "weight": 20
-    },
-    {
-        "from": 2,
-        "to": 107,
-        "color": "#808080",
-        "label": "Contains",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Models\nTail node group: SYS",
-        "weight": 21
-    },
-    {
         "from": 1,
         "to": 107,
         "color": "#808080",
@@ -4464,30 +4016,6 @@ export var edges =
         "weight": 7
     },
     {
-        "from": 107,
-        "to": 72,
-        "color": "#808080",
-        "label": "Involved in",
-        "edge details": "Head node: Models\nHead node group: SYS\nTail node: Placed on the market\nTail node group: ACT",
-        "weight": 16
-    },
-    {
-        "from": 1,
-        "to": 107,
-        "color": "#808080",
-        "label": "Governs or guides",
-        "edge details": "Head node: Regulation\nHead node group: DOC\nTail node: Models\nTail node group: SYS",
-        "weight": 22
-    },
-    {
-        "from": 1,
-        "to": 2,
-        "color": "#808080",
-        "label": "Governs or guides",
-        "edge details": "Head node: Regulation\nHead node group: DOC\nTail node: Ai system\nTail node group: SYS",
-        "weight": 23
-    },
-    {
         "from": 99,
         "to": 72,
         "color": "#808080",
@@ -4502,14 +4030,6 @@ export var edges =
         "label": "Applies to",
         "edge details": "Head node: Rights\nHead node group: ETH\nTail node: Natural persons\nTail node group: PER",
         "weight": 5
-    },
-    {
-        "from": 1,
-        "to": 107,
-        "color": "#808080",
-        "label": "Governs or guides",
-        "edge details": "Head node: Regulation\nHead node group: DOC\nTail node: Models\nTail node group: SYS",
-        "weight": 24
     },
     {
         "from": 1,
@@ -4840,14 +4360,6 @@ export var edges =
         "weight": 32
     },
     {
-        "from": 106,
-        "to": 2,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
-        "weight": 20
-    },
-    {
         "from": 65,
         "to": 190,
         "color": "#808080",
@@ -4904,22 +4416,6 @@ export var edges =
         "weight": 6
     },
     {
-        "from": 75,
-        "to": 2,
-        "color": "#808080",
-        "label": "Regulates",
-        "edge details": "Head node: Union harmonization legislation\nHead node group: DOC\nTail node: Ai system\nTail node group: SYS",
-        "weight": 7
-    },
-    {
-        "from": 1,
-        "to": 2,
-        "color": "#808080",
-        "label": "Governs or guides",
-        "edge details": "Head node: Regulation\nHead node group: DOC\nTail node: Ai system\nTail node group: SYS",
-        "weight": 27
-    },
-    {
         "from": 1,
         "to": 39,
         "color": "#808080",
@@ -4960,14 +4456,6 @@ export var edges =
         "weight": 28
     },
     {
-        "from": 106,
-        "to": 2,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
-        "weight": 21
-    },
-    {
         "from": 84,
         "to": 195,
         "color": "#808080",
@@ -4976,36 +4464,12 @@ export var edges =
         "weight": 35
     },
     {
-        "from": 2,
-        "to": 92,
-        "color": "#808080",
-        "label": "Has implications for",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: High risk\nTail node group: ETH",
-        "weight": 27
-    },
-    {
         "from": 23,
         "to": 2,
         "color": "#808080",
         "label": "Regulates",
         "edge details": "Head node: The Commission\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
         "weight": 9
-    },
-    {
-        "from": 92,
-        "to": 2,
-        "color": "#808080",
-        "label": "Has implications for",
-        "edge details": "Head node: High risk\nHead node group: ETH\nTail node: Ai system\nTail node group: SYS",
-        "weight": 28
-    },
-    {
-        "from": 65,
-        "to": 67,
-        "color": "#808080",
-        "label": "Has implications for",
-        "edge details": "Head node: Systems\nHead node group: SYS\nTail node: Risks\nTail node group: ETH",
-        "weight": 29
     },
     {
         "from": 106,
@@ -5017,27 +4481,11 @@ export var edges =
     },
     {
         "from": 106,
-        "to": 2,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
-        "weight": 23
-    },
-    {
-        "from": 106,
         "to": 102,
         "color": "#808080",
         "label": "Interact with",
         "edge details": "Head node: Providers\nHead node group: ORG\nTail node: System\nTail node group: SYS",
         "weight": 24
-    },
-    {
-        "from": 104,
-        "to": 2,
-        "color": "#808080",
-        "label": "Involved in",
-        "edge details": "Head node: Deployed\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
-        "weight": 31
     },
     {
         "from": 2,
@@ -5088,14 +4536,6 @@ export var edges =
         "weight": 9
     },
     {
-        "from": 2,
-        "to": 40,
-        "color": "#808080",
-        "label": "Must be",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Transparency\nTail node group: ETH",
-        "weight": 10
-    },
-    {
         "from": 200,
         "to": 201,
         "color": "#808080",
@@ -5128,14 +4568,6 @@ export var edges =
         "weight": 12
     },
     {
-        "from": 2,
-        "to": 39,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Compliance\nTail node group: ETH",
-        "weight": 19
-    },
-    {
         "from": 1,
         "to": 40,
         "color": "#808080",
@@ -5158,14 +4590,6 @@ export var edges =
         "label": "Interact with",
         "edge details": "Head node: Providers\nHead node group: ORG\nTail node: High risk AI systems\nTail node group: SYS",
         "weight": 25
-    },
-    {
-        "from": 106,
-        "to": 65,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Systems\nTail node group: SYS",
-        "weight": 26
     },
     {
         "from": 84,
@@ -5206,14 +4630,6 @@ export var edges =
         "label": "Involved in",
         "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Testing\nTail node group: ACT",
         "weight": 32
-    },
-    {
-        "from": 66,
-        "to": 2,
-        "color": "#808080",
-        "label": "Regulates",
-        "edge details": "Head node: Law enforcement\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
-        "weight": 11
     },
     {
         "from": 56,
@@ -5312,38 +4728,6 @@ export var edges =
         "weight": 7
     },
     {
-        "from": 106,
-        "to": 113,
-        "color": "#808080",
-        "label": "Utilizes",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Testing\nTail node group: ACT",
-        "weight": 38
-    },
-    {
-        "from": 2,
-        "to": 19,
-        "color": "#808080",
-        "label": "Utilizes",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Predictions\nTail node group: ACT",
-        "weight": 39
-    },
-    {
-        "from": 2,
-        "to": 90,
-        "color": "#808080",
-        "label": "Utilizes",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Personal data\nTail node group: DAT",
-        "weight": 40
-    },
-    {
-        "from": 2,
-        "to": 113,
-        "color": "#808080",
-        "label": "Require",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Testing\nTail node group: ACT",
-        "weight": 42
-    },
-    {
         "from": 71,
         "to": 208,
         "color": "#808080",
@@ -5358,14 +4742,6 @@ export var edges =
         "label": "Require",
         "edge details": "Head node: Predictions\nHead node group: ACT\nTail node: Personal data\nTail node group: DAT",
         "weight": 43
-    },
-    {
-        "from": 2,
-        "to": 71,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Rights\nTail node group: ETH",
-        "weight": 22
     },
     {
         "from": 31,
@@ -5398,14 +4774,6 @@ export var edges =
         "label": "Involved in",
         "edge details": "Head node: Testing\nHead node group: ACT\nTail node: Data governance\nTail node group: PRO",
         "weight": 35
-    },
-    {
-        "from": 106,
-        "to": 84,
-        "color": "#808080",
-        "label": "Works with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: High risk AI systems\nTail node group: SYS",
-        "weight": 3
     },
     {
         "from": 50,
@@ -5448,30 +4816,6 @@ export var edges =
         "weight": 36
     },
     {
-        "from": 67,
-        "to": 2,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Risks\nHead node group: ETH\nTail node: Ai system\nTail node group: SYS",
-        "weight": 14
-    },
-    {
-        "from": 2,
-        "to": 72,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Placed on the market\nTail node group: ACT",
-        "weight": 23
-    },
-    {
-        "from": 106,
-        "to": 2,
-        "color": "#808080",
-        "label": "Works with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Ai system\nTail node group: SYS",
-        "weight": 4
-    },
-    {
         "from": 2,
         "to": 211,
         "color": "#808080",
@@ -5488,28 +4832,12 @@ export var edges =
         "weight": 14
     },
     {
-        "from": 2,
-        "to": 71,
-        "color": "#808080",
-        "label": "Relate to",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: Rights\nTail node group: ETH",
-        "weight": 6
-    },
-    {
         "from": 31,
         "to": 2,
         "color": "#808080",
         "label": "Governs or guides",
         "edge details": "Head node: Union law\nHead node group: DOC\nTail node: Ai system\nTail node group: SYS",
         "weight": 32
-    },
-    {
-        "from": 2,
-        "to": 92,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai system\nHead node group: SYS\nTail node: High risk\nTail node group: ETH",
-        "weight": 24
     },
     {
         "from": 84,
@@ -5536,22 +4864,6 @@ export var edges =
         "weight": 41
     },
     {
-        "from": 1,
-        "to": 39,
-        "color": "#808080",
-        "label": "Require",
-        "edge details": "Head node: Regulation\nHead node group: DOC\nTail node: Compliance\nTail node group: ETH",
-        "weight": 45
-    },
-    {
-        "from": 21,
-        "to": 27,
-        "color": "#808080",
-        "label": "Should be",
-        "edge details": "Head node: Ai\nHead node group: ALG\nTail node: Trustworthy\nTail node group: ETH",
-        "weight": 15
-    },
-    {
         "from": 214,
         "to": 37,
         "color": "#808080",
@@ -5568,14 +4880,6 @@ export var edges =
         "weight": 47
     },
     {
-        "from": 49,
-        "to": 26,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Stakeholders\nHead node group: PER\nTail node: Ethical principles\nTail node group: ETH",
-        "weight": 15
-    },
-    {
         "from": 65,
         "to": 215,
         "color": "#808080",
@@ -5590,22 +4894,6 @@ export var edges =
         "label": "Involved in",
         "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Evaluate\nTail node group: ACT",
         "weight": 38
-    },
-    {
-        "from": 56,
-        "to": 36,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Natural persons\nHead node group: PER\nTail node: Safety\nTail node group: ETH",
-        "weight": 16
-    },
-    {
-        "from": 56,
-        "to": 36,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Natural persons\nHead node group: PER\nTail node: Safety\nTail node group: ETH",
-        "weight": 17
     },
     {
         "from": 214,
@@ -5665,22 +4953,6 @@ export var edges =
     },
     {
         "from": 42,
-        "to": 74,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: Health\nTail node group: ETH",
-        "weight": 21
-    },
-    {
-        "from": 42,
-        "to": 36,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: Safety\nTail node group: ETH",
-        "weight": 22
-    },
-    {
-        "from": 42,
         "to": 71,
         "color": "#808080",
         "label": "Are central to",
@@ -5718,14 +4990,6 @@ export var edges =
         "label": "Is affected by",
         "edge details": "Head node: Infrastructure\nHead node group: SYS\nTail node: Health\nTail node group: ETH",
         "weight": 28
-    },
-    {
-        "from": 214,
-        "to": 92,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: High risk\nTail node group: ETH",
-        "weight": 29
     },
     {
         "from": 214,
@@ -5817,14 +5081,6 @@ export var edges =
     },
     {
         "from": 42,
-        "to": 73,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: Safety components\nTail node group: ETH",
-        "weight": 25
-    },
-    {
-        "from": 42,
         "to": 218,
         "color": "#808080",
         "label": "Perform in",
@@ -5838,14 +5094,6 @@ export var edges =
         "label": "Perform in",
         "edge details": "Head node: Persons\nHead node group: PER\nTail node: Malfunctioning\nTail node group: HAR",
         "weight": 25
-    },
-    {
-        "from": 42,
-        "to": 74,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: Health\nTail node group: ETH",
-        "weight": 26
     },
     {
         "from": 218,
@@ -5862,14 +5110,6 @@ export var edges =
         "label": "Consider",
         "edge details": "Head node: Failure\nHead node group: ACT\nTail node: Physical integrity\nTail node group: ETH",
         "weight": 29
-    },
-    {
-        "from": 218,
-        "to": 74,
-        "color": "#808080",
-        "label": "Consider",
-        "edge details": "Head node: Failure\nHead node group: ACT\nTail node: Health\nTail node group: ETH",
-        "weight": 30
     },
     {
         "from": 218,
@@ -5897,14 +5137,6 @@ export var edges =
     },
     {
         "from": 211,
-        "to": 74,
-        "color": "#808080",
-        "label": "Consider",
-        "edge details": "Head node: Malfunctioning\nHead node group: HAR\nTail node: Health\nTail node group: ETH",
-        "weight": 34
-    },
-    {
-        "from": 211,
         "to": 36,
         "color": "#808080",
         "label": "Consider",
@@ -5929,14 +5161,6 @@ export var edges =
     },
     {
         "from": 217,
-        "to": 74,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Infrastructure\nHead node group: SYS\nTail node: Health\nTail node group: ETH",
-        "weight": 34
-    },
-    {
-        "from": 217,
         "to": 36,
         "color": "#808080",
         "label": "Is affected by",
@@ -5945,43 +5169,11 @@ export var edges =
     },
     {
         "from": 42,
-        "to": 67,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: Risks\nTail node group: ETH",
-        "weight": 27
-    },
-    {
-        "from": 42,
         "to": 219,
         "color": "#808080",
         "label": "Are central to",
         "edge details": "Head node: Persons\nHead node group: PER\nTail node: Physical integrity\nTail node group: ETH",
         "weight": 28
-    },
-    {
-        "from": 42,
-        "to": 74,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: Health\nTail node group: ETH",
-        "weight": 29
-    },
-    {
-        "from": 42,
-        "to": 36,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: Safety\nTail node group: ETH",
-        "weight": 30
-    },
-    {
-        "from": 217,
-        "to": 73,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Infrastructure\nHead node group: SYS\nTail node: Safety components\nTail node group: ETH",
-        "weight": 36
     },
     {
         "from": 220,
@@ -6201,14 +5393,6 @@ export var edges =
     },
     {
         "from": 214,
-        "to": 92,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: High risk\nTail node group: ETH",
-        "weight": 47
-    },
-    {
-        "from": 214,
         "to": 231,
         "color": "#808080",
         "label": "Is affected by",
@@ -6297,14 +5481,6 @@ export var edges =
     },
     {
         "from": 42,
-        "to": 92,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: High risk\nTail node group: ETH",
-        "weight": 37
-    },
-    {
-        "from": 42,
         "to": 231,
         "color": "#808080",
         "label": "Are central to",
@@ -6326,14 +5502,6 @@ export var edges =
         "label": "Are central to",
         "edge details": "Head node: Persons\nHead node group: PER\nTail node: Workers rights\nTail node group: ETH",
         "weight": 40
-    },
-    {
-        "from": 42,
-        "to": 228,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: Contractual relationships\nTail node group: ETH",
-        "weight": 41
     },
     {
         "from": 65,
@@ -6400,14 +5568,6 @@ export var edges =
         "weight": 56
     },
     {
-        "from": 214,
-        "to": 62,
-        "color": "#808080",
-        "label": "Involved in",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Evaluate\nTail node group: ACT",
-        "weight": 51
-    },
-    {
         "from": 56,
         "to": 62,
         "color": "#808080",
@@ -6430,38 +5590,6 @@ export var edges =
         "label": "Is affected by",
         "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: High i\nTail node group: ETH",
         "weight": 57
-    },
-    {
-        "from": 214,
-        "to": 62,
-        "color": "#808080",
-        "label": "Involved in",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Evaluate\nTail node group: ACT",
-        "weight": 53
-    },
-    {
-        "from": 214,
-        "to": 92,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: High risk\nTail node group: ETH",
-        "weight": 58
-    },
-    {
-        "from": 214,
-        "to": 74,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Health\nTail node group: ETH",
-        "weight": 59
-    },
-    {
-        "from": 56,
-        "to": 62,
-        "color": "#808080",
-        "label": "Perform in",
-        "edge details": "Head node: Natural persons\nHead node group: PER\nTail node: Evaluate\nTail node group: ACT",
-        "weight": 33
     },
     {
         "from": 56,
@@ -6488,52 +5616,12 @@ export var edges =
         "weight": 34
     },
     {
-        "from": 42,
-        "to": 92,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: High risk\nTail node group: ETH",
-        "weight": 44
-    },
-    {
-        "from": 42,
-        "to": 74,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: Health\nTail node group: ETH",
-        "weight": 45
-    },
-    {
         "from": 214,
         "to": 80,
         "color": "#808080",
         "label": "Require",
         "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: High quality data\nTail node group: DAT",
         "weight": 48
-    },
-    {
-        "from": 21,
-        "to": 71,
-        "color": "#808080",
-        "label": "Has implications for",
-        "edge details": "Head node: Ai\nHead node group: ALG\nTail node: Rights\nTail node group: ETH",
-        "weight": 30
-    },
-    {
-        "from": 1,
-        "to": 96,
-        "color": "#808080",
-        "label": "Governs or guides",
-        "edge details": "Head node: Regulation\nHead node group: DOC\nTail node: Risk management system\nTail node group: SYS",
-        "weight": 33
-    },
-    {
-        "from": 96,
-        "to": 21,
-        "color": "#808080",
-        "label": "Relate to",
-        "edge details": "Head node: Risk management system\nHead node group: SYS\nTail node: Ai\nTail node group: ALG",
-        "weight": 7
     },
     {
         "from": 104,
@@ -6558,14 +5646,6 @@ export var edges =
         "label": "Utilizes",
         "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Datasets\nTail node group: DAT",
         "weight": 45
-    },
-    {
-        "from": 214,
-        "to": 101,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Characteristics\nTail node group: ETH",
-        "weight": 60
     },
     {
         "from": 6,
@@ -6608,38 +5688,6 @@ export var edges =
         "weight": 39
     },
     {
-        "from": 105,
-        "to": 37,
-        "color": "#808080",
-        "label": "Require",
-        "edge details": "Head node: Training\nHead node group: ACT\nTail node: Data governance\nTail node group: PRO",
-        "weight": 53
-    },
-    {
-        "from": 214,
-        "to": 39,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Compliance\nTail node group: ETH",
-        "weight": 61
-    },
-    {
-        "from": 214,
-        "to": 105,
-        "color": "#808080",
-        "label": "Involved in",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Training\nTail node group: ACT",
-        "weight": 54
-    },
-    {
-        "from": 114,
-        "to": 39,
-        "color": "#808080",
-        "label": "Consider",
-        "edge details": "Head node: Post market monitoring\nHead node group: ACT\nTail node: Compliance\nTail node group: ETH",
-        "weight": 40
-    },
-    {
         "from": 214,
         "to": 115,
         "color": "#808080",
@@ -6654,38 +5702,6 @@ export var edges =
         "label": "Require",
         "edge details": "Head node: Instructions for use\nHead node group: DOC\nTail node: Transparency\nTail node group: ETH",
         "weight": 54
-    },
-    {
-        "from": 99,
-        "to": 68,
-        "color": "#808080",
-        "label": "Perform in",
-        "edge details": "Head node: Provider\nHead node group: ORG\nTail node: Placing on the market\nTail node group: ACT",
-        "weight": 35
-    },
-    {
-        "from": 99,
-        "to": 69,
-        "color": "#808080",
-        "label": "Perform in",
-        "edge details": "Head node: Provider\nHead node group: ORG\nTail node: Putting into service\nTail node group: ACT",
-        "weight": 36
-    },
-    {
-        "from": 85,
-        "to": 124,
-        "color": "#808080",
-        "label": "Perform in",
-        "edge details": "Head node: Person\nHead node group: PER\nTail node: Human oversight\nTail node group: ETH",
-        "weight": 37
-    },
-    {
-        "from": 106,
-        "to": 84,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: High risk AI systems\nTail node group: SYS",
-        "weight": 33
     },
     {
         "from": 106,
@@ -6712,28 +5728,12 @@ export var edges =
         "weight": 63
     },
     {
-        "from": 84,
-        "to": 240,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: High risk AI systems\nHead node group: SYS\nTail node: Cybersecurity\nTail node group: ETH",
-        "weight": 64
-    },
-    {
         "from": 214,
         "to": 240,
         "color": "#808080",
         "label": "Is affected by",
         "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Cybersecurity\nTail node group: ETH",
         "weight": 65
-    },
-    {
-        "from": 84,
-        "to": 240,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: High risk AI systems\nHead node group: SYS\nTail node: Cybersecurity\nTail node group: ETH",
-        "weight": 66
     },
     {
         "from": 42,
@@ -6745,35 +5745,11 @@ export var edges =
     },
     {
         "from": 66,
-        "to": 213,
-        "color": "#808080",
-        "label": "Utilizes",
-        "edge details": "Head node: Law enforcement\nHead node group: ORG\nTail node: Biometric identification\nTail node group: ALG",
-        "weight": 46
-    },
-    {
-        "from": 66,
         "to": 65,
         "color": "#808080",
         "label": "Utilizes",
         "edge details": "Head node: Law enforcement\nHead node group: ORG\nTail node: Systems\nTail node group: SYS",
         "weight": 47
-    },
-    {
-        "from": 104,
-        "to": 214,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Deployed\nHead node group: ORG\nTail node: Ai systems\nTail node group: SYS",
-        "weight": 35
-    },
-    {
-        "from": 99,
-        "to": 21,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Provider\nHead node group: ORG\nTail node: Ai\nTail node group: ALG",
-        "weight": 36
     },
     {
         "from": 99,
@@ -6782,14 +5758,6 @@ export var edges =
         "label": "Interact with",
         "edge details": "Head node: Provider\nHead node group: ORG\nTail node: Ai systems\nTail node group: SYS",
         "weight": 37
-    },
-    {
-        "from": 107,
-        "to": 105,
-        "color": "#808080",
-        "label": "Involved in",
-        "edge details": "Head node: Models\nHead node group: SYS\nTail node: Training\nTail node group: ACT",
-        "weight": 56
     },
     {
         "from": 107,
@@ -6865,51 +5833,11 @@ export var edges =
     },
     {
         "from": 106,
-        "to": 21,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Ai\nTail node group: ALG",
-        "weight": 40
-    },
-    {
-        "from": 106,
-        "to": 107,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Models\nTail node group: SYS",
-        "weight": 41
-    },
-    {
-        "from": 106,
-        "to": 21,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Ai\nTail node group: ALG",
-        "weight": 42
-    },
-    {
-        "from": 106,
         "to": 242,
         "color": "#808080",
         "label": "Interact with",
         "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Ai value chair\nTail node group: ETH",
         "weight": 43
-    },
-    {
-        "from": 106,
-        "to": 21,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Ai\nTail node group: ALG",
-        "weight": 44
-    },
-    {
-        "from": 106,
-        "to": 214,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Ai systems\nTail node group: SYS",
-        "weight": 45
     },
     {
         "from": 243,
@@ -6928,52 +5856,12 @@ export var edges =
         "weight": 46
     },
     {
-        "from": 56,
-        "to": 74,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Natural persons\nHead node group: PER\nTail node: Health\nTail node group: ETH",
-        "weight": 47
-    },
-    {
-        "from": 106,
-        "to": 65,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Systems\nTail node group: SYS",
-        "weight": 47
-    },
-    {
-        "from": 106,
-        "to": 214,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Ai systems\nTail node group: SYS",
-        "weight": 48
-    },
-    {
         "from": 244,
         "to": 40,
         "color": "#808080",
         "label": "Require",
         "edge details": "Head node: Deep fakes\nHead node group: ETH\nTail node: Transparency\nTail node group: ETH",
         "weight": 60
-    },
-    {
-        "from": 1,
-        "to": 40,
-        "color": "#808080",
-        "label": "Require",
-        "edge details": "Head node: Regulation\nHead node group: DOC\nTail node: Transparency\nTail node group: ETH",
-        "weight": 61
-    },
-    {
-        "from": 106,
-        "to": 214,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Ai systems\nTail node group: SYS",
-        "weight": 49
     },
     {
         "from": 214,
@@ -6992,14 +5880,6 @@ export var edges =
         "weight": 58
     },
     {
-        "from": 42,
-        "to": 71,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: Rights\nTail node group: ETH",
-        "weight": 48
-    },
-    {
         "from": 246,
         "to": 247,
         "color": "#808080",
@@ -7014,14 +5894,6 @@ export var edges =
         "label": "Consider",
         "edge details": "Head node: Fail\nHead node group: ACT\nTail node: Heal\nTail node group: ETH",
         "weight": 42
-    },
-    {
-        "from": 246,
-        "to": 247,
-        "color": "#808080",
-        "label": "Consider",
-        "edge details": "Head node: Fail\nHead node group: ACT\nTail node: Safe\nTail node group: ETH",
-        "weight": 43
     },
     {
         "from": 249,
@@ -7040,60 +5912,12 @@ export var edges =
         "weight": 45
     },
     {
-        "from": 249,
-        "to": 247,
-        "color": "#808080",
-        "label": "Consider",
-        "edge details": "Head node: Malfunction\nHead node group: ACT\nTail node: Safe\nTail node group: ETH",
-        "weight": 46
-    },
-    {
-        "from": 106,
-        "to": 214,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Ai systems\nTail node group: SYS",
-        "weight": 50
-    },
-    {
         "from": 42,
         "to": 21,
         "color": "#808080",
         "label": "Are central to",
         "edge details": "Head node: Persons\nHead node group: PER\nTail node: Ai\nTail node group: ALG",
         "weight": 49
-    },
-    {
-        "from": 113,
-        "to": 39,
-        "color": "#808080",
-        "label": "Require",
-        "edge details": "Head node: Testing\nHead node group: ACT\nTail node: Compliance\nTail node group: ETH",
-        "weight": 62
-    },
-    {
-        "from": 42,
-        "to": 92,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: High risk\nTail node group: ETH",
-        "weight": 50
-    },
-    {
-        "from": 105,
-        "to": 37,
-        "color": "#808080",
-        "label": "Require",
-        "edge details": "Head node: Training\nHead node group: ACT\nTail node: Data governance\nTail node group: PRO",
-        "weight": 63
-    },
-    {
-        "from": 214,
-        "to": 101,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Characteristics\nTail node group: ETH",
-        "weight": 68
     },
     {
         "from": 84,
@@ -7104,84 +5928,12 @@ export var edges =
         "weight": 59
     },
     {
-        "from": 214,
-        "to": 240,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Cybersecurity\nTail node group: ETH",
-        "weight": 69
-    },
-    {
-        "from": 99,
-        "to": 214,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Provider\nHead node group: ORG\nTail node: Ai systems\nTail node group: SYS",
-        "weight": 51
-    },
-    {
-        "from": 84,
-        "to": 39,
-        "color": "#808080",
-        "label": "Require",
-        "edge details": "Head node: High risk AI systems\nHead node group: SYS\nTail node: Compliance\nTail node group: ETH",
-        "weight": 64
-    },
-    {
-        "from": 106,
-        "to": 84,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: High risk AI systems\nTail node group: SYS",
-        "weight": 52
-    },
-    {
-        "from": 99,
-        "to": 214,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Provider\nHead node group: ORG\nTail node: Ai systems\nTail node group: SYS",
-        "weight": 53
-    },
-    {
-        "from": 106,
-        "to": 84,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: High risk AI systems\nTail node group: SYS",
-        "weight": 54
-    },
-    {
         "from": 106,
         "to": 243,
         "color": "#808080",
         "label": "Interact with",
         "edge details": "Head node: Providers\nHead node group: ORG\nTail node: High risk AI system\nTail node group: SYS",
         "weight": 55
-    },
-    {
-        "from": 214,
-        "to": 39,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Compliance\nTail node group: ETH",
-        "weight": 70
-    },
-    {
-        "from": 99,
-        "to": 84,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Provider\nHead node group: ORG\nTail node: High risk AI systems\nTail node group: SYS",
-        "weight": 56
-    },
-    {
-        "from": 66,
-        "to": 213,
-        "color": "#808080",
-        "label": "Utilizes",
-        "edge details": "Head node: Law enforcement\nHead node group: ORG\nTail node: Biometric identification\nTail node group: ALG",
-        "weight": 49
     },
     {
         "from": 207,
@@ -7192,54 +5944,6 @@ export var edges =
         "weight": 50
     },
     {
-        "from": 214,
-        "to": 92,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: High risk\nTail node group: ETH",
-        "weight": 71
-    },
-    {
-        "from": 104,
-        "to": 214,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Deployed\nHead node group: ORG\nTail node: Ai systems\nTail node group: SYS",
-        "weight": 57
-    },
-    {
-        "from": 56,
-        "to": 36,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Natural persons\nHead node group: PER\nTail node: Safety\nTail node group: ETH",
-        "weight": 51
-    },
-    {
-        "from": 21,
-        "to": 105,
-        "color": "#808080",
-        "label": "Involved in",
-        "edge details": "Head node: Ai\nHead node group: ALG\nTail node: Training\nTail node group: ACT",
-        "weight": 60
-    },
-    {
-        "from": 23,
-        "to": 21,
-        "color": "#808080",
-        "label": "Governs or guides",
-        "edge details": "Head node: The Commission\nHead node group: ORG\nTail node: Ai\nTail node group: ALG",
-        "weight": 35
-    },
-    {
-        "from": 106,
-        "to": 21,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Ai\nTail node group: ALG",
-        "weight": 58
-    },
-    {
         "from": 97,
         "to": 39,
         "color": "#808080",
@@ -7248,36 +5952,12 @@ export var edges =
         "weight": 65
     },
     {
-        "from": 106,
-        "to": 21,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Ai\nTail node group: ALG",
-        "weight": 59
-    },
-    {
-        "from": 106,
-        "to": 21,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Ai\nTail node group: ALG",
-        "weight": 60
-    },
-    {
         "from": 250,
         "to": 21,
         "color": "#808080",
         "label": "Governs or guides",
         "edge details": "Head node: The AI Office\nHead node group: ORG\nTail node: Ai\nTail node group: ALG",
         "weight": 36
-    },
-    {
-        "from": 250,
-        "to": 21,
-        "color": "#808080",
-        "label": "Regulates",
-        "edge details": "Head node: The AI Office\nHead node group: ORG\nTail node: Ai\nTail node group: ALG",
-        "weight": 15
     },
     {
         "from": 21,
@@ -7296,108 +5976,12 @@ export var edges =
         "weight": 66
     },
     {
-        "from": 214,
-        "to": 39,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Compliance\nTail node group: ETH",
-        "weight": 72
-    },
-    {
-        "from": 97,
-        "to": 39,
-        "color": "#808080",
-        "label": "Require",
-        "edge details": "Head node: Documentation\nHead node group: ACT\nTail node: Compliance\nTail node group: ETH",
-        "weight": 67
-    },
-    {
         "from": 250,
         "to": 214,
         "color": "#808080",
         "label": "Governs or guides",
         "edge details": "Head node: The AI Office\nHead node group: ORG\nTail node: Ai systems\nTail node group: SYS",
         "weight": 37
-    },
-    {
-        "from": 42,
-        "to": 74,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: Health\nTail node group: ETH",
-        "weight": 52
-    },
-    {
-        "from": 42,
-        "to": 36,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: Safety\nTail node group: ETH",
-        "weight": 53
-    },
-    {
-        "from": 42,
-        "to": 71,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: Rights\nTail node group: ETH",
-        "weight": 54
-    },
-    {
-        "from": 99,
-        "to": 214,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Provider\nHead node group: ORG\nTail node: Ai systems\nTail node group: SYS",
-        "weight": 61
-    },
-    {
-        "from": 99,
-        "to": 214,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Provider\nHead node group: ORG\nTail node: Ai systems\nTail node group: SYS",
-        "weight": 62
-    },
-    {
-        "from": 106,
-        "to": 21,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Providers\nHead node group: ORG\nTail node: Ai\nTail node group: ALG",
-        "weight": 63
-    },
-    {
-        "from": 214,
-        "to": 105,
-        "color": "#808080",
-        "label": "Involved in",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Training\nTail node group: ACT",
-        "weight": 61
-    },
-    {
-        "from": 217,
-        "to": 73,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Infrastructure\nHead node group: SYS\nTail node: Safety components\nTail node group: ETH",
-        "weight": 73
-    },
-    {
-        "from": 214,
-        "to": 73,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Safety components\nTail node group: ETH",
-        "weight": 74
-    },
-    {
-        "from": 56,
-        "to": 105,
-        "color": "#808080",
-        "label": "Perform in",
-        "edge details": "Head node: Natural persons\nHead node group: PER\nTail node: Training\nTail node group: ACT",
-        "weight": 38
     },
     {
         "from": 21,
@@ -7414,53 +5998,5 @@ export var edges =
         "label": "Involved in",
         "edge details": "Head node: Ai\nHead node group: ALG\nTail node: Termination\nTail node group: ACT",
         "weight": 63
-    },
-    {
-        "from": 42,
-        "to": 228,
-        "color": "#808080",
-        "label": "Are central to",
-        "edge details": "Head node: Persons\nHead node group: PER\nTail node: Contractual relationships\nTail node group: ETH",
-        "weight": 55
-    },
-    {
-        "from": 56,
-        "to": 62,
-        "color": "#808080",
-        "label": "Perform in",
-        "edge details": "Head node: Natural persons\nHead node group: PER\nTail node: Evaluate\nTail node group: ACT",
-        "weight": 39
-    },
-    {
-        "from": 99,
-        "to": 214,
-        "color": "#808080",
-        "label": "Interact with",
-        "edge details": "Head node: Provider\nHead node group: ORG\nTail node: Ai systems\nTail node group: SYS",
-        "weight": 64
-    },
-    {
-        "from": 214,
-        "to": 39,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Compliance\nTail node group: ETH",
-        "weight": 75
-    },
-    {
-        "from": 214,
-        "to": 39,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: Compliance\nTail node group: ETH",
-        "weight": 76
-    },
-    {
-        "from": 214,
-        "to": 92,
-        "color": "#808080",
-        "label": "Is affected by",
-        "edge details": "Head node: Ai systems\nHead node group: SYS\nTail node: High risk\nTail node group: ETH",
-        "weight": 77
     }
 ];

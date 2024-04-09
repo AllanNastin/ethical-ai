@@ -12,7 +12,7 @@ export default function KnowledgeGraph() {
       gravitationalConstant: -30000,
       centralGravity: 0.01,
       springLength: 75,
-      avoidOverlap: 0.5,
+      avoidOverlap: 0.2,
       damping: 0.5,
     },
     stabilization: { iterations: 230 } 
