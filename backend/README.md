@@ -17,13 +17,6 @@ Creates 2 endpoints at `http://localhost:8000`
 ## `/rules_mining/rules_mining.py`
 `pdf_data_to_rules(factsheet_data)` takes factsheet data in json format (NOT FILE) and returns `compliance_score, recommendations`
 
-
-## `js_to_jsonl.py`
-Use: `js_to_jsonl(inputFileName,outputFileName)`  
-`inputFileName` is required, `outputFileName` can be `None` to be same as `inputFileName`.
-
-Changes a js data file to JSONL file (must define objects at end e.g.  `module.exports = { nodes, edges };`).
-
 ## `parse_EU_act.py`
 Python script to convert raw pdf to a string. It's tailored specifically to the current `ai-act-draft.pdf` in the `ai_act/` directory.
 
