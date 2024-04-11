@@ -82,3 +82,33 @@ You can also output the entities as ints instead of strings by uncommenting
 ```
 and returning int_tags_list instead of tags_list in the paragraph_to_labeled_sentences function
 
+## `dreeam_inference_pipeline.py`
+Python script that takes in a PDF of the AI Act and writes a JSON file of the AI Act in DocRED format, with the entities extracted.
+It implements sliding windows of the sentences, with a window size of 3 and stride of 2.
+Usage:
+```bash
+python dreeam_inference_pipeline.py
+```
+
+## `dreeam_postprocessing.py`
+Python script that takes the output of DREEAM and converts it to a JSON file that will be sent to the front end.
+It does some basic filtering of the output.
+Usage:
+```bash
+python dreeam_postprocessing.py
+```
+
+## `finetune_dreeam.sh`
+Script that is used to clone the DREEAM repo and do fine-tuning. Fine-tuning options include `--freeze-early-layers` and `--replace-output-layer`.
+Requires a python environment compatible with DREEAM, check dreeam/README.md for more information.
+
+## `dreeam_inference.sh`
+Script to clone DREEAM repo and do inference.
+Downloads our fine-tuned model's weights and performs inference and dumps predictions to `dreeam/output_from_dreeam.json`.
+
+## `train_test_split.py`
+Python script to split training data into train and test splits. Dumps files to `dataset/dataset/docred` by default.
+Usage:
+```bash
+python train_test_dev_split.py path/to/file_you_want_to_split.json
+```
