@@ -19,20 +19,20 @@
   max-width: 500px;
   width: calc(100% - 40px);
   z-index: 1001;
-  outline: none; /* For accessibility: Indicates the modal is in focus */
+  outline: none; 
 }
 
 .modal h2 {
   font-size: 20px;
   font-weight: 600;
-  color: #161616; /* IBM Carbon Gray 100 */
+  color: #161616; 
   margin-bottom: 16px;
 }
 
 .modal p,
 .modal ul {
   font-size: 16px;
-  color: #525252; /* IBM Carbon Gray 70 */
+  color: #525252; 
   line-height: 1.5;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .modal-close-button {
-  background-color: #0f62fe; /* IBM Carbon Blue 60 */
+  background-color: #0f62fe; 
   color: #fff;
   padding: 8px 16px;
   font-size: 14px;
@@ -49,21 +49,20 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
-  float: right; /* Align the button to the right */
+  float: right; 
   margin-top: 24px;
 }
 
 .modal-close-button:hover,
 .modal-close-button:focus {
-  background-color: #0353e9; /* Darker shade for hover state */
-  outline: none; /* Remove default focus outline */
+  background-color: #0353e9; 
+  outline: none; 
 }
 
 .modal-close-button:focus {
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0f62fe; /* Focus indicator for accessibility */
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0f62fe;
 }
 
-/* Clearfix for the floating button */
 .modal::after {
   content: "";
   display: table;

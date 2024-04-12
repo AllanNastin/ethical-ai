@@ -10,12 +10,13 @@ import Graph2 from './Component/Pages/Graph2';
 import './App.css';
 
 function App() {
-  const [uploadSuccess, setUploadSuccess] = useState(false);
+  const [uploadSuccess, setUploadSuccess] = useState(false);     // State variable to track upload success
 
-  const handleUploadSuccess = () => {
+  const handleUploadSuccess = () => {    // Function to handle upload success
     setUploadSuccess(true);
   };
 
+  // Render the application
   return (
     <Router>
       <Navbar />

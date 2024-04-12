@@ -5,6 +5,7 @@ import logo from './Images/trinity-logo.png';
 import IBMlogo from './Images/IBMResearch.png';
 import github from './Images/github-mark.png'; 
 
+//Main function to display the navigation bar
 function NavBar() {
   return (
     <nav className="navbar">

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Graph from 'react-vis-network-graph';
+import Graph from 'react-vis-network-graph'; // Graph visualization library for React.
 import { useNavigate } from 'react-router-dom';
-import { edges, nodes } from './Data/finalData.js'; // Import your data , remove once backend endpoint is available app/src/Component/Data/data_1.js
-// import { fetchGraphData } from '../Service/api';
+import { edges, nodes } from './Data/finalData.js'; // Imports graph data.
 import './KnowledgeGraph.css';
 
-
+// Main component definition for KnowledgeGraph
 export default function KnowledgeGraph() {
+   // State hooks for various component states.
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const sidebarRef = useRef(null);
   const [isResizing, setIsResizing] = useState(false);
@@ -14,13 +14,13 @@ export default function KnowledgeGraph() {
   const [showGraph, setShowGraph] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('All');
-  const [filteredGraphData, setFilteredGraphData] = useState({ nodes: [], edges: [] }); // Initialize with default value
+  const [filteredGraphData, setFilteredGraphData] = useState({ nodes: [], edges: [] }); 
   const [showPdf, setPdf] = useState(false);
   const [text, setText] = useState("")
   const [textLoading, setTextLoading] = useState(true);
   const [highlightApplied, setHighlightApplied] = useState(false);
 
-
+  // Default physics configuration for the graph.
   const [physicsOptions, setPhysicsOptions] = useState({
     enabled: true, // Physics enabled by default
     barnesHut: { // Default to Barnes-Hut configuration
@@ -33,7 +33,7 @@ export default function KnowledgeGraph() {
     stabilization: { iterations: 230 } // Moderate stabilization
   });
 
-
+  // Callbacks for mouse event handlers to manage sidebar resizing.
   const startResizing = React.useCallback(() => {
     setIsResizing(true);
   }, []);
@@ -53,6 +53,7 @@ export default function KnowledgeGraph() {
     [isResizing]
   );
 
+  // Handles clicks on span elements within the PDF content to enable search by word.
   const handleSpanClick = (event) => {
     const clickedWord = event.target.textContent;
     const isHighlighted = event.target.classList.contains('highlighted'); // Check if the clicked word is highlighted
@@ -64,7 +65,7 @@ export default function KnowledgeGraph() {
     }
   };
 
-
+  // Loads and parses user AI model documentation from local storage, converting it to HTML.
   useEffect(() => {
     function jsonToHtml(jsonObject, isNested = false) {
       let htmlString = isNested ? '' : '<div class="json-container">';
@@ -99,8 +100,8 @@ export default function KnowledgeGraph() {
     }
     setTextLoading(false); 
   }, []);
-  
 
+  // Event listeners for handling sidebar resizing.
   useEffect(() => {
     window.addEventListener("mousemove", resize);
     window.addEventListener("mouseup", stopResizing);
@@ -110,29 +111,17 @@ export default function KnowledgeGraph() {
     };
   }, [resize, stopResizing]);
   
+  // Navigation hook for page routing.
    const navigate = useNavigate();
 
+   // Function for navigating to the compliance page.
   const goToCompliance = () => {
     navigate('/compliance');
   };
 
+  // Effect hook to fetch and set initial graph data on component mount.
   useEffect(() => {
     const fetchData = async () => {
-  //     try {
-  //       const fetchedData = JSON.parse(localStorage.getItem('data'));
-  //       // console.log("Fetched data: ", fetchedData); // Debug fetchedData
-  //       if (fetchedData) {
-  //         // Transform the data into the format { nodes: [], edges: [] }
-  //         const nodes = fetchedData.filter(item => item.nodes).map(item => item.nodes);
-  //         const edges = fetchedData.filter(item => item.edges).map(item => item.edges);
-  //         const graphData = { nodes, edges };
-  //         // setGraphData(graphData);
-  //         setFilteredGraphData(graphData);
-  //         setShowGraph(true);
-  //       }
-  //     } catch (error) {
-  //       console.error("Failed to fetch graph data from local storage: ", error);
-  //     }
       const graphData = { nodes, edges };
       setFilteredGraphData(graphData);
       setShowGraph(true);
@@ -140,24 +129,11 @@ export default function KnowledgeGraph() {
     fetchData();
   }, []);
 
-  
-
+  // Handlers for dynamic graph options and updates.
   const handlePhysicsChange = (option) => {
     setPhysicsOptions(option);
-    setIsDropdownOpen(false); // Close dropdown after selection
+    setIsDropdownOpen(false); 
   };
-
-  // const toggleGraph = async () => {
-  //   if (!showGraph) {
-  //     try {
-  //       const fetchedData = await fetchGraphData();
-  //       setGraphData(fetchedData); 
-  //     } catch (error) {
-  //       console.error("Failed to fetch graph data: ", error);
-  //     }
-  //   }
-  //   setShowGraph(!showGraph); 
-  // };
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -191,7 +167,7 @@ export default function KnowledgeGraph() {
     setFilteredGraphData({ nodes: updatedNodes, edges: updatedEdges });
   };  
 
-
+  // Function to toggle documentation display and apply text highlighting.
   const displayPdf = () => {
     if (!showPdf && text && nodes.length > 0 && !highlightApplied) {
       const highlightLabels = () => {
@@ -217,8 +193,7 @@ export default function KnowledgeGraph() {
     setPdf(!showPdf);
   };
 
-  
-
+  // Graph options including appearance and behavior settings
   const options = {
     autoResize: true,
     groups: {
@@ -264,9 +239,6 @@ export default function KnowledgeGraph() {
         face: 'Tahoma',  
         color: 'black',  
       },
-      // border: '#a6c8ff',
-      // borderWidth: 2, // Node border thickness
-      // borderWidthSelected: 2, // Border width for selected nodes
       shadow: false,
     },
     edges: {
@@ -335,13 +307,10 @@ export default function KnowledgeGraph() {
   height: '1000px',         // Fixed height of the graph container
   };
 
-  // const data = { nodes: nodes, edges: edges }; //remove when backend endpoint is available
+  // Component rendering, including search inputs, buttons, and graph display
   return (
     <div className="container">
       <div className="top-container">
-      {/* <button className="kg-button" onClick={toggleGraph}>
-        {showGraph ? 'Remove Graph  → ' : 'Show Graph   →'}
-      </button> */}
 
       <input
         type="text"
@@ -363,15 +332,7 @@ export default function KnowledgeGraph() {
       <button className="kg-button" onClick={goToCompliance}>Get Compliance Score →</button>
       </div>
 
-
-
-      {/* {showGraph && <Graph graph={graphData} options={options} />} */}
-
-      {/* {showGraph && <Graph graph={data} options={options} />} remove when backend endpoint is available */}
-
-      {showGraph && <Graph graph={filteredGraphData} options={options} 
-      // style={{ width: graphWidth }}
-      />}
+      {showGraph && <Graph graph={filteredGraphData} options={options} />}
 
     {showPdf &&
       
