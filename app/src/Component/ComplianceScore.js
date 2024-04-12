@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ComplianceScore.css';
 import RecommendationCard from './RecommendationsCard'; 
 
+//Main function to display the compliance score and recommendations
 function ComplianceScore() {
   const [score, setScore] = useState(0); 
   const [improvements, setImprovements] = useState([]);

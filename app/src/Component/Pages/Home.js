@@ -1,3 +1,4 @@
+//Homepage where a user can go directly and see the knowledge graph or upload their AI model documentation
 import React, { useState } from 'react';
 import '../../App.css';
 import PDFUpload from '../PDFUpload';
@@ -8,8 +9,8 @@ import Modal from '../Modal';
 function Home({ onUploadSuccess }) {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalFields, setModalFields] = useState([]); // Store the fields array
-  const [modalContent, setModalContent] = useState(''); // Store the content
+  const [modalFields, setModalFields] = useState([]); 
+  const [modalContent, setModalContent] = useState('');
 
   const handlePDFUpload = (file) => {
     let formData = new FormData();
@@ -23,7 +24,7 @@ function Home({ onUploadSuccess }) {
       .then(res => {
         if (res.status !== 200) {
           if (res.body.empty_fields) {
-            setModalFields(res.body.empty_fields); // Set the fields directly
+            setModalFields(res.body.empty_fields); 
             setIsModalOpen(true); // Open the modal
           } else {
             // Handle other errors
@@ -51,14 +52,6 @@ function Home({ onUploadSuccess }) {
   const goToKnowledgeGraph = () => {
     navigate("/graph");
   };
-  
-
-  // const handleButtonClick = () => {
-  //   // test get
-  //   fetch('https://group22.api.sprinty.tech/')
-  //     .then(response => response.text())
-  //     .then(data => console.log(data));
-  // }
 
   return (
     <div className="home">
@@ -69,8 +62,6 @@ function Home({ onUploadSuccess }) {
         <div className="home-text">
           <h1>Creating Trustworthy and Ethical AI</h1>
           <p>Test your AI model to see if it is compliant with the EU AI Act</p>
-          {/* sample button to test fetch */}
-          {/* <button onClick={handleButtonClick}>Test Fetch {"(Check Console)"}</button> */}
           <div className="button-container">
           <PDFUpload onUpload={handlePDFUpload} />
           <button className="ibm-button" onClick={goToKnowledgeGraph}>See Knowledge Graph   → </button>
