@@ -1,3 +1,4 @@
+// The compliance score and recommendations are shown here
 import React from 'react';
 import '../../App.css';
 import ComplianceScore from '../ComplianceScore';

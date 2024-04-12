@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './legendBox.css'; 
 
+//Main function to display categories legend box
 const legendCategories = [
   // Start with SYS (Deep Blue)
   { label: 'SYS - System', color: '#001d6c', definitions: [] }, 
@@ -37,7 +38,7 @@ const LegendBox = () => {
   };
 
   return (
-    <div> {/* Outer div for positioning */} 
+    <div> 
       <button className="hide-legend-btn" onClick={toggleLegend}> 
         {legendVisible ? 'Hide Legend' : 'Show Legend'} 
       </button>

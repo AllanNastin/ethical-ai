@@ -1,11 +1,12 @@
+//This displays the knowledge graph for exploration purposes
 import React from 'react';
 import '../../App.css';
 import KnowledgeGraph from '../KnowledgeGraphOnly';
-import LegendBox from '../legendBox'; // Assuming this is the path to your legendBox.js
+import LegendBox from '../legendBox'; 
 
 function Graph(){
   return (
-    <div className="graph-container"> {/* Add a container for better layout */}
+    <div className="graph-container"> 
       <KnowledgeGraph />
       <LegendBox /> 
     </div>
