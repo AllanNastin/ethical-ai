@@ -98,13 +98,21 @@ Usage:
 python dreeam_postprocessing.py
 ```
 
-## `finetune_dreeam.sh`
+## `dreeam_scripts/finetune_dreeam.sh`
 Script that is used to clone the DREEAM repo and do fine-tuning. Fine-tuning options include `--freeze-early-layers` and `--replace-output-layer`.
 Requires a python environment compatible with DREEAM, check dreeam/README.md for more information.
+Usage:
+```bash
+bash dreeam_scripts/finetune_dreeam.sh
+```
 
-## `dreeam_inference.sh`
+## `dreeam_scripts/dreeam_inference.sh`
 Script to clone DREEAM repo and do inference.
 Downloads our fine-tuned model's weights and performs inference and dumps predictions to `dreeam/output_from_dreeam.json`.
+Usage:
+```bash
+bash dreeam_scripts/dreeam_inference.sh
+```
 
 ## `train_test_split.py`
 Python script to split training data into train and test splits. Dumps files to `dataset/dataset/docred` by default.
